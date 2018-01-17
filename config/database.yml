@@ -1,17 +1,17 @@
 development:
-  adapter: mysql
+  adapter: mysql2
   encoding: unicode
   reconnect: false
   host: localhost
-  database: aps_allpro_current
+  database: reit_simple_dev
   user: root
-  password: mindfire
+  password: 
 
 test:
-  adapter: postgresql
+  adapter: mysql2
   encoding: unicode
   reconnect: false
   host: localhost
-  database: aps_allpro_current
-  user: postgres
-  password: mindfire
+  database: reit_simple_test
+  user: root
+  password: 
