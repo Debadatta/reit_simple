@@ -1,0 +1,27 @@
+#!/bin/bash
+# obfuscate the given source JS file into the destination
+
+if [ $# != 2 ]; then
+  echo "usage: obfus <src> <dest>" 1>&2
+  exit 1
+fi
+
+src="$1"
+dest="$2"
+
+tmpfile="${src}-es6.js"
+
+trap 'rm -f "${tmpfile}"' 0
+
+# convert es6 to javascript, then obfuscate it
+yarn run -- babel "${src}" --out-file "${tmpfile}" && \
+  yarn run -- javascript-obfuscator "${tmpfile}" \
+      --stringarray \
+      --rotateStringArray true \
+      --stringArrayEncoding false \
+      --mangle true \
+      --compact true \
+      --disableConsoleOutput false \
+      --deadCodeInjection true \
+      --output "${dest}"
+

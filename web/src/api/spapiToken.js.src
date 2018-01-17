@@ -1,0 +1,48 @@
+// source for spapiToken.js
+//
+// to update, edit the code here, then rebuild via:
+//
+//    yarn build-spapi-token-js
+//
+// and check-in the updated generated spapiToken.js file
+// restart any running dev servers, as it may not properly reload dynamically
+//
+// this file changes so infrequently that it isn't worth making this part of the normal build process
+//
+
+// generate SPAPI_TOKEN value and add as header
+// data: {token: authToken, uri: uriToCall, options: fetchOptions}
+// uri is usage decoy and not used.
+// adds options.headers['X-SPAPI-TOKEN']:  <offset char><noise><token substring><noise>
+function spapiToken(data) {
+  if (typeof data !== 'object' || !data.uri || !data.options || !data.options.headers) {
+    return;
+  }
+
+  // returns random junk string of the requested length
+  const nonce = (len) => {
+    return (Math.random().toString(36) + '00000000000000000').slice(2, len + 2);
+  };
+
+  const preNoise = nonce(9);
+  const postNoise = nonce(10);
+  let token = data.token;
+  let offset = Math.floor(Math.random() * 36);
+
+  // grab 12 chars from given token (skipping dots),
+  // offset from the beginning of the token string based a random amount,
+  // and add noise to start and end, with the first character being the substring offset in base36
+  // if no token (or invalid short token), use 0 + noise + 0, which would only be valid if no token was expected.
+  if (!token || token.length < 13) {
+    token = `0${nonce(10)}0`;
+  } else {
+    const plainToken = token.replace('.', '');
+    const maxOffset = Math.min(plainToken.length - 13, 36);
+    offset = Math.floor(Math.random() * maxOffset);
+    token = plainToken.substr(offset, 12);
+  }
+
+  data.options.headers['X-SPAPI-TOKEN'] = `${offset.toString(36)}${preNoise}${token}${postNoise}`;
+}
+
+export default spapiToken;
