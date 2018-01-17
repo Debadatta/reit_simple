@@ -1,0 +1,17 @@
+development:
+  adapter: mysql
+  encoding: unicode
+  reconnect: false
+  host: localhost
+  database: aps_allpro_current
+  user: root
+  password: mindfire
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  reconnect: false
+  host: localhost
+  database: aps_allpro_current
+  user: postgres
+  password: mindfire
