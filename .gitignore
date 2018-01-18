@@ -16,6 +16,6 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-
+/web/node_modules/
 # Ignore Byebug command history file.
 .byebug_history
