@@ -6,6 +6,7 @@ import Header from './Header';
 import { logout } from '../../actions/authentication';
 import Dashboard from '../dashboard';
 import Login from '../authentication/Login';
+import Signup from '../authentication/Signup';
 
 class Layout extends Component {
   render() {
@@ -17,6 +18,7 @@ class Layout extends Component {
             <Switch>
               <Route path="/" exact={true} component={Dashboard} />
               <Route path="/login" component={Login} />
+              <Route path="/signup" component={Signup} />
             </Switch>
           </section>
         </div>

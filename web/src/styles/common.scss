@@ -1,0 +1,26 @@
+input, select {
+  min-width: 100%;
+}
+
+.btn.btn-secondary {
+  color: #fff;
+  background-color: #605CA8;
+  border-color: #605CA8;
+
+  &:hover {
+    background-color: #7a77b6;
+    border-color: #7a77b6;
+  }
+}
+
+input[type=checkbox]:checked~label:before, input[type=checkbox]:not(:checked)~label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #C4C4C4;
+  background: #fff;
+  border-radius: 4px;
+}
