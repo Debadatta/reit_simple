@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 
 import 'react-dates/lib/css/_datepicker.css';
-
-import Login from './authentication/Login';
-
+import '../styles/common.css';
 import Layout from './layout';
 
 class App extends Component {

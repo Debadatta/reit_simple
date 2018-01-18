@@ -29,7 +29,7 @@ class Header extends Component {
             <Link to="/login">Log In</Link>
         </li>
         <li className="site-header__user-menu">
-            <span>Sign Up</span>
+            <Link to="/signup">Sign Up</Link>
           </li>
         </ul>
       </nav>
