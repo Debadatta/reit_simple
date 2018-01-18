@@ -15,7 +15,7 @@ export function client_url(uri) {
       }
 
       const hostname = window.location.hostname;
-      return `http://${hostname}:3000/spapi${uriPath}`;
+      return `http://${hostname}:3000${uriPath}`;
     }
   }
 
