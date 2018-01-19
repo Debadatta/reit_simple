@@ -43,7 +43,7 @@ export default class ActiveForm extends React.Component {
       submitButton = this.props.submitButton(this.state.loading);
     } else {
       submitButton = (
-        <button type="submit" className="btn btn-primary" disabled={this.state.loading || this.props.disabled}>
+        <button type="submit" className={this.props.submitButtonClassName} disabled={this.state.loading || this.props.disabled}>
           {this.state.loading ? '...' : this.props.submitButton}
         </button>
       );
@@ -104,7 +104,8 @@ export default class ActiveForm extends React.Component {
 ActiveForm.defaultProps = {
   disabled: false,
   reverseButtons: false,
-  submitButton: "Save Changes"
+  submitButton: "Save Changes",
+  submitButtonClassName: "btn btn-primary"
 };
 
 ActiveForm.propTypes = {
