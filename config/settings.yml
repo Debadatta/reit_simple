@@ -1,0 +1,15 @@
+default: &default
+  project_id: brahman-holdings
+  cloud_storage:
+    bucket: reitsimple_bucket
+    access_key_id: GOOGEH2GNLVESONSBWTE
+    secret_access_key: 2IHb247hTa8xAE1U7uF0DpKeIPRKgSaF7W8agIWQ
+  oauth2:
+    client_id: @@CLIENT@@
+    client_secret: @@SECRET@@
+
+development:
+  <<: *default
+
+production:
+  <<: *default
