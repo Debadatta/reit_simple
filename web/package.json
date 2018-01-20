@@ -13,7 +13,7 @@
     "lint-staged": "^4.3.0",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
-    "node-sass": "^4.5.3",
+    "node-sass": "^4.7.2",
     "object-path-immutable": "^0.5.1",
     "prettier": "^1.7.4",
     "prop-types": "^15.5.10",

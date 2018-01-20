@@ -19,3 +19,6 @@
 /web/node_modules/
 # Ignore Byebug command history file.
 .byebug_history
+Capfile
+/config/deploy.rb
+/config/deploy/*
