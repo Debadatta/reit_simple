@@ -11,6 +11,23 @@ const INTERESTIN_OPTIONS = [{label: 'Buying Properties', value: 'Buying Properti
 const REF_ABOUT_US_OPTIONS = [{label: 'Friend', value: 'Friend'}, {label: 'Google', value: 'Google'}];
 
 class Signup extends Component {
+  state = {
+    firstName: '',
+    lastName: '',
+    phone: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  }
+
+  onChange = (e) => {
+    this.setState({[e.target.name]: e.target.value});
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+  }
+
   renderInstructions() {
     return (
       <div>
@@ -70,32 +87,33 @@ class Signup extends Component {
           <div className="row main-content">
             <div className="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
               <div className="col-sm-6 left">
-                <div><form className="fs-hide">
+                <div>
+                  <ActiveForm handleSubmit={this.handleSubmit} submitButtonClassName="btn btn-secondary btn-block" submitButton="Sign up">
                     <div className="row">
                       <div className="col-sm-6">
-                        <input placeholder="First Name" name="firstName" type="text" />
+                        <input placeholder="First Name" name="firstName" type="text" onChange={this.onChange} value={this.state.firstName} />
                       </div>
                       <div className="col-sm-6">
-                        <input placeholder="Last Name" name="lastName" type="text" />
+                        <input placeholder="Last Name" name="lastName" type="text" onChange={this.onChange} value={this.state.lastName}/>
                       </div>
                     </div>
                     <div className="rs-form-group full-size">
-                      <input placeholder="Phone" name="phone" type="tel" autoComplete="off" />
+                      <input placeholder="Phone" name="phone" type="tel" autoComplete="off" onChange={this.onChange} value={this.state.phone}/>
                     </div>
                     <div>
-                      <input placeholder="Enter Email" name="email" type="text" />
+                      <input placeholder="Enter Email" name="email" type="text" onChange={this.onChange} value={this.state.email}/>
                     </div>
                     <div >
-                      <input id="passwordInput" placeholder="Enter Password" name="password" type="password" />
+                      <input id="passwordInput" placeholder="Enter Password" name="password" type="password" onChange={this.onChange} value={this.state.Password}/>
                     </div>
                     <div>
-                      <input placeholder="Confirm Password" name="confirmPassword" type="password" />
+                      <input placeholder="Confirm Password" name="confirmPassword" type="password" onChange={this.onChange} value={this.state.confirmPassword}/>
                     </div>
                     <div className="rs-form-group">
-                      <DropdownList items={INTERESTIN_OPTIONS} title='I am interested in:'/>
+                      <DropdownList items={INTERESTIN_OPTIONS} title='I am interested in:' onChange={this.onChange}/>
                     </div>
                     <div className="rs-form-group">
-                      <DropdownList items={REF_ABOUT_US_OPTIONS} title="How did you hear about us?"/>
+                      <DropdownList items={REF_ABOUT_US_OPTIONS} title="How did you hear about us?" onChange={this.onChange}/>
                     </div>
                     <div>
                       <small>
@@ -103,10 +121,7 @@ class Signup extends Component {
                         <a href="#" target="_blank"> ITERSimple's Terms &amp; Conditions</a>
                       </small>
                     </div>
-                    <div className="rs-form-group">
-                      <button type="submit" className="btn btn-secondary btn-block">Sign Up</button>
-                    </div>
-                  </form>
+                  </ActiveForm>
                   <div className="rs-form-group">
                     <input type="checkbox"/>
                     <label htmlFor="isPersistent" className="terms">Keep me logged in</label>
