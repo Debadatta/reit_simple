@@ -2,17 +2,13 @@ import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
+  SIGNUP_REQUEST,
+  SIGNUP_SUCCESS,
+  SIGNUP_FAILURE,
   LOGOUT,
   LOAD_USER_SUCCESS,
   LOAD_USER_FAILURE,
   RESET_TOKEN,
-//  CLIENT_MODE_REQUEST,
-  CLIENT_MODE_SUCCESS,
-  EXIT_CLIENT_MODE_SUCCESS,
-  REQUEST_MFA_CODE_SUCCESS,
-  REQUEST_MFA_CODE_FAILURE,
-  MFA_CODE_VERIFY_SUCCESS,
-  MFA_CODE_VERIFY_FAILURE,
   HIDE_MFA_FLASH_MESSAGE
 } from '../constants/actionTypes';
 import * as Auth from '../api/authentication.js';
@@ -27,6 +23,17 @@ export function requestLogin(loginData) {
     return Auth.login(loginData)
       .then(data => dispatch(loginSuccess(data)))
       .catch(error => dispatch(loginFailure(error)));
+  };
+}
+
+export const signupSuccess = createAction(SIGNUP_SUCCESS);
+export const signupFailure = createAction(SIGNUP_FAILURE);
+
+export function requestSignup(data) {
+  return dispatch => {
+    return Auth.signup(data)
+      .then(data => dispatch(signupSuccess(data)))
+      .catch(error => dispatch(signupFailure(error)));
   };
 }
 
@@ -46,19 +53,6 @@ export function loadCurrentUser() {
   };
 }
 
-const clientModeSuccess = createAction(CLIENT_MODE_SUCCESS);
-
-export function requestClientMode(projectId: number) {
-  return dispatch => {
-    return Auth.requestClientMode(projectId).then(() => dispatch(clientModeSuccess({ spoofClientProjectId: projectId })));
-  };
-}
-
-export function exitClientMode() {
-  return dispatch => {
-    return Auth.exitClientMode().then(_ => dispatch({ type: EXIT_CLIENT_MODE_SUCCESS }));
-  };
-}
 
 export function logout() {
   return dispatch => {

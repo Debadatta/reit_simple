@@ -39,8 +39,8 @@ function processResponse(response) {
     // always store the most recently returned token to extend the session, as long as it is in use
     json.then(response => {
       // This redirectTo is a temporary hack to redirect non-firm users to old site, and not let them log in.
-      if (response && response.meta && response.meta.token && !response.meta.redirectTo) {
-        localStorage.setItem('jwtToken', response.meta.token);
+      if (response && response.meta && response.meta.authToken) {
+        localStorage.setItem('jwtToken', response.meta.authToken);
       }
     });
 

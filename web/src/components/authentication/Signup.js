@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import ActiveForm from '../common/ActiveForm';
 import DropdownList from '../common/DropdownList';
-import { requestLogin } from '../../actions/authentication';
+import { requestLogin, requestSignup } from '../../actions/authentication';
 import { isEmail } from '../../string';
 
 const INTERESTIN_OPTIONS = [{label: 'Buying Properties', value: 'Buying Properties'}, {label: 'Selling Properties', value: 'Selling Properties'}, {label: 'Inviting Clients as a Broker or Agent', value: 'Inviting Clients as a Broker or Agent'}]
@@ -26,6 +26,21 @@ class Signup extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    const data = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      email: this.state.email,
+      password: this.state.password,
+      passwordConfirmation: this.state.confirmPassword
+    };
+
+    if (this.state.phone) {
+      data.phoneNumbersAttributes = {
+        "0": { digits: this.state.phone }
+      }
+    }
+
+    this.props.dispatch(requestSignup({ user: data }));
   }
 
   renderInstructions() {
@@ -88,7 +103,7 @@ class Signup extends Component {
             <div className="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
               <div className="col-sm-6 left">
                 <div>
-                  <ActiveForm handleSubmit={this.handleSubmit} submitButtonClassName="btn btn-secondary btn-block" submitButton="Sign up">
+                  <ActiveForm onSubmit={this.handleSubmit} submitButtonClassName="btn btn-secondary btn-block" submitButton="Sign up">
                     <div className="row">
                       <div className="col-sm-6">
                         <input placeholder="First Name" name="firstName" type="text" onChange={this.onChange} value={this.state.firstName} />
