@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include ParamsNormalizer
+
   before_action :authenticate_request
   attr_reader :current_user
 
@@ -7,6 +9,10 @@ class ApplicationController < ActionController::Base
   def authenticate_request
     @current_user = AuthorizeApiRequest.call(request.headers).result
     render json: { error: 'Not Authorized' }, status: 401 unless @current_user
+  end
+
+  def refreshed_token
+    JsonWebToken.encode(user_id: current_user.id) if current_user
   end
 
   def render_json_api(resource, options = {})
@@ -19,10 +25,9 @@ class ApplicationController < ActionController::Base
   def render_success(status, resource, options = {})
     # inject the current (refreshed) JWT token into the meta area if the user is logged in,
     # and if there isn't already a token being returned, if auto-renew is allowed by this firm
-    if current_user.present? && !(options[:meta].present? && options[:meta][:token].present?) && current_user.firm.session_autorenew?
-      #refreshed_token = LoginSession.spapi_encode_token(current_user)
-      #options[:meta] ||= {}
-      #options[:meta][:token] = refreshed_token
+    if current_user.present? && !(options[:meta].present? && options[:meta][:authToken].present?)
+      options[:meta] ||= {}
+      options[:meta][:authToken] = refreshed_token
     end
     render json: render_json_api(resource, options).as_json, status: status
   end
