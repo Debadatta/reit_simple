@@ -1,141 +1,13 @@
-
-
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>roofstock</title>
+    <title>REITSimple</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="roofstock-app/config-overwrites" content='
-      {
-        "appInsights": {
-          "enabled": "false",
-          "key": "060a338b-9b3f-4e49-97c0-13533a90bde7"
-        },
-
-        "fullStory": {
-          "enabled": "true",
-          "orgKey": "4G85N"
-        },
-
-        "g-map": {
-          "key": "AIzaSyBlaqPfR0tEKisLcgKhUe0DbeyltmNLRKc"
-        },
-
-        "intercom-messenger": {
-          "appId": "tydk0tip",
-          "enabled": "true",
-          "sharedKey": "roofstock-app.config.intercom.sharedKey"
-        },
-
-        "hubSpot": {
-          "enabled": "true",
-          "scriptUrl": "//js.hs-scripts.com/2608901.js"
-        },
-
-        "rsApp": {
-          "version": "2df58d3c645a3df71c766ae1cffacabc27beb693",
-          "adminSiteUrl": "https://admin.roofstock.com",
-          "features": {
-            "updatePrice": {
-              "hoursRestriction": "168",
-              "percentThreshold": "10"
-            },
-            "calendlyEnabled": "true",
-            "cashOnCashEnabled": "false",
-            "managePropertiesEnabled": "true",
-            "nagsEnabled": "false",
-            "propertyTaxSliderEnabled": "true",
-            "recentlyViewedEnabled": "true",
-            "recentlyViewedSubscriptionEnabled": "true",
-            "roofstockRackEnabled": "true",
-            "howItWorksUpdateEnabled": "true",
-            "sellerOffersEnabled": "true",
-            "signupRoadblockEnabled": "false",
-            "signupRoadblockVideoUrl": "https://player.vimeo.com/video/157771094",
-            "promoBannerEnabled": "true",
-            "intercomEnabled": "false"
-          }
-        },
-
-        "metricsAdapters": [
-          {
-            "name": "GoogleAnalytics",
-            "environments": ["production"],
-            "config": {
-              "id": "UA-67980807-1"
-            }
-          },
-          {
-            "name": "Mixpanel",
-            "environments": ["production"],
-            "config": {
-              "token": "f6f0edd33f1be5c20dbd3befc0b9ebae"
-            }
-          },
-          {
-            "name": "FacebookPixel",
-            "environments": ["production"],
-            "config": {
-              "id": "192712737828566"
-            }
-          },
-          {
-            "name": "Hubspot",
-            "environments": ["production"]
-          },
-          {
-            "name": "Bing",
-            "environments": ["production"],
-            "config": {
-              "token": "5710472"
-            }
-          },
-          {
-            "name": "Intercom",
-            "environments": ["development", "production"],
-            "config": {
-              "appId": "tydk0tip"
-            }
-          },
-          {
-            "name": "Criteo",
-            "environments": ["production"],
-            "config": {
-              "enabled": "true"
-            }
-          }    
-        ],
-
-        "optimizely": {
-          "scriptUrl": "https://cdn.optimizely.com/js/5510760218.js"
-        },
-
-        "ndira": {
-          "baseUrl": "https://service.newdirectionira.com"
-        },
-
-        "torii": {
-          "providers": {
-            "auth0": {
-              "apiKey": "x-oU73JNnj4Oxztvmzbx7qy7APsbhjyD",
-              "domain": "roofstock.auth0.com",
-              "enabled": "true"
-            }
-          }
-        },
-
-        "truPreApproval": {
-          "baseUrl": "https://beta.thetruloan.com",
-          "pid": "5536F8EE275FF83A4F00"
-        }
-      }
-        '
-    >
-
+    
     <base href="/" />
-<meta name="dwellconnect-app/config/environment" content="" />
+    <meta name="dwellconnect-app/config/environment" content="" />
 
     <link rel="apple-touch-icon" sizes="57x57" href="https://roofstock-cdn3.azureedge.net/rs-apps/assets/images/favicons/apple-icon-57x57-bf99bba5f4eb8fac855e17ed4b427d45.png">
     <link rel="apple-touch-icon" sizes="60x60" href="https://roofstock-cdn3.azureedge.net/rs-apps/assets/images/favicons/apple-icon-60x60-300adb6691b92c011e2f747c24de9189.png">
@@ -155,9 +27,7 @@
     <meta name="msapplication-TileImage" content="https://roofstock-cdn3.azureedge.net/rs-apps/assets/images/favicons/ms-icon-144x144-3bdfa471db96d9bcc1e1d8286a6bf24b.png">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="vendor.css">
-    <link rel="stylesheet" href="cartodb.css" />
-    <link rel="stylesheet" href="dwellconnect.css">
+    
     <style>
       #SnapABug_Button {
         display: none;
@@ -178,9 +48,7 @@
     <script>window.prerenderReady = false;</script>
   </head>
   <body>
-    <script>window.appDownloadStart = new Date();</script>
-
-    
+    <script>window.appDownloadStart = new Date();</script>   
 
     <script src="https://roofstock-cdn3.azureedge.net/rs-apps/assets/scripts/spin.min-5583b151df32e6f2bdf67fdf80a7c7a6.js"></script>
     <div id="app-root" class="ember-application">
@@ -188,27 +56,25 @@
       </div>
       <script>window.loading_spinner = new Spinner().spin(document.getElementById('loading_spinner'));</script>
       
-
-
-
-    <div id="ember1083" class="ember-view"><audio id="audio-player"></audio>
-<div id="ember1099" class="ember-view __modal-target__803a7">    <!---->
-
-<div id="alt-modal" class="liquid-modal" style="visibility: hidden">
-  <div class="liquid-child">
-    <div class="lm-container">
-      <div role="dialog" id="alternate-modal-target" class="lf-dialog modal-fullscreen bg-black">
+    <div id="ember1083" class="ember-view">
+      <audio id="audio-player"></audio>
+      <div id="ember1099" class="ember-view __modal-target__803a7">    
+        <div id="alt-modal" class="liquid-modal" style="visibility: hidden">
+          <div class="liquid-child">
+            <div class="lm-container">
+              <div role="dialog" id="alternate-modal-target" class="lf-dialog modal-fullscreen bg-black">
+              </div>
+            </div>
+          </div>      
+        </div>
       </div>
-    </div>
-  </div>      
-</div>
-</div>
 
-  <div id="ember1125" class="ember-view"><header>
-  <div class="navbar-fixed-top">
-<!---->    <div class="navbar navbar-rs">
-      
-<div class="container">
+      <div id="ember1125" class="ember-view">
+        <header>
+          <div class="navbar-fixed-top">
+          <div class="navbar navbar-rs">
+        
+        <div class="container">
 
   <div class="navbar-header">
 
@@ -251,11 +117,11 @@
   <i class="fa fa-angle-down"></i>
 </a>
   <ul class="dropdown-menu dropdown-menu-left">
-    <li><a id="ember1251" href="/how-it-works" class="ember-view">How It Works</a></li>
-    <li><a id="ember1268" href="/portfolios/overview" class="ember-view">Portfolio Investments</a></li>
-    <li><a href="https://learn.roofstock.com/blog">Blog</a></li>
-    <li><a id="ember1301" href="/investment-property/roofstock-coverage" class="ember-view">Markets</a></li>
-    <li><a id="ember1325" href="/financing" class="ember-view">Financing</a></li>
+    <li><a id="ember1251" href="#" class="ember-view">How It Works</a></li>
+    <li><a id="ember1268" href="#" class="ember-view">Portfolio Investments</a></li>
+    <li><a href="#">Blog</a></li>
+    <li><a id="ember1301" href="#" class="ember-view">Markets</a></li>
+    <li><a id="ember1325" href="#" class="ember-view">Financing</a></li>
   </ul>
 
 </li>
@@ -266,11 +132,11 @@
   <i class="fa fa-angle-down"></i>
 </a>
   <ul class="dropdown-menu dropdown-menu-left">
-    <li><a href="/about-us">What We Do</a></li>
-    <li><a href="/about-us/#team">Our Team</a></li>
-    <li><a id="ember1345" href="/about-us/press" class="ember-view">Press</a></li>
-    <li><a href="https://learn.roofstock.com/reviews">Reviews</a></li>
-    <li class="last"><a href="/about-us/partners">Partners</a></li>
+    <li><a href="#">What We Do</a></li>
+    <li><a href="#">Our Team</a></li>
+    <li><a id="ember1345" href="#" class="ember-view">Press</a></li>
+    <li><a href="#">Reviews</a></li>
+    <li class="last"><a href="#">Partners</a></li>
   </ul>
 
 </li>
