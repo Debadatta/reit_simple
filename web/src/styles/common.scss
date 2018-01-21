@@ -13,18 +13,6 @@ input, select {
   }
 }
 
-input[type=checkbox]:checked~label:before, input[type=checkbox]:not(:checked)~label:before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 22px;
-  height: 22px;
-  border: 1px solid #C4C4C4;
-  background: #fff;
-  border-radius: 4px;
-}
-
 .text-center {
   text-align: center;
 }
@@ -48,6 +36,10 @@ input[type=checkbox]:checked~label:before, input[type=checkbox]:not(:checked)~la
   .col-sm-pull-10 {
     right: 83.33333%;
   }
+
+  .col-sm-push-2 {
+    left: 16.66666667%;
+  }
 }
 
 @media (min-width: 768px) {
@@ -58,10 +50,26 @@ input[type=checkbox]:checked~label:before, input[type=checkbox]:not(:checked)~la
   .col-sm-2 {
     width: 16.66667%;
   }
+
+  .col-sm-10 {
+    width: 83.33333333%;
+  }
 }
 
 @media (min-width: 768px) {
   .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9 {
     float: left;
+  }
+}
+
+@media (min-width: 992px) {
+  .col-md-offset-4 {
+    margin-left: 33.33333%;
+  }
+}
+
+@media (min-width: 992px) {
+  .col-md-4 {
+    width: 33.33333%;
   }
 }

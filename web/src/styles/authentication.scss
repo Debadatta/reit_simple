@@ -1,4 +1,4 @@
-.authentication__signup-component {
+.authentication__signup-component, .authentication__login-component {
   &__benifits {
     .three-points {
       margin: 10px 0 40px;
@@ -57,6 +57,17 @@
     margin-bottom: 30px;
     position: relative;
     text-align: center;
+
+    &:after {
+      content: attr(data-content);
+      display: inline-block;
+      margin-left: -17px;
+      padding: 0 10px;
+      font: 600 16px/22px Muli,sans-serif;
+      background-color: #fff;
+      position: absolute;
+      top: -12px;
+    }
   }
 
   @media (min-width: 768px) {
@@ -67,4 +78,64 @@
       width: 2px;
     }
   }
+}
+
+.authentication__login-component {
+  .hr-text {
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: 2px;
+    text-align: center;
+    background-color: #DBDBDB;
+    border: none;
+    display: block;
+    width: auto;
+
+    &:after {
+      content: attr(data-content);
+      display: inline-block;
+      margin-left: -17px;
+      padding: 0 10px;
+      font: 600 16px/22px Muli,sans-serif;
+      background-color: #fff;
+      position: absolute;
+      top: -12px;
+    }
+  }
+
+  h2 {
+    margin: 0 0 20px;
+    color: #515151;
+    font: 400 26px/36px Muli,sans-serif;
+  }
+
+  .social-login-or-signup-component-container {
+    margin-top: 0;
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.authentication__signup-component {
+  .hr-text {
+    &:after {
+      background-color: #fff;
+      content: attr(data-content);
+      font: 600 16px/22px Muli,sans-serif;
+      margin-left: 8px;
+      padding: 0 10px;
+      position: absolute;
+      top: -12px;
+      margin: 0;
+      padding: 10px 0;
+      left: -6px;
+      top: 215px;
+    }
+  }
+}
+
+.body-content.login-container {
+  padding-top: 111px!important;
+  display: inline-block;
 }
