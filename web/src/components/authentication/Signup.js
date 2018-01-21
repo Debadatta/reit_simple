@@ -114,7 +114,6 @@ class Signup extends Component {
 
   renderSocialLoginButtons() {
     return (
-      <div className="row">
         <div className="social-login-or-signup-component-container
               col-sm-10 col-sm-push-2">
           <div className="authentication__social-login-or-signup">
@@ -126,10 +125,6 @@ class Signup extends Component {
             </button>
           </div>
         </div>
-        <div className="col-sm-2 col-sm-pull-10 text-center">
-          <div data-content="or" className="hr-text " />
-        </div>
-      </div>
     )
   }
 
@@ -138,7 +133,7 @@ class Signup extends Component {
     const userRefs = Object.values(this.props.refs).map(ui => ({value: ui.id, label: ui.title}));
 
     return (
-      <app-section className="body-content adjust-body adjust-no-submenu login-container">
+      <div className="body-content adjust-body adjust-no-submenu login-container">
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
@@ -150,8 +145,13 @@ class Signup extends Component {
           {this.renderInstructions()}
           <div className="row main-content">
             <div className="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-              <div className="col-sm-6 col-sm-push-6 right">
-               {this.renderSocialLoginButtons()}
+        <div className="col-sm-6 col-sm-push-6 right">
+        <div className="row">
+        {this.renderSocialLoginButtons()}
+                <div className="col-sm-2 col-sm-pull-10 text-center">
+          <div data-content="or" className="hr-text " />
+        </div>
+        </div>
               </div>
               <div className="col-sm-6 col-sm-pull-6 left">
                 <div>
@@ -205,7 +205,7 @@ class Signup extends Component {
         </div>
       </div>
       </div>
-        </div></div></div></div></app-section>
+        </div></div></div></div></div>
     );
   }
 }

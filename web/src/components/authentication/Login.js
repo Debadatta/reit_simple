@@ -8,6 +8,8 @@ import { headerTransparent } from '../../actions/index';
 
 import { isEmail } from '../../string';
 
+import '../../styles/authentication.css';
+
 class Login extends Component {
   state = { errors: null }
 
@@ -32,26 +34,35 @@ class Login extends Component {
     }
   };
 
+  renderSocialLoginButtons() {
+    return (
+        <div className="social-login-or-signup-component-container">
+          <div className="authentication__social-login-or-signup">
+            <button className="btn social facebook">
+              Sign In with Facebook
+            </button>
+            <button className="btn social google">
+              Sign In with Google
+            </button>
+          </div>
+        </div>
+    )
+  }
+
   render() {
     return (
-      <app-section className="body-content adjust-body adjust-no-submenu login-container
+      <div className="body-content adjust-body adjust-no-submenu login-container
   ">
         <div className="container">
           <div className="row">
             <div className="col-sm-12">
               <div className="ember-view">
-                <div className="ember-view __authentication__login-component__d0dc3"><div className="row">
+        <div className="authentication__login-component">
+        <div className="row">
                     <div className="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
                       <h2 className="text-center">Log In</h2>
-                      <div className="ember-view __authentication__social-login-or-signup__d27c7">
-                        <button className="btn social facebook">
-                          Log in with Facebook
-                        </button>
-                        <button className="btn social google">
-                          Log in with Google
-                        </button>
-                      </div>
-                      <div className="hr-text" data-content="or" />
+        {this.renderSocialLoginButtons()}
+        <div className="hr-text" data-content="or" />
         <div className="ember-view __authentication__login-form__e70f4">
         <form onSubmit={this.handleSubmit} noValidate={true}>
                           <div className="rs-form-group has-addon">
@@ -92,7 +103,7 @@ class Login extends Component {
             </div>
           </div>
         </div>
-      </app-section>
+      </div>
     )
   }
 }
