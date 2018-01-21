@@ -3,81 +3,9 @@ import immutable from 'object-path-immutable';
 import { TAG_DELETE_REQUEST_SUCCESS } from '../constants/actionTypes';
 
 const defaultEntities = {
-  initSettings: {},
-  candidacies: {},
-  candidacyNotes: {},
-  closingReasons: {},
-  companies: {},
-  companyAddresses: {},
-  companyContactInfo: {},
-  companyEmailAddresses: {},
-  companyNotes: {},
-  companyPhoneNumbers: {},
-  companyRelationships: {},
-  companyRelationshipTypes: {},
-  companyTags: {},
-  companyWebSites: {},
-  compensation: {},
-  coreLocationTypes: {},
-  countries: {},
-  currencies: {},
-  deals: {},
-  dealDetails: {},
-  dealNotes: {},
-  dealStatusChangedEvents: {},
-  dealTags: {},
-  education: {},
-  employeeRanges: {},
-  firms: {},
-  firmFeatures: {},
-  firmFields: {},
-  fundingStages: {},
-  globalRegions: {},
-  importConnections: {},
-  instantMessageAccountTypes: {},
-  investors: {},
-  notes: {},
-  noteCategories: {},
-  people: {},
-  peopleAutocomplete: {},
-  personAddresses: {},
-  personAttachments: {},
-  personContactInfo: {},
-  personCustomFields: {},
-  personEmailAddresses: {},
-  personImAccounts: {},
-  personLinkedinUrls: {},
-  personNotes: {},
-  personPhoneNumbers: {},
-  personRelationships: {},
-  personRelationshipTypes: {},
-  personTags: {},
-  personWebSites: {},
-  positions: {},
-  projects: {},
-  projectAutocomplete: {},
-  projectClients: {},
-  projectDisplays: {},
-  projectFees: {},
-  projectIndustries: {},
-  projectInvestors: {},
-  projectMetadata: {},
-  projectNotes: {},
-  projectPositions: {},
-  projectSpecialties: {},
-  projectStrategies: {},
-  projectSummary: {},
-  projectTags: {},
-  projectUsers: {},
-  regions: {},
-  revenueRanges: {},
-  seniorities: {},
-  specialties: {},
-  statuses: {},
-  tags: {},
-  tasks: {},
-  taskCategories: {},
   users: {},
+  userInterests: {},
+  userRefs: {}
 };
 
 export default function entities(state = defaultEntities, action) {
@@ -86,11 +14,6 @@ export default function entities(state = defaultEntities, action) {
 
     if (action.payload.data) {
       let rows = action.payload.data;
-
-      if (action.type === TAG_DELETE_REQUEST_SUCCESS) {
-        imm.del([rows.type, rows.id]);
-        return imm.value();
-      }
 
       if (!Array.isArray(rows)) {
         rows = [rows];

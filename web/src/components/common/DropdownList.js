@@ -4,11 +4,11 @@ export default class DropdownList extends React.Component {
   render() {
     let titleOption;
     if (this.props.title) {
-      titleOption = <option>{this.props.title}</option>;
+      titleOption = <option value="">{this.props.title}</option>;
     }
 
     return (
-      <select>
+      <select onChange={this.props.onChange} name={this.props.name}>
         {titleOption}
         {this.props.items && this.props.items.map((item, i) => {
           return (
