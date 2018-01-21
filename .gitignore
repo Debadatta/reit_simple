@@ -17,6 +17,8 @@
 !/log/.keep
 !/tmp/.keep
 /web/node_modules/
+/web/yarn-error.log
+
 # Ignore Byebug command history file.
 .byebug_history
 Capfile

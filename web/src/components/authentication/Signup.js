@@ -5,10 +5,12 @@ import { Link } from 'react-router-dom';
 import ActiveForm from '../common/ActiveForm';
 import DropdownList from '../common/DropdownList';
 import { requestLogin, requestSignup } from '../../actions/authentication';
+import { requestUserInterests, requestUserRefs } from '../../actions/staticData';
+import { headerTransparent } from '../../actions/index';
+
 import { isEmail } from '../../string';
 
-const INTERESTIN_OPTIONS = [{label: 'Buying Properties', value: 'Buying Properties'}, {label: 'Selling Properties', value: 'Selling Properties'}, {label: 'Inviting Clients as a Broker or Agent', value: 'Inviting Clients as a Broker or Agent'}]
-const REF_ABOUT_US_OPTIONS = [{label: 'Friend', value: 'Friend'}, {label: 'Google', value: 'Google'}];
+import '../../styles/authentication.css';
 
 class Signup extends Component {
   state = {
@@ -18,6 +20,15 @@ class Signup extends Component {
     email: '',
     password: '',
     confirmPassword: ''
+  }
+
+  componentWillMount() {
+    this.props.dispatch(headerTransparent(false))
+  }
+
+  componentDidMount() {
+    this.props.dispatch(requestUserInterests());
+    this.props.dispatch(requestUserRefs());
   }
 
   onChange = (e) => {
@@ -34,6 +45,14 @@ class Signup extends Component {
       passwordConfirmation: this.state.confirmPassword
     };
 
+    if (this.state.userInterestId) {
+      data.userInterestId = this.state.userInterestId;
+    }
+
+    if (this.state.userRefId) {
+      data.userRefId = this.state.userRefId;
+    }
+
     if (this.state.phone) {
       data.phoneNumbersAttributes = {
         "0": { digits: this.state.phone }
@@ -45,7 +64,7 @@ class Signup extends Component {
 
   renderInstructions() {
     return (
-      <div>
+      <div className="authentication__signup-component__benifits">
         <div className="row hidden-xs three-points">
           <div className="col-sm-4">
             <table>
@@ -83,25 +102,58 @@ class Signup extends Component {
 
   renderHeader() {
     return (
-      <div className="row">
+        <div className="row">
         <div className="col-md-8 col-md-offset-2">
-          <div className="hero text-center">
+          <div className="text-center">
             <h2>Welcome to ITERSimple</h2>
           </div>
+        </div>
+        </div>
+    )
+  }
+
+  renderSocialLoginButtons() {
+    return (
+      <div className="row">
+        <div className="social-login-or-signup-component-container
+              col-sm-10 col-sm-push-2">
+          <div className="authentication__social-login-or-signup">
+            <button className="btn social facebook">
+              Sign Up with Facebook
+            </button>
+            <button className="btn social google">
+              Sign Up with Google
+            </button>
+          </div>
+        </div>
+        <div className="col-sm-2 col-sm-pull-10 text-center">
+          <div data-content="or" className="hr-text " />
         </div>
       </div>
     )
   }
 
   render() {
+    const userInterests = Object.values(this.props.interests).map(ui => ({value: ui.id, label: ui.title}));
+    const userRefs = Object.values(this.props.refs).map(ui => ({value: ui.id, label: ui.title}));
+
     return (
+      <app-section className="body-content adjust-body adjust-no-submenu login-container">
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-12">
+              <div className="ember-view">
+        <div className="authentication__signup-component">
       <div className="row">
         <div className="col-xs-12">
           {this.renderHeader()}
           {this.renderInstructions()}
           <div className="row main-content">
             <div className="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-              <div className="col-sm-6 left">
+              <div className="col-sm-6 col-sm-push-6 right">
+               {this.renderSocialLoginButtons()}
+              </div>
+              <div className="col-sm-6 col-sm-pull-6 left">
                 <div>
                   <ActiveForm onSubmit={this.handleSubmit} submitButtonClassName="btn btn-secondary btn-block" submitButton="Sign up">
                     <div className="row">
@@ -125,10 +177,10 @@ class Signup extends Component {
                       <input placeholder="Confirm Password" name="confirmPassword" type="password" onChange={this.onChange} value={this.state.confirmPassword}/>
                     </div>
                     <div className="rs-form-group">
-                      <DropdownList items={INTERESTIN_OPTIONS} title='I am interested in:' onChange={this.onChange}/>
+                      <DropdownList items={userInterests} title='I am interested in:' onChange={this.onChange} name="userInterestId"/>
                     </div>
                     <div className="rs-form-group">
-                      <DropdownList items={REF_ABOUT_US_OPTIONS} title="How did you hear about us?" onChange={this.onChange}/>
+                      <DropdownList items={userRefs} title="How did you hear about us?" onChange={this.onChange} name="userRefId"/>
                     </div>
                     <div>
                       <small>
@@ -152,8 +204,17 @@ class Signup extends Component {
           </div>
         </div>
       </div>
+      </div>
+        </div></div></div></div></app-section>
     );
   }
 }
 
-export default connect()(Signup);
+function mapStateToProps(state) {
+  return {
+    interests: state.entities.userInterests,
+    refs: state.entities.userRefs
+  }
+}
+
+export default connect(mapStateToProps)(Signup);

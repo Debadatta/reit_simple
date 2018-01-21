@@ -10,12 +10,10 @@ export default class Header extends Component {
   };
 
   componentDidMount() {
-    window.addEventListener("scroll", this.autoShowHeaderOnScroll);
     document.addEventListener("click", this.hideMenu);
   }
 
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.autoShowHeaderOnScroll);
     document.removeEventListener("click", this.hideMenu);
   }
 
@@ -24,15 +22,6 @@ export default class Header extends Component {
     //   this.learnDom.classList.remove('open');
     //   this.aboutUsDom.classList.remove('open');
     // }
-  }
-
-  autoShowHeaderOnScroll = () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    if (scrollTop > 50) {
-      document.querySelector('.home header .navbar').classList.remove('transparent')
-    } else {
-      document.querySelector('.home header .navbar').classList.add('transparent')
-    }
   }
 
   setCurrentDropdown = (menu) => {
@@ -51,7 +40,7 @@ export default class Header extends Component {
     return (
       <header>
       <div className="navbar-fixed-top">
-        <div className="prerender-overwrite navbar navbar-rs transparent">
+        <div className={`prerender-overwrite navbar navbar-rs ${this.props.transperency ? 'transparent' : ''}`}>
           <div className="container">
             <div className="navbar-header">
               <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -59,9 +48,9 @@ export default class Header extends Component {
                 <span className="icon-bar" />
                 <span className="icon-bar" />
               </button>
-              <a href="/" className="navbar-brand" style={{color: 'blue', fontWeight: 'bold', fontSize: 28}}>
+              <Link to="/" className="navbar-brand" style={{color: 'blue', fontWeight: 'bold', fontSize: 28}}>
                 REITSimple
-              </a>
+              </Link>
               <ul className="nav navbar-nav visible-xs visible-sm pull-right">
                 <li className="pull-right" style={{border: 'none'}}>
                   <a href="/signup" className="btn-sm">Sign Up</a>

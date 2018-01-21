@@ -1,0 +1,47 @@
+.authentication__signup-component__benifits .three-points {
+  margin: 10px 0 40px; }
+
+.authentication__signup-component .social-login-or-signup-component-container {
+  margin-top: 180px; }
+  .authentication__signup-component .social-login-or-signup-component-container .btn.social {
+    display: block;
+    width: 100%;
+    padding: 13px 20px 13px 0;
+    color: #fff;
+    font: 400 16px/22px Muli,sans-serif;
+    text-align: left;
+    text-transform: uppercase; }
+    .authentication__signup-component .social-login-or-signup-component-container .btn.social:before {
+      display: inline-block;
+      margin: -13px 15px -13px 0;
+      padding: 13px 0;
+      width: 46px;
+      font: 400 18px/1 Fontawesome;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.25); }
+  .authentication__signup-component .social-login-or-signup-component-container .btn.social + .social {
+    margin-top: 20px; }
+  .authentication__signup-component .social-login-or-signup-component-container .btn.social.facebook {
+    background-color: #3b5998; }
+    .authentication__signup-component .social-login-or-signup-component-container .btn.social.facebook:before {
+      content: '\f09a'; }
+  .authentication__signup-component .social-login-or-signup-component-container .btn.social.google {
+    background-color: #4285f4; }
+    .authentication__signup-component .social-login-or-signup-component-container .btn.social.google:before {
+      content: '\f1a0'; }
+
+.authentication__signup-component .hr-text {
+  background-color: #DBDBDB;
+  border: none;
+  height: 2px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  position: relative;
+  text-align: center; }
+
+@media (min-width: 768px) {
+  .authentication__signup-component .hr-text {
+    display: inline-block;
+    height: 570px;
+    margin: 0;
+    width: 2px; } }

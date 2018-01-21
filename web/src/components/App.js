@@ -4,8 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import { Redirect } from 'react-router'
 
 import Home from './home';
-import Login from './authentication/Login';
-import Signup from './authentication/Signup';
+import Layout from './layout';
 
 import 'react-dates/lib/css/_datepicker.css';
 import '../styles/common.css';
@@ -25,19 +24,7 @@ class App extends Component {
   }
 
   render() {
-    if (this.props.authentication && this.props.authentication.status === 'authenticated') {
-      return <Switch>
-        <Route path="/" exact={true} component={Home} />
-      </Switch>
-    }
-
-    return (
-      <Switch>
-        <Route path="/" exact={true} component={Home} />
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={Signup} />
-      </Switch>
-    );
+    return <Route path="/" component={Layout} />;
   }
 }
 
@@ -54,7 +41,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state, props) {
-  console.log(state.authentication)
   return {
     authentication: state.authentication
   }

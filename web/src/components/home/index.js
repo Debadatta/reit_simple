@@ -1,9 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Header from '../layout/Header';
-import Footer from '../layout/Footer';
-
 import HomeAds from './HomeAds';
 import HomeInstruct from './HomeInstruct';
 import HomePromo from './HomePromo';
@@ -17,15 +14,34 @@ import HomeSingleFamilyInstruct from './HomeSingleFamilyInstruct';
 import HomeCustomerStory from './HomeCustomerStory';
 import HomeAdvisors from './HomeAdvisors';
 
-import { logout } from '../../actions/authentication';
+import Login from '../authentication/Login';
+import Signup from '../authentication/Signup';
+import { headerTransparent } from '../../actions/index';
 
 class Home extends React.Component {
+  componentWillMount() {
+    this.props.dispatch(headerTransparent(true));
+  }
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.autoShowHeaderOnScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.autoShowHeaderOnScroll);
+  }
+
+  autoShowHeaderOnScroll = () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > 50) {
+      document.querySelector('.home header .navbar').classList.remove('transparent')
+    } else {
+      document.querySelector('.home header .navbar').classList.add('transparent')
+    }
+  }
+
   render() {
     return (
-      <div className="main">
-        <div className="main-content">
-        <Header history={this.props.history} currentUser={this.props.currentUser} logout={this.props.logout}/>
-        <div id="top-nav-filler"></div>
         <div className="home3">
           <HomeAds/>
           <HomeInstruct/>
@@ -40,30 +56,8 @@ class Home extends React.Component {
           <HomeCustomerStory/>
           <HomeAdvisors/>
         </div>
-          <Footer />
-        </div>
-      </div>
     );
   }
 }
 
-function mapStateToProps(state) {
-  let currentUser;
-  if (state.authentication.currentUserId) {
-    currentUser = state.entities.users[state.authentication.currentUserId];
-  }
-
-  return {
-    currentUser
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    logout() {
-      dispatch(logout());
-    }
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect()(Home);
