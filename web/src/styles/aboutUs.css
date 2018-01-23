@@ -1,0 +1,229 @@
+@charset "UTF-8";
+.body-content.nopadding {
+  padding: 0; }
+
+.body-content {
+  min-height: 500px;
+  padding-top: 110px;
+  padding-bottom: 100px; }
+
+h1.bkg-header {
+  position: relative;
+  width: 100%;
+  min-height: 280px;
+  padding: 130px 20px 60px;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  color: #fff;
+  text-align: center;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column; }
+  h1.bkg-header:before {
+    background: rgba(0, 0, 0, 0.4);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%; }
+  h1.bkg-header span {
+    position: relative; }
+
+.page-about .child-nav {
+  background: #eeeff0;
+  padding: 15px 0;
+  font-size: 16px;
+  text-align: center;
+  width: 100%; }
+  .page-about .child-nav ul {
+    margin: 0 auto; }
+  .page-about .child-nav li {
+    display: inline-block;
+    list-style: none;
+    margin: 0 24px; }
+    .page-about .child-nav li a {
+      color: #767676;
+      text-decoration: none; }
+
+.page-about .container {
+  position: relative; }
+
+.page-about article {
+  width: 100%;
+  background-color: #f8f8f8 !important; }
+  .page-about article .container {
+    background: #f8f8f8;
+    max-width: 1000px;
+    position: relative; }
+  .page-about article h2 {
+    position: relative;
+    color: #ef7325;
+    font: 400 1.625rem 'Muli';
+    margin: 0 0 50px;
+    text-align: center; }
+    .page-about article h2:after {
+      border-top: 1px solid #e1e1e1;
+      bottom: -15px;
+      content: "";
+      display: block;
+      left: 50%;
+      margin-left: -571px;
+      position: absolute;
+      width: 1142px; }
+
+.page-about section, .page-about article {
+  border-top: 1px solid #e1e1e1;
+  padding: 55px 0 60px; }
+  .page-about section h2, .page-about article h2 {
+    color: #ef7325;
+    font: 400 1.625rem 'Muli';
+    margin: 0 0 50px;
+    text-align: center; }
+
+.page-about .team-grid .container, .page-about .logo-grid .container {
+  -webkit-display: flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  max-width: 1190px; }
+
+.page-about .team-grid h2, .page-about .logo-grid h2 {
+  width: 100%; }
+
+.page-about .member {
+  color: #656565;
+  cursor: pointer;
+  margin-bottom: 94px;
+  padding: 0 10px;
+  position: relative;
+  text-align: center;
+  width: 25%; }
+  .page-about .member:after {
+    border-color: #f8f8f8 transparent transparent;
+    border-style: solid;
+    border-width: 20px 15px;
+    bottom: -48px;
+    content: "";
+    left: 50%;
+    margin-left: -15px;
+    opacity: 0;
+    position: absolute;
+    transition: opacity .5s ease .2s;
+    z-index: 3; }
+  .page-about .member span {
+    display: block;
+    color: #767676;
+    font-size: 16px;
+    margin-top: 5px; }
+  .page-about .member .active:after {
+    opacity: 1; }
+  .page-about .member img {
+    border: 2px solid #fff;
+    border-radius: 200%;
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.5), 0 0 1px rgba(0, 0, 0, 0.3);
+    display: block;
+    margin: 0 auto 10px;
+    transition: opacity .5s ease;
+    width: 120px; }
+  .page-about .member span {
+    display: block;
+    color: #767676;
+    font-size: 16px;
+    margin-top: 5px; }
+
+.page-about .logo-grid a {
+  margin: 0 0 25px;
+  padding: 0 40px;
+  width: 25%; }
+
+.page-about .latest-news .container {
+  max-width: 1060px;
+  text-align: center; }
+
+.page-about .careers-callout {
+  padding-bottom: 0;
+  text-align: center; }
+  .page-about .careers-callout .callout-link {
+    color: #606060;
+    font: 600 1rem 'Muli';
+    text-align: center; }
+  .page-about .careers-callout .container {
+    max-width: 600px; }
+  .page-about .careers-callout h2 {
+    margin-bottom: 30px; }
+  .page-about .careers-callout p {
+    line-height: 1.25rem;
+    margin-bottom: 30px;
+    text-align: left; }
+
+.page-about .news-items {
+  -webkit-display: flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  margin-bottom: 50px; }
+  .page-about .news-items .item {
+    padding: 0 20px 38px;
+    width: 50%; }
+    .page-about .news-items .item a {
+      color: #656565; }
+    .page-about .news-items .item img {
+      display: block;
+      margin: 0 auto 38px;
+      max-width: 160px; }
+    .page-about .news-items .item:first-of-type {
+      border-right: 1px solid #DBDBDB; }
+    .page-about .news-items .item .date {
+      margin-bottom: 5px;
+      display: block;
+      font-size: .875rem; }
+
+.page-about q {
+  display: block;
+  margin: 0;
+  padding: 0;
+  quotes: "“" "”" "‘" "’"; }
+
+.page-about .news-items q:before, .page-about .news-items q:after {
+  color: #e2e2e2;
+  display: inline-block;
+  font-size: 40px;
+  vertical-align: -18px;
+  line-height: 0; }
+
+.page-about .member-bio {
+  background-color: #FCFCFC;
+  display: none;
+  padding: 58px 45px 50px;
+  position: absolute;
+  top: 105%;
+  text-align: left;
+  width: 1150px;
+  z-index: 2; }
+  .page-about .member-bio .close {
+    margin-top: 0;
+    background: url(../images/icon-close.png) no-repeat;
+    height: 19px;
+    position: absolute;
+    right: 20px;
+    text-indent: -9999999px;
+    top: 20px;
+    width: 21px;
+    opacity: 1; }
+  .page-about .member-bio h3 {
+    font-size: 26px;
+    font-weight: 400;
+    margin: 0 0 20px; }
+
+@media (min-width: 992px) {
+  h1.bkg-header {
+    font-size: 40px;
+    line-height: 54px; } }
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px; } }

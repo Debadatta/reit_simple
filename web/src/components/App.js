@@ -11,9 +11,11 @@ import '../styles/common.css';
 import '../styles/home.css';
 
 import { logout, loadCurrentUser } from '../actions/authentication';
+import { headerTransparent } from '../actions/index';
 
 class App extends Component {
   componentWillMount() {
+    this.props.headerTransparent();
     this.props.loadCurrentUser();
   }
 
@@ -36,6 +38,9 @@ function mapDispatchToProps(dispatch) {
           localStorage.removeItem('jwtToken');
         }
       });
+    },
+    headerTransparent: () => {
+      dispatch(headerTransparent(false));
     }
   }
 }

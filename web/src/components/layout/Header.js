@@ -86,11 +86,11 @@ export default class Header extends Component {
                     <i className="fa fa-angle-down" />
                   </a>
                   <ul aria-labelledby="list-of-about-us" className={`dropdown-menu dropdown-menu-left ${this.checkMenuDropdownShow('aboutUs')}`}>
-                    <li><a href="/about-us">What We Do</a></li>
-                    <li><a href="/about-us/#team">Our Team</a></li>
-                    <li><a href="/about-us/press">Press</a></li>
-                    <li className="last"><a href="https://learn.roofstock.com/reviews">Reviews</a></li>
-                    <li><a href="/about-us/partners">Partners</a></li>
+                    <li><Link to="/about-us">What We Do</Link></li>
+                    <li><Link to="/about-us#team">Our Team</Link></li>
+                    <li><Link to="/about-us/press">Press</Link></li>
+                    <li className="last"><Link to="/reviews">Reviews</Link></li>
+                    <li><Link to="/about-us/partners">Partners</Link></li>
                   </ul>
                 </li>
         {this.props.currentUser ? <li><a href="javascript:void(0);" className="top-menu-item btn-sm" onClick={this.props.logout}>Logout</a></li> : <li><Link to="/login" className="top-menu-item">Log In</Link></li>}

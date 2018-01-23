@@ -10,6 +10,7 @@ import { logout } from '../../actions/authentication';
 import Login from '../authentication/Login';
 import Home from '../home';
 import Signup from '../authentication/Signup';
+import AboutUs from '../aboutUs';
 
 class Layout extends React.Component {
   render() {
@@ -22,6 +23,7 @@ class Layout extends React.Component {
             <Route path="/" exact={true} component={Home} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
+            <Route path="/about-us" component={AboutUs} />
           </Switch>
           <Footer />
         </div>

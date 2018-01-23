@@ -29,6 +29,7 @@ class Home extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener("scroll", this.autoShowHeaderOnScroll);
+    this.props.dispatch(headerTransparent(false));
   }
 
   autoShowHeaderOnScroll = () => {
