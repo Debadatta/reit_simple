@@ -18,6 +18,47 @@ input, select {
   padding-left: 15px;
   padding-right: 15px; }
 
+a {
+  background-color: transparent; }
+
+.btn-group-vertical > .btn-group:after, .btn-group-vertical > .btn-group:before, .btn-toolbar:after, .btn-toolbar:before, .clearfix:after, .clearfix:before, .container-fluid:after, .container-fluid:before, .container:after, .container:before, .dl-horizontal dd:after, .dl-horizontal dd:before, .form-horizontal .form-group:after, .form-horizontal .form-group:before, .modal-footer:after, .modal-footer:before, .modal-header:after, .modal-header:before, .nav:after, .nav:before, .navbar-collapse:after, .navbar-collapse:before, .navbar-header:after, .navbar-header:before, .navbar:after, .navbar:before, .pager:after, .pager:before, .panel-body:after, .panel-body:before, .row:after, .row:before {
+  display: table;
+  content: " "; }
+
+.close {
+  float: right;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  filter: alpha(opacity=20);
+  opacity: .2; }
+
+img {
+  max-width: 100%;
+  height: auto; }
+
+.footer-markets {
+  font-size: 14px;
+  line-height: 22px;
+  background-color: #f4f4f4;
+  padding: 5px 0;
+  margin-top: 100px; }
+  .footer-markets h3 {
+    margin: 15px 0;
+    font-size: 14px; }
+  .footer-markets ul {
+    margin: 0;
+    padding: 0; }
+  .footer-markets li {
+    margin: 0 0 15px 0;
+    padding: 0; }
+  .footer-markets a {
+    color: #515151;
+    margin: 0;
+    padding: 0; }
+
 @media (min-width: 768px) {
   .col-sm-push-6 {
     left: 50%; }
