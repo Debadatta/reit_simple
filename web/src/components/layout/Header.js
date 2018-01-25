@@ -18,10 +18,11 @@ export default class Header extends Component {
   }
 
   hideMenu = (e) => {
-    // if (e.target && e.target !== this.learnDom && e.target !== this.aboutUsDom && !e.target.contains(this.learnDom) && !e.target.contains(this.aboutUsDom)) {
-    //   this.learnDom.classList.remove('open');
-    //   this.aboutUsDom.classList.remove('open');
-    // }
+    if (e.target) {
+      if (e.target !== this.aboutUsDom && !this.learnDom.contains(e.target) && e.target !== this.aboutUsDom && !this.aboutUsDom.contains(e.target)) {
+        this.setState({currentMenu: null});
+      }
+    }
   }
 
   setCurrentDropdown = (menu) => {

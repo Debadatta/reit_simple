@@ -6559,10 +6559,6 @@ body {
   html, body {
     font: normal 18px/1.444rem "Muli",sans-serif; } }
 
-@media (min-width: 1350px) {
-  .container {
-    width: 1320px; } }
-
 @media (min-width: 1440px) {
   .container {
     width: 1410px; } }
