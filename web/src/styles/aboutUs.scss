@@ -131,6 +131,12 @@ h1.bkg-header {
     text-align: center;
     width: 25%;
 
+    &:hover {
+      .attachment-thumbnail {
+        opacity: 0.5;
+      }
+    }
+
     &:after {
       border-color: #f8f8f8 transparent transparent;
       border-style: solid;
@@ -285,6 +291,12 @@ h1.bkg-header {
       font-weight: 400;
       margin: 0 0 20px;
     }
+  }
+
+  .expand {
+    margin-left: -15px;
+    width: 1140px;
+    display: block;
   }
 }
 

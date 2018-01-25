@@ -60,6 +60,8 @@ img {
     padding: 0; }
 
 @media (min-width: 768px) {
+  .navbar {
+    border-radius: 0; }
   .col-sm-push-6 {
     left: 50%; }
   .col-sm-pull-6 {
