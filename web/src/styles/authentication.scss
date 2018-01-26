@@ -138,4 +138,16 @@
 .body-content.login-container {
   padding-top: 111px!important;
   display: inline-block;
+  width: 100%;
+
+  .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (min-width: 1350px) {
+  .container {
+    width: 1320px !important;
+  }
 }

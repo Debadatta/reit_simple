@@ -1,3 +1,27 @@
+.rs-form-group{
+  position: relative;
+  margin-bottom: 15px;
+
+  select {
+    background-position: center right 5px;
+    background-size: 20px auto;
+    background-image: url(../images/dropdown-arrow.png);
+    background-repeat: no-repeat;
+  }
+
+  a {
+    color: #605CA8;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  .termsContainer {
+    a {
+      display: inline-block;
+    }
+  }
+}
+
 .login-container {
   .checkbox-container {
     position: relative;
@@ -36,13 +60,13 @@
   }
 }
 
-.input-error {
-  .error {
-    font-size: 14px;
-    color: #CF3737;
-    font: 600 14px/22px Muli,sans-serif;
-  }
+.error {
+  font-size: 14px;
+  color: #CF3737;
+  font: 600 14px/22px Muli,sans-serif;
+}
 
+.input-error {
   .error-border {
     input {
       border: 1px solid #CF3737 !important;

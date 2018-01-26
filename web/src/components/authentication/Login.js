@@ -51,12 +51,11 @@ class Login extends Component {
       errors = {};
     }
 
-    if (emailValue && emailError(emailValue)) {
-      errors.email = emailError(emailValue)
-    }
-
     if (Object.values(errors).filter(v => v).length > 0) {
       this.setState({errors});
+      return;
+    } else if (emailValue && emailError(emailValue)) {
+      errors.email = emailError(emailValue)
       return;
     }
 
@@ -78,6 +77,12 @@ class Login extends Component {
     )
   }
 
+  renderErrors() {
+    if (this.props.errors) {
+      return <div className="rs-form-group error">{this.props.errors.map(e => e.title).join(', ')}</div>
+    }
+  }
+
   render() {
     return (
       <div className="body-content adjust-body adjust-no-submenu login-container
@@ -86,36 +91,39 @@ class Login extends Component {
           <div className="row">
             <div className="col-sm-12">
               <div className="ember-view">
-        <div className="authentication__login-component">
-        <div className="row">
+                <div className="authentication__login-component">
+                  <div className="row">
                     <div className="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
                       <h2 className="text-center">Log In</h2>
-        {this.renderSocialLoginButtons()}
-        <div className="hr-text" data-content="or" />
-        <div>
-        <form onSubmit={this.handleSubmit} noValidate={true}>
+                      {this.renderSocialLoginButtons()}
+                      <div className="hr-text" data-content="or" />
+                      <div>
+                        <form onSubmit={this.handleSubmit} noValidate={true}>
                           <div className="rs-form-group has-addon">
                             <span className="addon"><i className="fa fa-envelope" /></span>
-        <div className={this.state.errors.email ? "input-error" : ''}>
-          <div className="rs-input-container">
+                            <div className={this.state.errors.email ? "input-error" : ''}>
+                              <div className="rs-input-container">
                                 <div className="error-border">
-        <input id="identification" autoFocus placeholder="Your Email" name="email" type="text" className="rs-input fs-hide ember-view ember-text-field" onChange={this.handleChange}/>
-        </div>
-        {this.state.errors.email}
+                                  <input id="identification" autoFocus placeholder="Your Email" name="email" type="text" className="rs-input fs-hide ember-view ember-text-field" onChange={this.handleChange}/>
+                                </div>
+                                {this.state.errors.email}
                               </div>
-                            </div></div>
+                          </div></div>
                           <div className="rs-form-group has-addon">
                             <span className="addon"><i className="fa fa-lock" /></span>
                             <div className={this.state.errors.password ? "input-error" : ''}><div className="rs-input-container">
                                 <div className="error-border">
                                   <input id="password" placeholder="Password" name="password" type="password" className="rs-input fs-hide ember-view ember-text-field" onChange={this.handleChange}/>
-        </div>
-        {this.state.errors.password}
                                 </div>
-                            </div></div>
-                          <div className="pad-top-10 checkbox-container"><input type="checkbox"/>
+                                {this.state.errors.password}
+                              </div>
+                          </div></div>
+                          {this.renderErrors()}
+                          <div className="pad-top-10 checkbox-container">
+                            <input type="checkbox"/>
                             <label><span className="ie-radio-fix">    Keep me logged in
-                              </span></label></div>  <div className="rs-form-group">
+                          </span></label></div>
+                          <div className="rs-form-group">
                             <button type="submit" className="btn btn-secondary btn-block">
                               Log In
                             </button>
@@ -125,7 +133,7 @@ class Login extends Component {
                       </div>
                       <div className="ember-view __authentication__login-or-signup__toggle__534b3">
                         <div className="pad-top-20">
-                          Don't have an account? <strong><a href="/signup" className="ember-view">Sign Up</a></strong>
+                          Don&#44;t have an account? <strong><a href="/signup" className="ember-view">Sign Up</a></strong>
                         </div>
                       </div>
                     </div>
@@ -140,4 +148,10 @@ class Login extends Component {
   }
 }
 
-export default connect()(Login);
+function mapStateToProps(state) {
+  return {
+    errors: state.authentication.errors
+  }
+}
+
+export default connect(mapStateToProps)(Login);

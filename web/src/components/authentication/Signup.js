@@ -8,9 +8,9 @@ import { requestLogin, requestSignup } from '../../actions/authentication';
 import { requestUserInterests, requestUserRefs } from '../../actions/staticData';
 import { headerTransparent } from '../../actions/index';
 
-import { isEmail } from '../../string';
-
 import '../../styles/authentication.css';
+import '../../styles/form.css';
+import { emailError, requiredError, ltError, passwordError } from '../../helpers/formValidator';
 
 class Signup extends Component {
   state = {
@@ -19,7 +19,8 @@ class Signup extends Component {
     phone: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    errors: {}
   }
 
   componentWillMount() {
@@ -32,11 +33,37 @@ class Signup extends Component {
   }
 
   onChange = (e) => {
-    this.setState({[e.target.name]: e.target.value});
+    let errors = this.state.errors;
+
+    if (e.target.name === 'email' && emailError(e.target.value)) {
+      errors.email = emailError(e.target.value);
+    } else {
+      errors[e.target.name] = null;
+    }
+
+    this.setState({[e.target.name]: e.target.value, errors});
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
+
+    const errors = this.state.errors;
+
+    [{label: "Email", value: 'email'}, {label: "password", value: 'password'}, {label: "First name", value: 'firstName'}, {label: 'Last Name', value: 'lastName'}].forEach(field => {
+      if (!this.state[field.value]) {
+        errors[field.value] = requiredError(this.state[field.value], field.label);
+      }
+    })
+
+    if (this.state.email && emailError(this.state.email)) {
+      errors.email = emailError(this.state.email)
+    }
+
+    if (Object.values(errors).filter(v => v).length > 0) {
+      this.setState({errors});
+      return;
+    }
+
     const data = {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
@@ -128,6 +155,12 @@ class Signup extends Component {
     )
   }
 
+  renderErrors() {
+    if (this.props.errors) {
+      return <div className="rs-form-group error">{this.props.errors.map(e => e.title).join(', ')}</div>
+    }
+  }
+
   render() {
     const userInterests = Object.values(this.props.interests).map(ui => ({value: ui.id, label: ui.title}));
     const userRefs = Object.values(this.props.refs).map(ui => ({value: ui.id, label: ui.title}));
@@ -138,65 +171,120 @@ class Signup extends Component {
           <div className="row">
             <div className="col-xs-12">
               <div className="ember-view">
-        <div className="authentication__signup-component">
-      <div className="row">
-        <div className="col-xs-12">
-          {this.renderHeader()}
-          {this.renderInstructions()}
-          <div className="row main-content">
-            <div className="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-        <div className="col-sm-6 col-sm-push-6 right">
-        <div className="row">
-        {this.renderSocialLoginButtons()}
-                <div className="col-sm-2 col-sm-pull-10 text-center">
-          <div data-content="or" className="hr-text " />
-        </div>
-        </div>
-              </div>
-              <div className="col-sm-6 col-sm-pull-6 left">
-                <div>
-                  <ActiveForm onSubmit={this.handleSubmit} submitButtonClassName="btn btn-secondary btn-block" submitButton="Sign up">
-                    <div className="row">
-                      <div className="col-sm-6">
-                        <input placeholder="First Name" name="firstName" type="text" onChange={this.onChange} value={this.state.firstName} />
+                <div className="authentication__signup-component">
+                  <div className="row">
+                    <div className="col-xs-12">
+                      {this.renderHeader()}
+                      {this.renderInstructions()}
+                      <div className="row main-content">
+                        <div className="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                          <div className="col-sm-6 col-sm-push-6 right">
+                            <div className="row">
+                              {this.renderSocialLoginButtons()}
+                              <div className="col-sm-2 col-sm-pull-10 text-center">
+                                <div data-content="or" className="hr-text " />
+                              </div>
+                            </div>
+                          </div>
+                          <div className="col-sm-6 col-sm-pull-6 left">
+                            <div className="row">
+                              <ActiveForm onSubmit={this.handleSubmit} submitButtonClassName="btn btn-secondary btn-block" submitButton="Sign up">
+                                <div className="row">
+                                  <div className="col-sm-6">
+                                    <div className="rs-form-group has-addon">
+                                      <span className="addon"><i className="fa fa-user" /></span>
+                                      <div className={this.state.errors.firstName ? "input-error" : ''}>
+                                        <div className="rs-input-container">
+                                          <div className="error-border">
+                                            <input placeholder="First Name" name="firstName" type="text" onChange={this.onChange} value={this.state.firstName} />
+                                          </div>
+                                          {this.state.errors.firstName}
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="col-sm-6">
+                                    <div className="rs-form-group">
+                                      <div className={this.state.errors.lastName ? "input-error" : ''}>
+                                        <div className="rs-input-container">
+                                          <div className="error-border">
+                                            <input placeholder="Last Name" name="lastName" type="text" onChange={this.onChange} value={this.state.lastName}/>
+                                          </div>
+                                          {this.state.errors.lastName}
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className="rs-form-group full-size">
+                                  <div className="rs-form-group has-addon">
+                                    <span className="addon"><i className="fa fa-phone" /></span>
+                                    <div className="rs-input-container">
+                                      <input placeholder="Phone" name="phone" type="tel" autoComplete="off" onChange={this.onChange} value={this.state.phone}/>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className="rs-form-group has-addon">
+                                  <span className="addon"><i className="fa fa-envelope" /></span>
+                                  <div className={this.state.errors.email ? "input-error" : ''}>
+                                    <div className="rs-input-container">
+                                      <div className="error-border">
+                                        <input placeholder="Enter Email" name="email" type="text" onChange={this.onChange} value={this.state.email}/>
+                                      </div>
+                                      {this.state.errors.email}
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className="rs-form-group has-addon">
+                                  <span className="addon"><i className="fa fa-lock" /></span>
+                                  <div className={this.state.errors.password ? "input-error" : ''}>
+                                    <div className="rs-input-container">
+                                      <div className="error-border">
+                                        <input id="passwordInput" placeholder="Enter Password" name="password" type="password" onChange={this.onChange} value={this.state.password}/>
+                                      </div>
+                                      {this.state.errors.password}
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className="rs-form-group has-addon">
+                                  <span className="addon"><i className="fa fa-lock" /></span>
+                                  <div className={this.state.errors.confirmPassword ? "input-error" : ''}>
+                                    <div className="rs-input-container">
+                                      <div className="error-border">
+                                        <input placeholder="Confirm Password" name="confirmPassword" type="password" onChange={this.onChange} value={this.state.confirmPassword}/>
+                                      </div>
+                                      {this.state.errors.confirmPassword}
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className="rs-form-group">
+                                  <DropdownList items={userInterests} title='I am interested in:' onChange={this.onChange} name="userInterestId"/>
+                                </div>
+                                <div className="rs-form-group">
+                                  <DropdownList items={userRefs} title="How did you hear about us?" onChange={this.onChange} name="userRefId"/>
+                                </div>
+                                {this.renderErrors()}
+                                <div className="rs-form-group text-center termsContainer">
+                                  <small>
+                                    By clicking Sign Up or registering, I agree to
+                                    <a href="#" target="_blank"> ITERSimple&#44;s Terms &amp; Conditions</a>
+                                  </small>
+                                </div>
+                              </ActiveForm>
+                              <div className="pad-top-10 checkbox-container">
+                                <input type="checkbox"/>
+                                <label><span className="ie-radio-fix">    Keep me logged in
+                              </span></label></div>
+                            </div>
+                            <div>
+                              <div className="text-center">
+                                Already a member? <strong><Link to="/login">Sign In</Link></strong>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      <div className="col-sm-6">
-                        <input placeholder="Last Name" name="lastName" type="text" onChange={this.onChange} value={this.state.lastName}/>
-                      </div>
                     </div>
-                    <div className="rs-form-group full-size">
-                      <input placeholder="Phone" name="phone" type="tel" autoComplete="off" onChange={this.onChange} value={this.state.phone}/>
-                    </div>
-                    <div>
-                      <input placeholder="Enter Email" name="email" type="text" onChange={this.onChange} value={this.state.email}/>
-                    </div>
-                    <div >
-                      <input id="passwordInput" placeholder="Enter Password" name="password" type="password" onChange={this.onChange} value={this.state.Password}/>
-                    </div>
-                    <div>
-                      <input placeholder="Confirm Password" name="confirmPassword" type="password" onChange={this.onChange} value={this.state.confirmPassword}/>
-                    </div>
-                    <div className="rs-form-group">
-                      <DropdownList items={userInterests} title='I am interested in:' onChange={this.onChange} name="userInterestId"/>
-                    </div>
-                    <div className="rs-form-group">
-                      <DropdownList items={userRefs} title="How did you hear about us?" onChange={this.onChange} name="userRefId"/>
-                    </div>
-                    <div>
-                      <small>
-                        By clicking Sign Up or registering, I agree to
-                        <a href="#" target="_blank"> ITERSimple's Terms &amp; Conditions</a>
-                      </small>
-                    </div>
-                  </ActiveForm>
-                  <div className="rs-form-group">
-                    <input type="checkbox"/>
-                    <label htmlFor="isPersistent" className="terms">Keep me logged in</label>
-                  </div>
-                </div>
-                <div>
-                  <div className="text-center">
-                    Already a member? <strong><Link to="/login">Sign In</Link></strong>
                   </div>
                 </div>
               </div>
@@ -204,8 +292,6 @@ class Signup extends Component {
           </div>
         </div>
       </div>
-      </div>
-        </div></div></div></div></div>
     );
   }
 }
@@ -213,7 +299,8 @@ class Signup extends Component {
 function mapStateToProps(state) {
   return {
     interests: state.entities.userInterests,
-    refs: state.entities.userRefs
+    refs: state.entities.userRefs,
+    errors: state.authentication.errors
   }
 }
 
