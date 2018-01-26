@@ -9,7 +9,7 @@ class AuthenticationController < ApplicationController
       session[:user_token] = command.result
       render_success(:ok, user, meta: { auth_token: command.result })
     else
-      render_error(:unauthorized, [ title: command.errors ])
+      render_error(:unauthorized, [ title: command.errors.values.flatten.join(', ') ])
     end
   end
 
