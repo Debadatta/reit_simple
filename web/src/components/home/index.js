@@ -14,8 +14,6 @@ import HomeSingleFamilyInstruct from './HomeSingleFamilyInstruct';
 import HomeCustomerStory from './HomeCustomerStory';
 import HomeAdvisors from './HomeAdvisors';
 
-import Login from '../authentication/Login';
-import Signup from '../authentication/Signup';
 import { headerTransparent } from '../../actions/index';
 
 class Home extends React.Component {

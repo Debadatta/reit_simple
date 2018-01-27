@@ -74,11 +74,7 @@ export default class Header extends Component {
                     <i className="fa fa-angle-down" />
                   </a>
                   <ul className={`dropdown-menu dropdown-menu-left`}>
-                    <li><a href="/how-it-works">How It Works</a></li>
-                    <li><a href="#">Portfolio Investments</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Markets</a></li>
-                    <li><a href="#">Financing</a></li>
+                    <li><Link to="/how-it-works">How It Works</Link></li>
                   </ul>
                 </li>
                 <li className={`dropdown ${this.checkMenuDropdownShow('aboutUs')}`} onClick={this.setCurrentDropdown.bind(this, 'aboutUs')} ref={ref => this.aboutUsDom = ref}>

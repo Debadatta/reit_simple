@@ -11,6 +11,7 @@ import Login from '../authentication/Login';
 import Home from '../home';
 import Signup from '../authentication/Signup';
 import AboutUs from '../aboutUs';
+import Learn from '../learn';
 
 class Layout extends React.Component {
   render() {
@@ -24,6 +25,7 @@ class Layout extends React.Component {
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             <Route path="/about-us" component={AboutUs} />
+            <Route path="/how-it-works" component={Learn} />
           </Switch>
           <Footer />
         </div>

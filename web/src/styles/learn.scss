@@ -1,0 +1,374 @@
+.body-content {
+  padding-bottom: 40px;
+  min-height: 500px;
+}
+
+.how-it-works {
+  .wrapper-hero-steps {
+    margin-top: unset;
+    padding-top: unset;
+    background: unset;
+  }
+
+  .hero {
+    margin-top: -70px;
+    padding-top: 120px;
+    min-height: 420px;
+    background-color: #F4F4F4;
+    background-image: url(https://roofstock-cdn3.azureedge.net/rs-apps/assets/images/how-it-works/hero-how-it-works-desktop-589d12b3b804a34d66d2b68d61ea5faf.jpg);
+    background-repeat: no-repeat;
+    background-position: calc(50% + 450px) top;
+    background-size: auto 100%;
+
+    h1 {
+      margin: 0 0 20px;
+      font: 400 40px/50px Muli,sans-serif;
+    }
+  }
+
+  .container, .container-fluid {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .steps {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+    display: flex;
+
+    ol {
+      position: relative;
+      margin: auto;
+
+      &:before {
+        top: 27px;
+        content: '';
+        display: block;
+        width: 1px;
+        height: 100%;
+        background-color: #DBDBDB;
+        position: absolute;
+        left: 32px;
+        z-index: 1;
+      }
+    }
+
+    li {
+      display: inline-block;
+      position: relative;
+      z-index: 2;
+    }
+
+    li+li {
+      margin-left: 58px;
+    }
+
+    a {
+      display: inline-block;
+      color: #777;
+      text-decoration: none;
+      background-color: transparent;
+    }
+
+    img {
+      width: 55px;
+    }
+
+    h3 {
+      margin-top: 10px;
+      padding: 0;
+    }
+  }
+
+  .cash-or-finance {
+    h2 {
+      margin: 30px 0;
+    }
+
+    h2.h2-pill {
+      text-align: center;
+
+      span {
+        display: inline-block;
+        padding: 8px 24px;
+        color: #FF9651;
+        font: 400 14px/22px Muli,sans-serif;
+        background-color: rgba(255,224,204,.4);
+        border-radius: 20px;
+      }
+    }
+
+    ul {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+    }
+
+    li+li {
+      margin: 0 0 0 30px;
+    }
+
+    hr {
+      margin: 30px 0;
+    }
+  }
+
+  .pad-b-30-50 {
+    padding-bottom: 50px;
+  }
+
+  .pad-t-b-30-50 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .wrapper-copy {
+    max-width: 500px;
+
+    h2 {
+      font: 400 26px/36px Muli,sans-serif;
+    }
+  }
+
+  p {
+    margin: 0 0 20px;
+  }
+
+  #step1 {
+    .wrapper-img {
+      margin: 0;
+      max-width: 300px;
+      position: relative;
+    }
+
+    .smaller.border-left {
+      position: absolute;
+      left: calc(100% + 20px);
+      bottom: 0;
+      padding-left: 15px;
+      margin: 20px auto;
+      width: 245px;
+      border-color: #FF9651;
+      border-width: 2px;
+    }
+
+    .border-left, .separator-bar {
+      border-left: 1px solid #DBDBDB;
+    }
+  }
+
+  #step2 {
+    .wrapper-img {
+      max-width: 320px;
+    }
+  }
+
+  #step3 {
+    .wrapper-img {
+      margin: 20px auto 0;
+      width: 260px;
+      position: relative;
+
+      &:first-child {
+        margin-left: 0;
+        z-index: 2;
+      }
+
+      &:last-child {
+        margin-right: 0;
+        z-index: 1;
+        margin-top: -75px;
+      }
+    }
+
+    .small {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+
+  .earn {
+    ul {
+      font: 400 18px/26px Muli,sans-serif;
+    }
+
+    td {
+      padding-top: 15px;
+      padding-bottom: 15px;
+
+      img {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  h4.underline {
+    &:after {
+      background-color: #FF9651;
+      content: '';
+      display: block;
+      margin-top: 4px;
+      height: 4px;
+      border-radius: 2px;
+    }
+
+    span {
+      padding: 0 10px;
+    }
+  }
+
+  h4.underline.orange {
+    &:after {
+      background-color: #FF9651;
+    }
+  }
+
+  h4.underline.purple {
+    &:after {
+      background-color: #7D78D1;
+    }
+  }
+
+  h2 {
+    margin: 0 0 15px;
+  }
+}
+
+.list-style-check-purple {
+  padding: 0;
+  list-style: none;
+
+  li {
+    padding-left: 35px;
+    background: url(https://roofstock-cdn3.azureedge.net/rs-apps/assets/images/how-it-works/icon-check-purple-0342374107c9348dbc777259c8411022.svg) left top no-repeat;
+  }
+
+  li+li {
+    margin-top: 15px;
+  }
+}
+
+.list-style-square-orange {
+  padding: 0;
+  list-style: none;
+
+  li {
+    padding-left: 20px;
+    position: relative;
+
+    &:before {
+      content: '';
+      display: block;
+      width: 7px;
+      height: 7px;
+      background-color: #F17422;
+      border-radius: 2px;
+      position: absolute;
+      left: 0;
+      top: 7px;
+    }
+  }
+
+  li+li {
+    margin-top: 15px;
+  }
+}
+
+.list-style-check-purple.small, small {
+  font: 400 16px/22px Muli,sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+.list-style-box {
+  .visual-wrapper {
+    margin-right: 20px;
+  }
+
+  li {
+    padding: 20px 15px;
+    background-color: #fff;
+    border: 1px solid #DBDBDB;
+    border-radius: 4px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  h4 {
+    margin: 0;
+  }
+
+  p {
+    margin: 6px 0 0;
+    color: #767676;
+  }
+
+  .small {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+.top-30 {
+  top: 30px;
+}
+
+ol {
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.h4, .h5, .h6, h4, h5, h6 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.h4, h4 {
+  font: 400 20px/30px Muli,sans-serif !important;
+}
+
+.body-content.adjust-body.adjust-no-submenu {
+  padding-top: 70px;
+}
+
+header .navbar-rs.transparent {
+  background-color: transparent !important;
+}
+
+@media (min-width: 1350px) {
+  .container {
+    width: 1320px !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .col-xl-4 {
+    width: 33.33333%;
+  }
+}
+
+@media (min-width: 768px) {
+  .how-it-works .steps ol::before {
+    width: 100%;
+    height: 1px;
+    left: unset;
+  }
+}
