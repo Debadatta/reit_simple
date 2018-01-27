@@ -75,10 +75,10 @@ export default class Header extends Component {
                   </a>
                   <ul className={`dropdown-menu dropdown-menu-left`}>
                     <li><a href="/how-it-works">How It Works</a></li>
-                    <li><a href="/portfolios/overview">Portfolio Investments</a></li>
-                    <li><a href="https://learn.roofstock.com/blog">Blog</a></li>
-                    <li><a href="/investment-property/roofstock-coverage">Markets</a></li>
-                    <li><a href="/financing">Financing</a></li>
+                    <li><a href="#">Portfolio Investments</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Markets</a></li>
+                    <li><a href="#">Financing</a></li>
                   </ul>
                 </li>
                 <li className={`dropdown ${this.checkMenuDropdownShow('aboutUs')}`} onClick={this.setCurrentDropdown.bind(this, 'aboutUs')} ref={ref => this.aboutUsDom = ref}>
@@ -89,12 +89,10 @@ export default class Header extends Component {
                   <ul aria-labelledby="list-of-about-us" className={`dropdown-menu dropdown-menu-left ${this.checkMenuDropdownShow('aboutUs')}`}>
                     <li><Link to="/about-us">What We Do</Link></li>
                     <li><Link to="/about-us#team">Our Team</Link></li>
-                    <li><Link to="/about-us/press">Press</Link></li>
-                    <li className="last"><Link to="/reviews">Reviews</Link></li>
-                    <li><Link to="/about-us/partners">Partners</Link></li>
+                    <li><Link to="/about-us#story">Our Story</Link></li>
                   </ul>
                 </li>
-        {this.props.currentUser ? <li><a href="javascript:void(0);" className="top-menu-item btn-sm" onClick={this.props.logout}>Logout</a></li> : <li><Link to="/login" className="top-menu-item">Log In</Link></li>}
+                {this.props.currentUser ? <li><a href="javascript:void(0);" className="top-menu-item btn-sm" onClick={this.props.logout}>Logout</a></li> : <li><Link to="/login" className="top-menu-item">Log In</Link></li>}
                 {this.props.currentUser ? null : <li><Link to="/signup" className="btn-sm">Sign Up</Link></li>}
               </ul>
             </div>

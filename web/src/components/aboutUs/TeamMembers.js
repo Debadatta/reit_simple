@@ -1,13 +1,13 @@
 import React from 'react';
 import members from "../../staticData/teamMembers";
-import directors from "../../staticData/directors";
+import operators from "../../staticData/operators";
 const teamMembers = Object.values(members);
-const teamDirectors = Object.values(directors);
+const teamOperators = Object.values(operators);
 
 export default class AboutUs extends React.PureComponent {
   state = {
     member: null,
-    director: null,
+    operator: null,
     memberStyle: {},
     directorStyle: {}
   }
@@ -28,9 +28,10 @@ export default class AboutUs extends React.PureComponent {
     return (
       <div className="member" key={`${type}_${member.id}`}>
         <div className="member-info" onClick={this.expandBio.bind(this, member.id, type)}>
-          <img width={120} height={120} src={member.image} className="attachment-thumbnail size-thumbnail" alt="GaBeasley" />
+          <img width={120} height={120} src={member.image} className="attachment-thumbnail size-thumbnail" alt={member.name} />
           {member.name}
           <span>{member.position}</span>
+          <span><i>{member.specialization}</i></span>
         </div>
         <div className={`member-bio ${this.state[type] === `${type}_${member.id}` ? ' expand' : ''}`} style={this.state[`${type}Style`]}>
           <span className="close" onClick={this.hideBio.bind(this, type)}>Close</span>
@@ -47,8 +48,8 @@ export default class AboutUs extends React.PureComponent {
         <div className="container">
           <h2>Our Leadership Team</h2>
           {teamMembers.map(member => this.renderMember(member, 'member'))}
-          <h2>Meet Our Board of Directors</h2>
-          {teamDirectors.map(director => this.renderMember(director, 'director'))}
+          <h2>Our Operations Team</h2>
+          {teamOperators.map(operator => this.renderMember(operator, 'operator'))}
           </div>
         </section>
     )

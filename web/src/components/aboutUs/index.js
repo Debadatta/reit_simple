@@ -1,8 +1,6 @@
 import React from 'react';
 import TeamMembers from './TeamMembers';
-import Investors from './Investors';
-import PressNews from './PressNews';
-import Careers from './Careers';
+import OurStory from './OurStory';
 import FooterMarkets from '../common/FooterMarkets';
 
 import '../../styles/aboutUs.css';
@@ -16,21 +14,18 @@ export default class AboutUs extends React.PureComponent {
     this.scrollToHashId()
   }
 
-  // emulate URL anchor page scroll functionality
   scrollToHashId () {
     const removeHash = this.removeHash
-    // get URL hash (minus the hash mark)
     const hash = window.location.hash.substring(1)
 
-    // if there's a hash, scroll to that ID
     if (hash && hash.length) {
-      // setTimeout and requestAnimationFrame help ensure a true DOM repaint/reflow before we try to scroll
-      // - reference: http://stackoverflow.com/a/34999925
       setTimeout(
         window.requestAnimationFrame(function () {
           const el = document.getElementById(hash)
-          el.scrollIntoView()
-          // clean up the hash, so we don't scroll on every prop update
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+            window.scrollBy(0, -100);
+          }
           removeHash()
         }),
         0
@@ -38,24 +33,19 @@ export default class AboutUs extends React.PureComponent {
     }
   }
 
-  // borrowed from http://stackoverflow.com/questions/1397329/how-to-remove-the-hash-from-window-location-with-javascript-without-page-refresh/5298684#5298684
   removeHash () {
     const loc = window.location
     const hist = window.history
 
-    // use modern browser history API
     if (hist && 'pushState' in hist) {
       hist.replaceState('', document.title, loc.pathname + loc.search)
-    // fallback for older browsers
     } else {
-      // prevent scrolling by storing the page's current scroll offset
       const scrollV = document.body.scrollTop
       const scrollH = document.body.scrollLeft
 
       loc.hash = ''
 
-      // restore the scroll offset, should be flicker free
-      document.body.scrollTop = scrollV
+      document.body.scrollTop = scrollV;
       document.body.scrollLeft = scrollH
     }
   }
@@ -74,8 +64,7 @@ export default class AboutUs extends React.PureComponent {
         <ul className="container">
           <li><a href="#about">About</a></li>
           <li><a href="#team">Our Team</a></li>
-          <li><a href="#news">Press</a></li>
-          <li><a href="#careers">Careers</a></li>
+          <li><a href="#story">Our Story</a></li>
         </ul>
       </div>
     )
@@ -89,20 +78,15 @@ export default class AboutUs extends React.PureComponent {
           {this.renderMenuList()}
           <article id="about" style={{background: 'url("") no-repeat left top, url("") no-repeat right top', backgroundSize: 'auto 100%, auto 100%'}}>
             <div className="container">
-              <h2>Innovation Built on Experience</h2>
-              <p>The single-family rental sector has stuck to the old way of doing things for far too long – it’s an industry ripe for disruption. REITSimple is leading the way.</p>
-              <p>REITSimple is the first online marketplace created exclusively for investing in leased single-family rental homes that generate cash flow day one. Created by investors for investors, REITSimple provides research, analytics, and insights to evaluate and purchase independently certified properties.</p>
-              <p>REITSimple turns the old way of investing on its head, bringing transparency and efficiency to create a better way to transact. Buyers access vetted homes with current cash flow. Sellers market homes without lost income or disrupting tenants. Neighborhoods avoid signs in yards which could depress values. It’s win-win all around.</p>
-              <p>The most revolutionary aspect of the REITSimple marketplace is enabling investors to treat their real estate investments more like stock portfolios, focusing on asset allocation, rather than dealing with the hassles of researching and buying vacant homes that need to be repaired and leased. This creates significant time and cost savings for all parties.</p>
-              <p>The leadership team at REITSimple brings together some of the top players from the single-family rental industry under one “roof” (pun intended), including a top principal investor, the CEO of one of the largest public single-family rental companies, the leading investment banker in the space and one of the sector’s most active financiers. Add some of Silicon Valley’s top tech talent and investors, and you have REITSimple!</p>
+              <h2>New Generation Investing bolstered by Technology</h2>
+              <p>The residential real estate investing model has been fragmented for way too long. Investors new to real estate investing have to mull around in the dark, searching the web trying to find nuggets of truth about the process for sourcing and completing real investment grade properties. Charlatans are all over spouting how you can make money with no money down. There is too much noise and not enough clarity – it’s an industry ripe for disruption. REITSimple has made the dream a reality.</p>
+              <p>REITSimple is the first online marketplace created to connecting individual investors with all points along the real estate investment lifecycle. It does this while putting its money where its mouth is and investing in these deals alongside the individual investor. In short - REITSimple is created by investors for investors. The team understands the fear and risk points throughout the entire REI lifecycle. REITSimple provides inventory, research, analytics, and insights to evaluate and make buying decisions on independently certified investment grade single family properties. It continues this process after the purchase by providing clarity to the investor through online access to live financial and project management tools and analytics.</p>
+              <p>REITSimple turns the old way of investing on its head, bringing transparency and efficiency to create a better way to transact. Buyers have access to vetted real estate investment deals that REITSimple is willing to co-invest alongside, in a joint-venture limited-partnership. REITSimple finds the deals, acquires the deals, manages the rehab and dispositions on the joint-ventures behalf. Investors are updated regularly, via online access, and can visit the sites while work is in progress.</p>
+              <p>The most revolutionary piece of the REITSimple model is that investors are connected to lenders that are experienced and understanding of the real estate investing flip model. These banks also understand the experience and management value of the REITSimple team. So individual investors with limited experience and knowledge and can invest with only 20% of the total investment project. This allows investors to be able to access their 401k, IRA, or other qualified funds to use as investments in these deals.</p>
             </div>
           </article>
           <TeamMembers/>
-          <Investors/>
-          <PressNews/>
-          <Careers/>
         </main>
-        <FooterMarkets/>
       </div>
     )
   }
