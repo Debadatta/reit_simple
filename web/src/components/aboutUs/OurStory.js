@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Investors extends React.PureComponent {
+export default class OurStory extends React.PureComponent {
   render() {
     return (
       <section className="logo-grid">
