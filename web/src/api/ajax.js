@@ -11,7 +11,7 @@ export function client_url(uri) {
     if (process.env.NODE_ENV === 'development') {
       // use hardcoded endpoint if present
       if (process.env.REACT_APP_API_HOST) {
-        return `${process.env.REACT_APP_API_HOST}/spapi${uriPath}`;
+        return `${process.env.REACT_APP_API_HOST}/${uriPath}`;
       }
 
       const hostname = window.location.hostname;
@@ -19,7 +19,7 @@ export function client_url(uri) {
     }
   }
 
-  return `/spapi${uriPath}`;
+  return `/${uriPath}`;
 }
 
 function getDefaultOptions() {
