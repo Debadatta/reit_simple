@@ -4,8 +4,6 @@ import { Provider } from 'react-redux';
 import { IntlProvider } from 'react-intl';
 import { Route } from 'react-router-dom';
 
-import { homepage } from './package.json';
-
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -25,7 +23,7 @@ const store = createStore(
 ReactDOM.render(
   <Provider store={store}>
     <IntlProvider locale="en-US">
-      <BrowserRouter basename={homepage}>
+      <BrowserRouter>
         <Route path="/" component={App} />
       </BrowserRouter>
     </IntlProvider>
