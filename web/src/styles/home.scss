@@ -9253,7 +9253,7 @@ cite {
 }
 
 .accent-bar-orange::before {
-  background-color: #ff9651;
+  background-color: rgb(51, 122, 183);
 }
 
 .margin-t-20 {
@@ -9454,11 +9454,12 @@ a.link-to-details {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  width: 265px;
+  width: 315px;
   height: 346px;
   background-color: #fff;
   border: 1px solid #dbdbdb;
   border-radius: 4px;
+
   .embed-responsive {
     height: 186px;
     border-top-left-radius: 4px;
@@ -9470,6 +9471,7 @@ a.link-to-details {
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
+
     .property-img {
       width: auto;
       max-height: 100%;
@@ -9482,12 +9484,12 @@ a.link-to-details {
       width: 100%;
       color: #fff;
       text-align: left;
-      background-color: rgba(0, 0, 0, 0.3);
+      background-color: grey;
       .price {
-        font: 300 (26px / 1) "Muli";
+        font: 300 (20px / 1) "Muli";
       }
       .details {
-        font: normal (13px / 16px) "Muli";
+        font: normal (14px) "Muli";
       }
     }
   }
@@ -9561,7 +9563,7 @@ a.link-to-details {
 @media (min-width: 992px) {
   .hero {
     padding: 130px 0 60px;
-    background-image: url(https://roofstock-cdn.azureedge.net/assets/images/homepage-201710a/bg-img-hero.jpg);
+    background-image: url(http://www.reraconsultants.com/wp-content/uploads/2017/05/475902405_1.jpg);
     background-repeat: no-repeat;
     background-position: right -150px bottom -70px;
     background-size: auto 100%;

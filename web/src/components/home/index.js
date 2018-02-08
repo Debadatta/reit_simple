@@ -33,9 +33,11 @@ class Home extends React.Component {
   autoShowHeaderOnScroll = () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     if (scrollTop > 50) {
-      document.querySelector('.home header .navbar').classList.remove('transparent')
+      document.querySelector('.home header .navbar').classList.remove('transparent');
+      document.querySelector('.home header .navbar .navbar-brand').style.color = "lightgray";
     } else {
-      document.querySelector('.home header .navbar').classList.add('transparent')
+      document.querySelector('.home header .navbar').classList.add('transparent');
+      document.querySelector('.home header .navbar .navbar-brand').style.color = "#337ab7";
     }
   }
 
@@ -44,16 +46,11 @@ class Home extends React.Component {
         <div className="home3">
           <HomeAds/>
           <HomeInstruct/>
-          <HomePromo/>
           <HomeVideo/>
           <HomeProperty/>
           <HomeMarketingStrategyView/>
-          <HomePressView/>
-          <HomeInvestmentView/>
           <HomeServiceView/>
           <HomeSingleFamilyInstruct/>
-          <HomeCustomerStory/>
-          <HomeAdvisors/>
         </div>
     );
   }
