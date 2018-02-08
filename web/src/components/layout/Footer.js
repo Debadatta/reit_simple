@@ -19,7 +19,7 @@ const Footer = () => (
           </ul>
         </div>
         <div className="copyright">
-          <Link to="/privacy">Privacy Policy</Link> &nbsp; | &nbsp; <Link to="/terms">Terms &amp; Conditions</Link> &nbsp; | &nbsp; <Link to="/">ReitSimple, Inc.</Link> &nbsp; | &nbsp; <a href="mailto:realty@roofstock.com">Reitsimple Realty LLC</a> &nbsp; | &nbsp; <a>© 2018 Reitsimple, Inc.</a>
+          <Link to="/privacy">Privacy Policy</Link> &nbsp; | &nbsp; <Link to="/terms">Terms &amp; Conditions</Link> &nbsp; | &nbsp; <Link to="/">ReitSimple, Inc.</Link> &nbsp; | &nbsp; <a>© 2018 Reitsimple, Inc.</a>
         </div>
       </div>
     </div>

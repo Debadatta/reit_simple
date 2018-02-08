@@ -49,7 +49,7 @@ export default class Header extends Component {
                 <span className="icon-bar" />
                 <span className="icon-bar" />
               </button>
-              <Link to="/" className="navbar-brand" style={{color: 'blue', fontWeight: 'bold', fontSize: 28}}>
+              <Link to="/" className="navbar-brand" style={{color: "#337ab7", fontWeight: 'bold', fontSize: 28}}>
                 REITSimple
               </Link>
               <ul className="nav navbar-nav visible-xs visible-sm pull-right">

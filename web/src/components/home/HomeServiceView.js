@@ -13,7 +13,7 @@ export default class HomeServiceView extends React.Component {
                 </h2>
                 <div className="hidden-xs">
                   <p>
-                    Our team is here for you all the way. We set you up with a vetted local property manager, and continue to work on your behalf to help everything go smoothly.
+                    Our team is here for you all the way. We set you up with a “Customer Delight Officer”, and continue to work on your behalf to help everything go smoothly.
                   </p>
                 </div>
               </div>
@@ -41,7 +41,7 @@ export default class HomeServiceView extends React.Component {
                     <h4>Vetted Partners</h4>
                     <p>
                       <small>
-                        Choose top providers for property management, lending &amp; insurance.
+                        Choose top providers for Contractors, lending &amp; insurance.
                       </small>
                     </p>
                   </div>
@@ -54,7 +54,7 @@ export default class HomeServiceView extends React.Component {
                     <h4>Long-term support</h4>
                     <p>
                       <small>
-                        From selecting to post-purchase, our advisors are with you every step.
+                        From purchase to disposition, our dedicated officers are with you every step of the way.
                       </small>
                     </p>
                   </div>

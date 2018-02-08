@@ -42,9 +42,9 @@ export default class HomeInstruct extends React.Component {
                       <img src="https://roofstock-cdn.azureedge.net/assets/images/homepage-201710a/buy-online-icon.svg" alt />
                     </td>
                     <td>
-                      <h3>Transact 100% online</h3>
+                      <h3>Transact and Manage 100% online</h3>
                       <br className="visible-sm" />
-                      <p>We make everything easy, including property management.</p>
+                      <p>We make transaction and management hassle free and simple. Manage everything from the comfort of your home.</p>
                     </td>
                   </tr>
                 </tbody></table>

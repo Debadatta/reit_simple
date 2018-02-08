@@ -1,27 +1,10 @@
 import React from 'react';
+import HomeInvestmentView from './HomeInvestmentView';
 
 export default class HomeMarketingStrategyView extends React.Component {
-  render() {
+  renderReview() {
     return (
-      <section className="value-prop-2">
-        <div className="container">
-          <div className="row">
-            <div className="col-sm-6 col-sm-push-6 col-md-5 col-md-push-7">
-              <h2 className="accent-bar-orange">
-                Find the right property with ease
-              </h2>
-              <ul className="list-style-check-orange hidden-xs">
-                <li>Market, neighborhood, and local school insights</li>
-                <li>Interior &amp; exterior inspection reports</li>
-                <li>Property valuation &amp; comparables</li>
-                <li>Tenant payment history &amp; lease details</li>
-                <li>Preliminary title report</li>
-                <li>Major repair cost estimates, if applicable</li>
-                <li>Visualizations of appreciation, income &amp; total returns</li>
-                <li>Detailed financial pro forma &amp; return estimates</li>
-              </ul>
-            </div>
-            <div className="col-sm-6 col-sm-pull-6 col-md-pull-5">
+      <div className="col-sm-6 col-sm-pull-6 col-md-pull-5">
               <ul className="list-style-box">
                 <li onclick="void(0)">
                   <div className="visual-wrapper">
@@ -64,7 +47,29 @@ export default class HomeMarketingStrategyView extends React.Component {
                 </li>
               </ul>
             </div>
-          </div> {/* /.row */}
+    )
+  }
+
+  render() {
+    return (
+      <section className="value-prop-2">
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-6 col-sm-push-6 col-md-5 col-md-push-7">
+              <h2 className="accent-bar-orange" style={{fontSize: "24px"}}>
+                Find the right property with ease
+              </h2>
+              <ul className="list-style-check-orange hidden-xs">
+                <li>Market, neighborhood, and local school insights</li>
+                <li>Interior &amp; exterior inspection reports</li>
+                <li>Property valuation &amp; comparables</li>
+                <li>Preliminary title report</li>
+                <li>Detailed financial pro forma &amp; return estimates</li>
+                <li>Rehab Plan, Cost and Time Estimates</li>
+              </ul>
+            </div>
+            <div className="col-sm-6 col-sm-pull-6 col-md-pull-5"><HomeInvestmentView/></div>
+          </div>
         </div>
       </section>
     )
