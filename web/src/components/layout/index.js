@@ -12,13 +12,14 @@ import Home from '../home';
 import Signup from '../authentication/Signup';
 import AboutUs from '../aboutUs';
 import Learn from '../learn';
+import TermAggrement from '../TermAggrement';
 
 class Layout extends React.Component {
   render() {
     return (
       <div className="main">
         <div className="main-content">
-        <Header history={this.props.history} currentUser={this.props.currentUser} logout={this.props.logout} transperency={this.props.transperency}/>
+        <Header history={this.props.history} currentUser={this.props.currentUser} logout={this.props.logout} transperency={this.props.transperency} location={this.props.location}/>
         <div id="top-nav-filler"></div>
           <Switch>
             <Route path="/" exact={true} component={Home} />
@@ -26,6 +27,7 @@ class Layout extends React.Component {
             <Route path="/signup" component={Signup} />
             <Route path="/about-us" component={AboutUs} />
             <Route path="/how-it-works" component={Learn} />
+            <Route path="/terms" component={TermAggrement} />
           </Switch>
           <Footer />
         </div>
