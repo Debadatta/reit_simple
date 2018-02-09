@@ -49,7 +49,10 @@ class Signup extends Component {
 
     const errors = this.state.errors;
 
-    [{label: "Email", value: 'email'}, {label: "password", value: 'password'}, {label: "First name", value: 'firstName'}, {label: 'Last Name', value: 'lastName'}].forEach(field => {
+    [{label: "Email", value: 'email'},
+     {label: "password", value: 'password'},
+     {label: "First name", value: 'firstName'},
+     {label: 'Last Name', value: 'lastName'}].forEach(field => {
       if (!this.state[field.value]) {
         errors[field.value] = requiredError(this.state[field.value], field.label);
       }
@@ -99,7 +102,7 @@ class Signup extends Component {
                   <td>
                     <img src="https://roofstock-cdn3.azureedge.net/rs-apps/assets/images/illus/Tenant-Occupied-100x80@3x-a1953a95522aee8912cfbbaeb020531d.png" width={100} alt />
                   </td>
-                  <td>Buy and sell tenant-occupied rental houses outside your local market</td>
+                  <td>Buy, fix and flip investment properties from the comfort of your home</td>
                 </tr>
             </tbody></table>
           </div>
@@ -119,7 +122,7 @@ class Signup extends Component {
                   <td>
                     <img src="https://roofstock-cdn3.azureedge.net/rs-apps/assets/images/illus/Property-Manager-100x80@3x-fc2efcd67358fdb918c84c54a55728fc.png" width={100} alt />
                   </td>
-                  <td>Select a trusted local property manager and own without the hassle</td>
+                  <td>Select our trusted partners and transact without hassle</td>
                 </tr>
             </tbody></table>
           </div>
@@ -132,7 +135,7 @@ class Signup extends Component {
         <div className="row">
         <div className="col-md-8 col-md-offset-2">
           <div className="text-center">
-            <h2>Welcome to ITERSimple</h2>
+            <h2>Welcome to REITSimple</h2>
           </div>
         </div>
         </div>
@@ -267,13 +270,13 @@ class Signup extends Component {
                                 <div className="rs-form-group text-center termsContainer">
                                   <small>
                                     By clicking Sign Up or registering, I agree to
-                                    <a href="#" target="_blank"> ITERSimple&#44;s Terms &amp; Conditions</a>
+                                    <Link to="/terms"> REITSimple&#44;s Terms &amp; Conditions</Link>
                                   </small>
                                 </div>
                               </ActiveForm>
                               <div className="pad-top-10 checkbox-container">
                                 <input type="checkbox"/>
-                                <label><span className="ie-radio-fix">    Keep me logged in
+                                <label><span className="ie-radio-fix">Keep me logged in
                               </span></label></div>
                             </div>
                             <div>

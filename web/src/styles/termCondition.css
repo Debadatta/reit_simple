@@ -1,0 +1,24 @@
+.body-content.adjust-body {
+  padding-top: 120px;
+  font-size: 16px;
+  line-height: 18px; }
+
+h3.investment-page-title, h3.page-title {
+  color: #767676;
+  font: 600 16px/22px Muli,sans-serif; }
+
+b {
+  font-weight: 700; }
+
+.sub-menu.hidden-xs.unauthenticated {
+  background-color: #FFF; }
+
+.sub-menu.hidden-xs ul.navbar-nav.pull-left > li > a {
+  color: #A3A2A2;
+  font: 600 14px/22px Muli,sans-serif;
+  text-transform: uppercase;
+  padding: 14px 0 10px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0; }

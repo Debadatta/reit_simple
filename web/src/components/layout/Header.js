@@ -37,6 +37,22 @@ export default class Header extends Component {
     }
   }
 
+  renderSubmenu() {
+    const pathname = this.props.location.pathname;
+    if (pathname.split('/')[1] !== 'terms') return null;
+
+    return (
+      <div className="sub-menu hidden-xs unauthenticated">
+        <div className="container">
+          <ul className="nav navbar-nav pull-left">
+            <li className="hidden-xs"><a id="ember1545" href="/investment-property-marketplace" className="ember-view">Browse Properties</a></li>
+            <li className="hidden-xs"><a id="ember1546" href="/portfolios" className="ember-view">Portfolios</a></li>
+          </ul>
+        </div>
+      </div>
+    )
+  }
+
   render() {
     return (
       <header>
@@ -93,6 +109,7 @@ export default class Header extends Component {
               </ul>
             </div>
           </div>
+          {this.renderSubmenu()}
         </div>
         </div>
       </header>
