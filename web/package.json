@@ -66,8 +66,9 @@
   "scripts": {
     "analyze": "source-map-explorer build/static/js/main.*",
     "build-css": "node-sass src/ -o src/ --quiet",
+    "watch-css": "yarn run build-css && node-sass src/ -o src/ --watch --recursive",
     "start-js": "react-scripts start",
-    "start": "npm-run-all -p start-js",
+    "start": "npm-run-all -p watch-css start-js",
     "build": "yarn run build-css && react-scripts build",
     "build-spapi-token-js": "./obfus src/api/spapiToken.js.src src/api/spapiToken.js",
     "clean-build": "rm -rf src/styles/*.css build/ tmp/",

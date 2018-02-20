@@ -7,7 +7,7 @@ class UserMailer < ApplicationMailer
 
   def reset_notification(user)
     setup_email(user)
-    @url = reset_url(user.reset_code, :host => host)
+    @url = reset_url(user.reset_code)
     @subject = "Password reset link"
     send_email
   end

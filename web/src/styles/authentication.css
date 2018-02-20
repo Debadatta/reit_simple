@@ -111,6 +111,29 @@ div#forgot_password {
   background-color: #F4F4F4;
   border: 1px solid #DBDBDB;
   border-radius: 4px; }
+  div#forgot_password h2 {
+    font: 400 26px/36px Muli,sans-serif;
+    padding-bottom: 20px; }
+  div#forgot_password h3 {
+    font: 600 20px/30px Muli,sans-serif; }
+  div#forgot_password .formContainer {
+    border-right: 1px solid #DBDBDB;
+    padding: 5px 0 20px 50px;
+    min-height: 100%; }
+  div#forgot_password input[type=text], div#forgot_password input[type=email], div#forgot_password input[type=password], div#forgot_password select, div#forgot_password > input {
+    min-width: 90%;
+    max-width: 90%;
+    padding: 0 10px;
+    width: 100%;
+    height: 44px;
+    color: #606060;
+    font: 400 16px/22px Muli,sans-serif;
+    background-color: #fff;
+    border: 1px solid #C4C4C4;
+    border-radius: 4px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none; }
 
 @media (min-width: 1350px) {
   .container {
