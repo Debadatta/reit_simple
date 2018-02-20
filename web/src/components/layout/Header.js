@@ -39,7 +39,7 @@ export default class Header extends Component {
 
   renderSubmenu() {
     const pathname = this.props.location.pathname;
-    if (pathname.split('/')[1] !== 'terms') return null;
+    if (['terms', 'password'].indexOf(pathname.split('/')[1]) === -1) return null;
 
     return (
       <div className="sub-menu hidden-xs unauthenticated">

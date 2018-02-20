@@ -13,6 +13,7 @@ import Signup from '../authentication/Signup';
 import AboutUs from '../aboutUs';
 import Learn from '../learn';
 import TermAggrement from '../TermAggrement';
+import ForgetPassword from '../user/ForgetPassword';
 
 class Layout extends React.Component {
   render() {
@@ -28,6 +29,7 @@ class Layout extends React.Component {
             <Route path="/about-us" component={AboutUs} />
             <Route path="/how-it-works" component={Learn} />
             <Route path="/terms" component={TermAggrement} />
+            <Route path="/password/forgot" component={ForgetPassword} />
           </Switch>
           <Footer />
         </div>
