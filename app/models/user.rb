@@ -7,5 +7,37 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :phone_numbers
 
-  validates_presence_of :first_name, :last_name, :email, :password, :password_confirmation
+  validates_presence_of     :password,                   :if => :password_required?
+  validates_presence_of     :password_confirmation,      :if => :password_required?
+  validates_confirmation_of :password,                   :if => :password_required?
+  validates_length_of       :password, :within => 6..40, :if => :password_required?
+
+  attr_accessor  :password_confirmation
+  attr_reader    :password
+
+  validates_presence_of :first_name, :last_name, :email
+
+  after_save :send_reset_notification, :if => :recently_reset?
+
+  def password_required?
+    !password.blank? || !password_confirmation.blank?
+  end
+
+  def full_name
+    first_name + " " + last_name
+  end
+
+  def create_reset_code
+    @reset = true
+    self.reset_code = Digest::SHA1.hexdigest(Time.now.to_s.split(//).sort_by { rand }.join)
+    save
+  end
+
+  def recently_reset?
+    @reset
+  end
+
+  def send_reset_notification
+    UserMailer.reset_notification(self).deliver_later
+  end
 end

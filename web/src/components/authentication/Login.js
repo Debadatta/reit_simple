@@ -127,13 +127,13 @@ class Login extends Component {
                             <button type="submit" className="btn btn-secondary btn-block">
                               Log In
                             </button>
-                            <div className="pad-top-10"><a href="/password/forgot" className="ember-view">Forgot password?</a></div>
+                            <div className="pad-top-10"><Link to="/password/forgot">Forgot password?</Link></div>
                           </div>
                         </form>
                       </div>
                       <div className="ember-view __authentication__login-or-signup__toggle__534b3">
                         <div className="pad-top-20">
-                          Don&#44;t have an account? <strong><a href="/signup" className="ember-view">Sign Up</a></strong>
+                          Don&#44;t have an account? <strong><Link to="/signup">Sign Up</Link></strong>
                         </div>
                       </div>
                     </div>

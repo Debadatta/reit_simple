@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180118192302) do
+ActiveRecord::Schema.define(version: 20180219161706) do
 
   create_table "countries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -43,13 +43,19 @@ ActiveRecord::Schema.define(version: 20180118192302) do
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "user_interest_id"
     t.integer  "user_ref_id"
     t.integer  "country_id"
+    t.string   "remember_token",            limit: 40
+    t.datetime "remember_token_expires_at"
+    t.string   "reset_code"
+    t.string   "activation_code",           limit: 40
+    t.datetime "activated_at"
+    t.index ["remember_token"], name: "index_users_on_remember_token", unique: true, using: :btree
   end
 
 end
