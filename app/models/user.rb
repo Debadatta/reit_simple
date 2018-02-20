@@ -38,6 +38,6 @@ class User < ApplicationRecord
   end
 
   def send_reset_notification
-    UserMailer.reset_notification(self).deliver_later
+    UserMailer.reset_notification(self).deliver_now
   end
 end

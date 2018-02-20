@@ -18,7 +18,7 @@ class ApplicationMailer < ActionMailer::Base
   end
 
   def email_sender(user)
-    from_name = user.full_name
+    from_name = "REITSimple Admin"
 
     "\"#{from_name}\" <no-reply@reitsimple.com>"
   end
