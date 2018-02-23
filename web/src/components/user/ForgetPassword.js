@@ -81,7 +81,7 @@ class ForgetPassword extends React.Component {
     return (
       <section className="body-content adjust-body container">
         <div className="row">
-          <div id="forgot_password" className="col-xs-10 col-xs-offset-1 col-sm-12 col-md-9 col-md-offset-2 col-lg-8">
+          <div id="forgot_password" className="password col-xs-10 col-xs-offset-1 col-sm-12 col-md-9 col-md-offset-2 col-lg-8">
             {this.renderBody()}
           </div>
         </div>
