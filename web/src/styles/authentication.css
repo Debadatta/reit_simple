@@ -106,23 +106,19 @@
     padding-left: 0;
     padding-right: 0; }
 
-div#forgot_password {
+.password {
   margin-top: 40px;
   background-color: #F4F4F4;
   border: 1px solid #DBDBDB;
   border-radius: 4px; }
-  div#forgot_password h2 {
+  .password h2 {
     font: 400 26px/36px Muli,sans-serif;
     padding-bottom: 20px; }
-  div#forgot_password h3 {
+  .password h3 {
     font: 600 20px/30px Muli,sans-serif; }
-  div#forgot_password .formContainer {
-    border-right: 1px solid #DBDBDB;
-    padding: 5px 0 20px 50px;
-    min-height: 100%; }
-  div#forgot_password input[type=text], div#forgot_password input[type=email], div#forgot_password input[type=password], div#forgot_password select, div#forgot_password > input {
-    min-width: 90%;
-    max-width: 90%;
+  .password input[type=text], .password input[type=email], .password input[type=password], .password select {
+    min-width: 90% !important;
+    max-width: 90% !important;
     padding: 0 10px;
     width: 100%;
     height: 44px;
@@ -134,6 +130,51 @@ div#forgot_password {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none; }
+  .password .check {
+    color: #605CA8;
+    margin-left: 5px; }
+  .password label.terms {
+    vertical-align: middle;
+    display: inline-block;
+    font-weight: 400; }
+  .password .rs-form-group > input {
+    min-width: 90% !important;
+    max-width: 90% !important; }
+
+div#forgot_password .formContainer {
+  border-right: 1px solid #DBDBDB;
+  padding: 5px 0 20px 50px;
+  min-height: 100%; }
+
+#reset_password .formContainer {
+  border-right: 1px solid #DBDBDB;
+  padding: 5px 0 20px 50px; }
+
+#reset_password label.accountInfo {
+  display: inline-block;
+  padding: 0;
+  margin: 0 0 10px; }
+
+#reset_password .infoContainer {
+  padding-top: 5px; }
+  #reset_password .infoContainer hr {
+    border: 1px solid #DBDBDB;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    width: 80%;
+    text-align: center; }
+
+#reset_password .buttonContainer {
+  margin-left: 15px;
+  margin-top: 5px; }
+
+#reset_password .btn.btn-primary {
+  color: #fff;
+  background-color: #F17422;
+  border-color: #F17422; }
+  #reset_password .btn.btn-primary:hover {
+    background-color: #f38c48;
+    border-color: #f38c48; }
 
 @media (min-width: 1350px) {
   .container {

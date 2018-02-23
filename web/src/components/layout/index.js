@@ -14,6 +14,7 @@ import AboutUs from '../aboutUs';
 import Learn from '../learn';
 import TermAggrement from '../TermAggrement';
 import ForgetPassword from '../user/ForgetPassword';
+import ResetPassword from '../user/ResetPassword';
 
 class Layout extends React.Component {
   render() {
@@ -30,6 +31,7 @@ class Layout extends React.Component {
             <Route path="/how-it-works" component={Learn} />
             <Route path="/terms" component={TermAggrement} />
             <Route path="/password/forgot" component={ForgetPassword} />
+            <Route path="/password/reset/:token" component={ResetPassword} />
           </Switch>
           <Footer />
         </div>

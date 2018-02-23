@@ -9,6 +9,7 @@ import Layout from './layout';
 import 'react-dates/lib/css/_datepicker.css';
 import '../styles/common.css';
 import '../styles/home.css';
+import '../styles/fontAwsome.css';
 
 import { logout, loadCurrentUser } from '../actions/authentication';
 import { headerTransparent } from '../actions/index';
