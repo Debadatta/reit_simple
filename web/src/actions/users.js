@@ -2,7 +2,11 @@ import { createAction } from 'redux-actions';
 
 import {
   PASSWORD_RESET_LINK_SEND_SUCCESS,
-  PASSWORD_RESET_LINK_SEND_FAILURE
+  PASSWORD_RESET_LINK_SEND_FAILURE,
+  RESET_PASSWORD_REQUEST_SUCCESS,
+  RESET_PASSWORD_REQUEST_FAILURE,
+  RESET_PASSWORD_TOKEN_INFO_FAILURE,
+  RESET_PASSWORD_TOKEN_INFO_SUCCESS
 } from '../constants/actionTypes';
 
 import * as Users from '../api/users';
@@ -15,5 +19,27 @@ export function sendPasswordResetLink(emailId) {
     return Users.sendPasswordResetLink(emailId)
       .then(data => dispatch(passwordResetLinkSendSuccess(data)))
       .catch(error => dispatch(passwordResetLinkSendFailure(error)));
+  };
+}
+
+const resetPasswordSuccess = createAction(RESET_PASSWORD_REQUEST_SUCCESS);
+const resetPasswordFailure = createAction(RESET_PASSWORD_REQUEST_FAILURE);
+
+export function resetPasswordRequest(params) {
+  return dispatch => {
+    return Users.resetPasswordRequest(params)
+      .then(data => dispatch(resetPasswordSuccess(data)))
+      .catch(error => dispatch(resetPasswordFailure(error)));
+  };
+}
+
+const fetchResetPasswordUserInfoSuccess = createAction(RESET_PASSWORD_TOKEN_INFO_SUCCESS);
+const fetchResetPasswordUserInfoFailure = createAction(RESET_PASSWORD_TOKEN_INFO_FAILURE);
+
+export function fetchResetPasswordUserInfo(token) {
+  return dispatch => {
+    return Users.fetchResetPasswordUserInfo(token)
+      .then(data => dispatch(fetchResetPasswordUserInfoSuccess(data)))
+      .catch(error => dispatch(fetchResetPasswordUserInfoFailure(error)));
   };
 }

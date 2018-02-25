@@ -33,6 +33,11 @@ class User < ApplicationRecord
     save
   end
 
+  def delete_reset_code
+    self.attributes = {:reset_code => nil}
+    save(:validate => false)
+  end
+
   def recently_reset?
     @reset
   end
