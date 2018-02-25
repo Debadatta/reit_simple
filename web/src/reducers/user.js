@@ -1,7 +1,6 @@
 import {
   PASSWORD_RESET_LINK_SEND_SUCCESS,
   PASSWORD_RESET_LINK_SEND_FAILURE,
-  USERS_HIDE_FLASH_MESSAGE,
   SETUP_USER_SUCCESS,
   SETUP_USER_FAILURE,
   ACTIVATE_USER_REQUEST_SUCCESS,
@@ -31,8 +30,6 @@ export default function user(state = { id: null, errors: null, message: null }, 
       return { ...state, errors: null };
     case RESET_PASSWORD_REQUEST_FAILURE:
       return { ...state, errors: action.payload.response.errors };
-    case USERS_HIDE_FLASH_MESSAGE:
-      return { ...state, message: null };
     case ADD_NEW_FIRM_USER:
     case REQUEST_USER_UPDATE:
       return { ...state, processing: true, errors: null, message: null };

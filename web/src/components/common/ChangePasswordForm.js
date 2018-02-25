@@ -10,28 +10,31 @@ export default class ChangePasswordForm extends Component {
         </h2>
         <div>
           <label className="accountInfo">Account Information</label>
-          <form id="passwordForm" data-ember-action={1745}>
+          <form id="passwordForm" onSubmit={this.props.handleSubmit}>
             <div className="rs-form-group" style={{whiteSpace: 'nowrap'}}>
-              <input id="ember1755" disabled type="text"/>
+              <input disabled type="text" value={this.props.name}/>
               <i className="fa fa-check check" />
             </div>
             <div className="rs-form-group" style={{whiteSpace: 'nowrap'}}>
-              <input disabled type="text" />
+              <input disabled type="text"  value={this.props.email}/>
               <i className="fa fa-check check " />
             </div>
             <div className="rs-form-group">
-              <div className="ember-view input-error">
+              <div className={this.props.errors.password ? "input-error" : ''}>
                 <div className="rs-input-container">
-                  <div className=" ">
-                    <input id="passwordInput" placeholder="Enter Password" type="password" className="rs-input" />
+                  <div className="error-border">
+                    <input id="passwordInput" placeholder="Enter Password" type="password" className="rs-input" name="password" value={this.props.password} onChange={this.props.onChange}/>
                   </div>
+                  {this.props.errors.password}
                 </div>
             </div>  </div>
             <div className="rs-form-group">
-              <div className="input-error"><div className="rs-input-container">
-                  <div className=" ">
-                    <input placeholder="Confirm Password" type="password" className="rs-input" />
+              <div className={this.props.errors.confirmPassword ? "input-error" : ''}>
+                <div className="rs-input-container">
+                  <div className="error-border">
+                    <input placeholder="Confirm Password" type="password" className="rs-input" name="confirmPassword" value={this.props.confirmPassword} onChange={this.props.onChange}/>
                   </div>
+                  {this.props.errors.confirmPassword}
                 </div>
             </div>  </div>
             <div className="rs-form-group row">
@@ -55,8 +58,11 @@ export default class ChangePasswordForm extends Component {
 }
 
 ChangePasswordForm.propsTypes = {
+  name: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   confirmPassword: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
   parentClass: PropTypes.string
 };

@@ -19,7 +19,7 @@ export function client_url(uri) {
     }
   }
 
-  return `/${uriPath}`;
+  return `${window.location.origin}/${uriPath}`;
 }
 
 function getDefaultOptions() {

@@ -1,9 +1,10 @@
 import React from 'react';
 import {isEmail} from '../string';
 
-export const requiredError = (value, field) => {
+export const requiredError = (value, field, message = null) => {
   if (!value || !value.toString().trim()) {
-    return <div className="error">Please provide your {field}</div>;
+    const errorMessage = message || `Please provide your ${field}`;
+    return <div className="error">{errorMessage}</div>;
   }
 };
 
@@ -19,8 +20,9 @@ export const ltError = (value, length) => {
   }
 };
 
-export const passwordError = (value, compareValue) => {
+export const passwordError = (value, compareValue, message = null) => {
   if (value !== compareValue) {
-    return <div className="error">Passwords are not equal.</div>
+    const errorMessage = message || `Passwords are not equal.`;
+    return <div className="error">{errorMessage}</div>
   }
 };
