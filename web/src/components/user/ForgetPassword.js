@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { emailError } from '../../helpers/formValidator';
 import { sendPasswordResetLink } from '../../actions/users';
@@ -35,6 +36,11 @@ class ForgetPassword extends React.Component {
     });
   }
 
+  showForgotForm = (e) => {
+    e.preventDefault();
+    this.setState({error: null, email: ''});
+  }
+
   renderBody() {
     if (this.state.sent) {
       return (
@@ -43,6 +49,19 @@ class ForgetPassword extends React.Component {
             <h2>Password Reset Link Sent</h2>
             <p>We have successfully processed your request.</p>
             <p>Check your email for a link to reset your password.</p>
+          </div>
+        </div>
+      )
+    }
+
+    if (this.state.error) {
+      return (
+        <div className="row">
+          <div className="col-sm-8 col-sm-offset-2 text-center" style={{padding: 20}}>
+            <h2>Email not registered</h2>
+            <p>We cannot find the email that you gave as registered. Are you sure you gave the right email?</p>
+            <p>If you have registered before, try password reset with the correct email ID. <a onClick={this.showForgotForm}>Reset Password</a></p>
+            <p>Not yet registered? <Link to="/signup">Sign Up</Link> here and start investing</p>
           </div>
         </div>
       )
