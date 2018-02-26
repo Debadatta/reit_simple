@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import UserNavigation from './UserNavigation';
-
 export default class Header extends Component {
   state = {
     currentMenu: null
@@ -19,7 +17,7 @@ export default class Header extends Component {
 
   hideMenu = (e) => {
     if (e.target) {
-      if (e.target !== this.aboutUsDom && !this.learnDom.contains(e.target) && e.target !== this.aboutUsDom && !this.aboutUsDom.contains(e.target)) {
+      if (e.target !== this.aboutUsDom && !this.learnDom.contains(e.target) && e.target !== this.aboutUsDom && !this.aboutUsDom.contains(e.target) && e.target !== this.userInfo && this.userInfo && !this.userInfo.contains(e.target)) {
         this.setState({currentMenu: null});
       }
     }
@@ -54,6 +52,31 @@ export default class Header extends Component {
   }
 
   render() {
+    let userNevigation = null, title;
+
+    if (this.props.currentUser) {
+      if (this.props.currentUser.loginCount === 1) {
+        title = 'Welcome';
+      } else {
+        title = "Welcome back";
+      }
+      userNevigation = (
+          <li className={`dropdown ${this.checkMenuDropdownShow('userInfo')}`} onClick={this.setCurrentDropdown.bind(this, 'userInfo')} ref={ref => this.userInfo = ref}>
+          <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          {title}, {this.props.currentUser.firstName}
+          <i className="fa fa-angle-down" />
+          </a>
+          <ul className="dropdown-menu dropdown-menu-left">
+          <li><a href="/my-properties/in-certification" className="ember-view">My Properties</a></li>
+          <li><a href="/investments" className="ember-view">My Investments</a></li>
+
+          <li><a href="/my-account" className="ember-view">My Account</a></li>
+          <li className="last"><a href="javascript:void(0);" onClick={this.props.logout}><i className="fa fa-sign-out" /> Log off</a></li>
+          </ul>
+          </li>
+      )
+    }
+
     return (
       <header>
       <div className="navbar-fixed-top">
@@ -84,7 +107,7 @@ export default class Header extends Component {
                 </li>
               </ul>
               <ul className="nav navbar-nav navbar-right rs-header">
-        <li className={`dropdown ${this.checkMenuDropdownShow('learn')}`} onClick={this.setCurrentDropdown.bind(this, 'learn')} ref={ref => this.learnDom = ref}>
+                <li className={`dropdown ${this.checkMenuDropdownShow('learn')}`} onClick={this.setCurrentDropdown.bind(this, 'learn')} ref={ref => this.learnDom = ref}>
                   <a className="dropdown-toggle top-menu-item" role="button" aria-haspopup="true" aria-expanded="false" >
                     Learn
                     <i className="fa fa-angle-down" />
@@ -104,8 +127,8 @@ export default class Header extends Component {
                     <li><Link to="/about-us#story">Our Story</Link></li>
                   </ul>
                 </li>
-                {this.props.currentUser ? <li><a href="javascript:void(0);" className="top-menu-item btn-sm" onClick={this.props.logout}>Logout</a></li> : <li><Link to="/login" className="top-menu-item">Log In</Link></li>}
-                {this.props.currentUser ? null : <li><Link to="/signup" className="btn-sm">Sign Up</Link></li>}
+                {userNevigation}
+                {!this.props.currentUser ? [<li key="1"><Link to="/login" className="top-menu-item">Log In</Link></li>, <li key="2"><Link to="/signup" className="btn-sm">Sign Up</Link></li>] : null}
               </ul>
             </div>
           </div>

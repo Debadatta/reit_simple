@@ -18,6 +18,7 @@ class User < ApplicationRecord
   validates_presence_of :first_name, :last_name, :email
 
   after_save :send_reset_notification, :if => :recently_reset?
+  before_create :update_login_info
 
   def password_required?
     !password.blank? || !password_confirmation.blank?
@@ -44,5 +45,14 @@ class User < ApplicationRecord
 
   def send_reset_notification
     UserMailer.reset_notification(self).deliver_now
+  end
+
+  def welcome
+    UserMailer.welcome(self).deliver_now
+  end
+
+  def update_login_info
+    self.last_login_at = DateTime.now
+    self.login_count = login_count + 1;
   end
 end

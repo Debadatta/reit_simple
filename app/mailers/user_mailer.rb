@@ -12,6 +12,12 @@ class UserMailer < ApplicationMailer
     send_email
   end
 
+  def welcome(user)
+    setup_email(user)
+    @subject = 'Welcome to REITSImple'
+    send_email
+  end
+
   protected
 
   def setup_email(receiver, sender = nil)

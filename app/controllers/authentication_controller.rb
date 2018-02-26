@@ -7,6 +7,7 @@ class AuthenticationController < ApplicationController
     if command.success?
       user = User.find_by_email(params[:email])
       session[:user_token] = command.result
+      user.update_login_info
       render_success(:ok, user, meta: { auth_token: command.result })
     else
       render_error(:unauthorized, [ title: command.errors.values.flatten.join(', ') ])
