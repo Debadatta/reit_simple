@@ -270,7 +270,7 @@ class Signup extends Component {
                                 <div className="rs-form-group text-center termsContainer">
                                   <small>
                                     By clicking Sign Up or registering, I agree to
-                                    <Link to="/terms"> REITSimple&#44;s Terms &amp; Conditions</Link>
+                                    <Link to="/terms"> REITSimple&#39;s Terms &amp; Conditions</Link>
                                   </small>
                                 </div>
                               </ActiveForm>
