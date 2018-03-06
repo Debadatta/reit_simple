@@ -11,15 +11,15 @@ export function client_url(uri) {
     if (process.env.NODE_ENV === 'development') {
       // use hardcoded endpoint if present
       if (process.env.REACT_APP_API_HOST) {
-        return `${process.env.REACT_APP_API_HOST}/${uriPath}`;
+        return `${process.env.REACT_APP_API_HOST}/api/${uriPath}`;
       }
 
       const hostname = window.location.hostname;
-      return `http://${hostname}:3000${uriPath}`;
+      return `http://${hostname}:3000/api${uriPath}`;
     }
   }
 
-  return `${window.location.origin}/${uriPath}`;
+  return `${window.location.origin}/api${uriPath}`;
 }
 
 function getDefaultOptions() {

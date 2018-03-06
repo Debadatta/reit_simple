@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
-  post '/authentication/login' => 'authentication#login'
-  get '/authentication/identity' => 'authentication#identity'
-  post '/authentication/signup' => 'registration#signup'
-  get '/authentication/logout' => 'authentication#logout'
+  scope :api do
+    post '/authentication/login' => 'authentication#login'
+    get '/authentication/identity' => 'authentication#identity'
+    post '/authentication/signup' => 'registration#signup'
+    get '/authentication/logout' => 'authentication#logout'
 
-  match '/forgot' => 'authentication#forgot', :as => :forgot, :via => :post
-  match '/reset/:reset_code' => 'authentication#reset', :as => :reset, :via => [:get, :post]
-  match '/setup/:reset_code' => 'authentication#setup', :as => :setup, :via => [:get, :post]
+    match '/forgot' => 'authentication#forgot', :as => :forgot, :via => :post
+    match '/reset/:reset_code' => 'authentication#reset', :as => :reset, :via => [:get, :post]
+    match '/setup/:reset_code' => 'authentication#setup', :as => :setup, :via => [:get, :post]
 
-  resources :user_interests, only: [:index]
-  resources :user_refs, only: [:index]
+    resources :user_interests, only: [:index]
+    resources :user_refs, only: [:index]
 
-  #mount MailPreview => 'mail_view' if Rails.env.development?
+    #mount MailPreview => 'mail_view' if Rails.env.development?
+  end
 end
