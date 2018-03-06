@@ -22,7 +22,16 @@ class App extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (this.props.authentication.currentUserId !== nextProps.authentication.currentUserId) {
-      this.props.history.push('/');
+      if (!window.location.pathname) {
+        return <h2>This feature is not currently available.</h2>;
+      } else {
+        const pathArr = window.location.pathname.split('/');
+        if (['login', 'password', 'signup'].indexOf(pathArr[1]) != -1) {
+          this.props.history.push('/');
+        } else {
+          this.props.history.push(window.location.pathname);
+        }
+      }
     }
   }
 
