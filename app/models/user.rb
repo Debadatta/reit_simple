@@ -11,6 +11,7 @@ class User < ApplicationRecord
   validates_presence_of     :password_confirmation,      :if => :password_required?
   validates_confirmation_of :password,                   :if => :password_required?
   validates_length_of       :password, :within => 6..40, :if => :password_required?
+  validates :email, uniqueness: true
 
   attr_accessor  :password_confirmation
   attr_reader    :password

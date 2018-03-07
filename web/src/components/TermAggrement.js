@@ -8,7 +8,7 @@ export default class TermAggrement extends React.Component {
         <div className="row">
           <div className="col-sm-offset-2 col-sm-8">
             <h3>REITSimple Terms &amp; Conditions</h3>
-            <h3 className="page-title" style={{textAlign: 'center'}}>Last Updated: 6/6/2017</h3>
+            <h3 className="page-title" style={{textAlign: 'center'}}>Last Updated: 8/3/2017</h3>
           </div>
         </div>
         <div className="row">
