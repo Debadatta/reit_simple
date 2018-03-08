@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
 
-  has_many :phone_numbers
+  has_many :phone_numbers, dependent: :destroy
   belongs_to :user_interest, optional: true
   belongs_to :user_ref, optional: true
 
