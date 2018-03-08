@@ -51,6 +51,8 @@ group :development do
   gem "letter_opener"
 end
 
+gem 'sendgrid-actionmailer'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 

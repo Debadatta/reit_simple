@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180226165213) do
+ActiveRecord::Schema.define(version: 20180308191420) do
 
   create_table "countries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20180226165213) do
     t.datetime "activated_at"
     t.integer  "login_count",                          default: 0
     t.datetime "last_login_at"
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["remember_token"], name: "index_users_on_remember_token", unique: true, using: :btree
   end
 
