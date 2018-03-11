@@ -24,11 +24,12 @@ class User < ApplicationRecord
 
   def self.from_omniauth(auth, password)
     sp = SocialProvider.where(provider: auth["_provider"], uid: auth["_profile"]["id"]).first
+    user = sp.try(:user)
 
     if sp
       if sp.token != auth["_token"]["access_token"]
         sp.update_attributes(token: auth["_token"]["access_token"])
-        sp.user.set_login_info
+        user.set_login_info
       end
     else
       user = User.find_by_email(auth["_profile"]["email"])
@@ -41,12 +42,14 @@ class User < ApplicationRecord
           u.last_name = auth["_profile"]["last_name"]
           u.save
         end
+      else
+        user.set_login_info
       end
       sp = user.social_providers.where(provider: auth["_provider"]).first_or_create(provider: auth["_provider"], uid: auth["_profile"]["id"], token: auth["_token"]["access_token"])
 
-      sp.user.save
+      user.save
     end
-    sp.user
+    user
   end
 
   def password_required?

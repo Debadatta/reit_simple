@@ -18,5 +18,5 @@ export function logout(token: string) {
 }
 
 export function socialLogin(user) {
-  return ajax(`/omniauth_callbacks/${user._provider}`, { method: 'POST', body: {user} });
+  return ajax(`/omniauth_callbacks/login`, { method: 'POST', body: {user} });
 }
