@@ -1,6 +1,8 @@
 import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
+  SOCIAL_LOGIN_SUCCESS,
+  SOCIAL_LOGIN_FAILURE,
   LOGIN_FAILURE,
   SIGNUP_REQUEST,
   SIGNUP_SUCCESS,
@@ -23,6 +25,17 @@ export function requestLogin(loginData) {
     return Auth.login(loginData)
       .then(data => dispatch(loginSuccess(data)))
       .catch(error => dispatch(loginFailure(error)));
+  };
+}
+
+export const socialLoginSuccess = createAction(SOCIAL_LOGIN_SUCCESS);
+export const socialLoginFailure = createAction(SOCIAL_LOGIN_FAILURE);
+
+export function handleSocialLogin(user) {
+  return dispatch => {
+    return Auth.socialLogin(user)
+      .then(data => dispatch(socialLoginSuccess(data)))
+      .catch(error => dispatch(socialLoginFailure(error)));
   };
 }
 

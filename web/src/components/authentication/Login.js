@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import ActiveForm from '../common/ActiveForm';
+import SocialAuth from './SocialAuth';
+
 import { requestLogin } from '../../actions/authentication';
 import { headerTransparent } from '../../actions/index';
 
@@ -62,21 +64,6 @@ class Login extends Component {
     return this.props.dispatch(requestLogin({ email: emailValue, password }));
   };
 
-  renderSocialLoginButtons() {
-    return (
-        <div className="social-login-or-signup-component-container">
-          <div className="authentication__social-login-or-signup">
-            <button className="btn social facebook">
-              Sign In with Facebook
-            </button>
-            <button className="btn social google">
-              Sign In with Google
-            </button>
-          </div>
-        </div>
-    )
-  }
-
   renderErrors() {
     if (this.props.errors) {
       return <div className="rs-form-group error">{this.props.errors.map(e => e.title).join(', ')}</div>
@@ -95,7 +82,7 @@ class Login extends Component {
                   <div className="row">
                     <div className="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
                       <h2 className="text-center">Log In</h2>
-                      {this.renderSocialLoginButtons()}
+                      <SocialAuth/>
                       <div className="hr-text" data-content="or" />
                       <div>
                         <form onSubmit={this.handleSubmit} noValidate={true}>

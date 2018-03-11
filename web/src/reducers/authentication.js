@@ -1,6 +1,8 @@
 import {
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
+  SOCIAL_LOGIN_SUCCESS,
+  SOCIAL_LOGIN_FAILURE,
   LOGOUT,
   LOAD_USER_SUCCESS,
   LOAD_USER_FAILURE,
@@ -13,6 +15,7 @@ export default function authentication(state = { currentUserId: null }, action) 
   switch (action.type) {
     case LOAD_USER_SUCCESS: //return user, status = authenticated and make loading = false
     case LOGIN_SUCCESS:
+    case SOCIAL_LOGIN_SUCCESS:
       const metaData = action.payload.meta ? action.payload.meta : {};
       return {
         ...state,
@@ -20,6 +23,7 @@ export default function authentication(state = { currentUserId: null }, action) 
         status: 'authenticated'
       };
     case LOGIN_FAILURE:
+    case SOCIAL_LOGIN_FAILURE:
       return { ...state, status: null, errors: action.payload.response.errors };
     case LOGOUT:
       return { status: 'logout', currentUserId: null, data: null };
