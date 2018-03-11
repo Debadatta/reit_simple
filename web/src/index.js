@@ -13,6 +13,9 @@ import App from './components/App';
 
 import * as reducers from './reducers';
 
+import dotenv from  "dotenv";
+dotenv.config();
+
 const store = createStore(
   combineReducers({
     ...reducers

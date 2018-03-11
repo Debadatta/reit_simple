@@ -16,3 +16,7 @@ export function loadCurrentUser() {
 export function logout(token: string) {
   return ajax('/authentication/logout');
 }
+
+export function socialLogin(user) {
+  return ajax(`/omniauth_callbacks/${user._provider}`, { method: 'POST', body: {user} });
+}
