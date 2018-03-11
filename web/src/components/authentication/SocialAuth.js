@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SocialButton from './SocialButton'
 import { handleSocialLogin } from '../../actions/authentication';
-import dotenv from  "dotenv";
 
 class SocialAuth extends React.Component {
   constructor (props) {
@@ -39,9 +38,16 @@ class SocialAuth extends React.Component {
           >
             Sign In with Facebook
           </SocialButton>
-          <button className="btn social google">
+          <SocialButton
+            provider='google'
+            appId={process.env.REACT_APP_GOOGLE_APP_API_KEY}
+            onLoginSuccess={this.handleSocialLogin}
+            onLoginFailure={this.handleSocialLoginFailure}
+            getInstance={this.setNodeRef.bind(this, 'google')}
+            className="btn social google"
+          >
             Sign In with Google
-          </button>
+          </SocialButton>
         </div>
       </div>
     )
