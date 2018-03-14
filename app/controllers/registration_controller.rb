@@ -5,7 +5,6 @@ class RegistrationController < ApplicationController
     user = User.new(user_params)
 
     if user.valid? && user.save
-      user.welcome
       command = AuthenticateUser.call(user_params[:email], user_params[:password])
       render_success(:ok, user, serializer: UserSerializer, meta: { auth_token: command.result })
     else

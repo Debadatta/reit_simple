@@ -20,3 +20,7 @@ export function logout(token: string) {
 export function socialLogin(user) {
   return ajax(`/omniauth_callbacks/login`, { method: 'POST', body: {user} });
 }
+
+export function socialSignup(user) {
+  return ajax(`/omniauth_callbacks/signup`, { method: 'POST', body: {user} });
+}

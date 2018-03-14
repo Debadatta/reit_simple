@@ -4,7 +4,10 @@ import { Link } from 'react-router-dom';
 
 import ActiveForm from '../common/ActiveForm';
 import DropdownList from '../common/DropdownList';
-import { requestLogin, requestSignup } from '../../actions/authentication';
+import PopupMessage from '../common/PopupMessage';
+import SocialAuth from './SocialAuth';
+
+import { requestLogin, requestSignup, hideSignupPopupMessage } from '../../actions/authentication';
 import { requestUserInterests, requestUserRefs } from '../../actions/staticData';
 import { headerTransparent } from '../../actions/index';
 
@@ -32,6 +35,7 @@ class Signup extends Component {
     this.props.dispatch(requestUserRefs());
   }
 
+  hideFlashMessage = () => this.props.dispatch(hideSignupPopupMessage())
   onChange = (e) => {
     let errors = this.state.errors;
 
@@ -132,29 +136,13 @@ class Signup extends Component {
 
   renderHeader() {
     return (
-        <div className="row">
+      <div className="row">
         <div className="col-md-8 col-md-offset-2">
           <div className="text-center">
             <h2>Welcome to REITSimple</h2>
           </div>
         </div>
-        </div>
-    )
-  }
-
-  renderSocialLoginButtons() {
-    return (
-        <div className="social-login-or-signup-component-container
-              col-sm-10 col-sm-push-2">
-          <div className="authentication__social-login-or-signup">
-            <button className="btn social facebook">
-              Sign Up with Facebook
-            </button>
-            <button className="btn social google">
-              Sign Up with Google
-            </button>
-          </div>
-        </div>
+      </div>
     )
   }
 
@@ -164,12 +152,21 @@ class Signup extends Component {
     }
   }
 
+  renderSocialSignupWarning() {
+    if (this.props.userExist) {
+      return <PopupMessage hideHandler={this.hideFlashMessage}>
+        This email is already in use. To link your account with a social account, log in and visit My Account settings.
+        </PopupMessage>
+    }
+  }
+
   render() {
     const userInterests = Object.values(this.props.interests).map(ui => ({value: ui.id, label: ui.title}));
     const userRefs = Object.values(this.props.refs).map(ui => ({value: ui.id, label: ui.title}));
 
     return (
       <div className="body-content adjust-body adjust-no-submenu login-container">
+        {this.renderSocialSignupWarning()}
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
@@ -183,7 +180,11 @@ class Signup extends Component {
                         <div className="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
                           <div className="col-sm-6 col-sm-push-6 right">
                             <div className="row">
-                              {this.renderSocialLoginButtons()}
+                              <SocialAuth className="col-sm-10 col-sm-push-2"
+                                fbBtnText="Sign Up with Facebook"
+                                gBtnText="Sign Up with Google"
+                                type="signup"
+                              />
                               <div className="col-sm-2 col-sm-pull-10 text-center">
                                 <div data-content="or" className="hr-text " />
                               </div>
@@ -303,7 +304,8 @@ function mapStateToProps(state) {
   return {
     interests: state.entities.userInterests,
     refs: state.entities.userRefs,
-    errors: state.authentication.errors
+    errors: state.authentication.errors,
+    userExist: state.authentication.userExist
   }
 }
 

@@ -4,14 +4,15 @@ import {
   SOCIAL_LOGIN_SUCCESS,
   SOCIAL_LOGIN_FAILURE,
   LOGIN_FAILURE,
-  SIGNUP_REQUEST,
   SIGNUP_SUCCESS,
   SIGNUP_FAILURE,
+  SOCIAL_SIGNUP_SUCCESS,
+  SOCIAL_SIGNUP_FAILURE,
   LOGOUT,
   LOAD_USER_SUCCESS,
   LOAD_USER_FAILURE,
   RESET_TOKEN,
-  HIDE_MFA_FLASH_MESSAGE
+  SIGNUP_HIDE_FLASH_MESSAGE
 } from '../constants/actionTypes';
 import * as Auth from '../api/authentication.js';
 import { createAction } from 'redux-actions';
@@ -50,6 +51,17 @@ export function requestSignup(data) {
   };
 }
 
+export const socialSignupSuccess = createAction(SOCIAL_SIGNUP_SUCCESS);
+export const socialSignupFailure = createAction(SOCIAL_SIGNUP_FAILURE);
+
+export function handleSocialSignup(user) {
+  return dispatch => {
+    return Auth.socialSignup(user)
+      .then(data => dispatch(socialSignupSuccess(data)))
+      .catch(error => dispatch(socialSignupFailure(error)));
+  };
+}
+
 const loadUserSuccess = createAction(LOAD_USER_SUCCESS);
 const loadUserFailure = createAction(LOAD_USER_FAILURE);
 
@@ -74,3 +86,5 @@ export function logout() {
     return Auth.logout();
   };
 }
+
+export const hideSignupPopupMessage = createAction(SIGNUP_HIDE_FLASH_MESSAGE);

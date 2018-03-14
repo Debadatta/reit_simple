@@ -266,6 +266,31 @@ img {
   transform: scale(1);
 }
 
+.toast-top-right {
+  position: fixed;
+  right: 10px;
+  width: 22%;
+  top: 15px;
+  z-index: 10000;
+  background-color: orange;
+  padding: 20px;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 5px 8px 12px rgba(136, 136, 136, 0.57);
+}
+
+.flash-message {
+  -webkit-transition: opacity 3s ease-in-out;
+  -moz-transition: opacity 3s ease-in-out;
+  -ms-transition: opacity 3s ease-in-out;
+  -o-transition: opacity 3s ease-in-out;
+  opacity: 1;
+
+  &--hide {
+    opacity: 0;
+  }
+}
+
 @media (min-width: 768px) {
   .navbar {
     border-radius: 0;

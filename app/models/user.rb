@@ -21,8 +21,9 @@ class User < ApplicationRecord
 
   after_save :send_reset_notification, :if => :recently_reset?
   before_create :set_login_info
+  after_create :send_welcome_mail
 
-  def self.from_omniauth(auth, password)
+  def self.login_from_omniauth(auth, password)
     sp = SocialProvider.where(provider: auth["_provider"], uid: auth["_profile"]["id"]).first
     user = sp.try(:user)
 
@@ -34,22 +35,41 @@ class User < ApplicationRecord
     else
       user = User.find_by_email(auth["_profile"]["email"])
       if !user
-        user = User.new.tap do |u|
-          u.email = auth["_profile"]["email"]
-          u.password = password
-          u.password_confirmation = password
-          u.first_name = auth["_profile"]["first_name"]
-          u.last_name = auth["_profile"]["last_name"]
-          u.save
-        end
+        user = User.create_from_social(auth, password)
       else
         user.set_login_info
       end
-      sp = user.social_providers.where(provider: auth["_provider"]).first_or_create(provider: auth["_provider"], uid: auth["_profile"]["id"], token: auth["_token"]["access_token"])
+
+      user.save
+      user.create_social_provider(auth)
+    end
+    user
+  end
+
+  def self.signup_from_omniauth(auth, password)
+    user = User.find_by_email(auth["_profile"]["email"])
+    if !user
+      user = User.create_from_social(auth, password)
+      user.create_social_provider(auth)
 
       user.save
     end
     user
+  end
+
+  def self.create_from_social(auth, password)
+    User.new.tap do |u|
+      u.email = auth["_profile"]["email"]
+      u.password = password
+      u.password_confirmation = password
+      u.first_name = auth["_profile"]["first_name"]
+      u.last_name = auth["_profile"]["last_name"]
+      u.save
+    end
+  end
+
+  def create_social_provider(auth)
+    self.social_providers.where(provider: auth["_provider"]).first_or_create(provider: auth["_provider"], uid: auth["_profile"]["id"], token: auth["_token"]["access_token"])
   end
 
   def password_required?
@@ -79,7 +99,7 @@ class User < ApplicationRecord
     UserMailer.reset_notification(self).deliver_now
   end
 
-  def welcome
+  def send_welcome_mail
     UserMailer.welcome(self).deliver_now
   end
 

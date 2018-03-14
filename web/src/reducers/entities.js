@@ -1,6 +1,5 @@
 import _ from 'lodash';
 import immutable from 'object-path-immutable';
-import { TAG_DELETE_REQUEST_SUCCESS } from '../constants/actionTypes';
 
 const defaultEntities = {
   users: {},

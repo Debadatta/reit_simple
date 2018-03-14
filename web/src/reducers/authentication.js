@@ -3,18 +3,21 @@ import {
   LOGIN_FAILURE,
   SOCIAL_LOGIN_SUCCESS,
   SOCIAL_LOGIN_FAILURE,
+  SOCIAL_SIGNUP_SUCCESS,
+  SOCIAL_SIGNUP_FAILURE,
   LOGOUT,
   LOAD_USER_SUCCESS,
   LOAD_USER_FAILURE,
-  SIGNUP_REQUEST,
   SIGNUP_SUCCESS,
-  SIGNUP_FAILURE
+  SIGNUP_FAILURE,
+  SIGNUP_HIDE_FLASH_MESSAGE
 } from '../constants/actionTypes';
 
-export default function authentication(state = { currentUserId: null }, action) {
+export default function authentication(state = { currentUserId: null, userExist: false }, action) {
   switch (action.type) {
     case LOAD_USER_SUCCESS: //return user, status = authenticated and make loading = false
     case LOGIN_SUCCESS:
+    case SOCIAL_SIGNUP_SUCCESS:
     case SOCIAL_LOGIN_SUCCESS:
       const metaData = action.payload.meta ? action.payload.meta : {};
       return {
@@ -23,8 +26,11 @@ export default function authentication(state = { currentUserId: null }, action) 
         status: 'authenticated'
       };
     case LOGIN_FAILURE:
+    case SOCIAL_SIGNUP_FAILURE:
     case SOCIAL_LOGIN_FAILURE:
-      return { ...state, status: null, errors: action.payload.response.errors };
+      return { ...state, status: null, errors: action.payload.response.errors, userExist: action.payload.response.meta ? action.payload.response.meta.userExist : false };
+    case SIGNUP_HIDE_FLASH_MESSAGE:
+      return { ...state, userExist: false };
     case LOGOUT:
       return { status: 'logout', currentUserId: null, data: null };
     case LOAD_USER_FAILURE:
