@@ -36,6 +36,7 @@ export default class PopupMessage extends React.Component {
       <div className={`flash-message toast-top-right ${this.props.type}`} ref={d => {
           this.containerDiv = d;
         }}>
+        <i className="fa fa-exclamation-triangle"></i>
         <div className={`toast toast-${this.props.type}`}>
           {this.props.children}
         </div>

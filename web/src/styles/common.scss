@@ -285,6 +285,13 @@ img {
   -ms-transition: opacity 3s ease-in-out;
   -o-transition: opacity 3s ease-in-out;
   opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .toast {
+    margin-left: 10px;
+  }
 
   &--hide {
     opacity: 0;

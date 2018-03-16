@@ -217,7 +217,12 @@ img {
   -moz-transition: opacity 3s ease-in-out;
   -ms-transition: opacity 3s ease-in-out;
   -o-transition: opacity 3s ease-in-out;
-  opacity: 1; }
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .flash-message .toast {
+    margin-left: 10px; }
   .flash-message--hide {
     opacity: 0; }
 
