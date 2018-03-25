@@ -39,7 +39,7 @@ export default class Header extends Component {
 
   renderSubmenu() {
     const pathname = this.props.location.pathname;
-    if (['terms', 'password', "investments"].indexOf(pathname.split('/')[1]) === -1) return null;
+    if (['terms', 'password', "investments", "my-account"].indexOf(pathname.split('/')[1]) === -1) return null;
 
     return <SubHeader/>;
   }
@@ -64,7 +64,7 @@ export default class Header extends Component {
           <li><a href="/my-properties/in-certification">My Properties</a></li>
           <li><Link to="/investments/my-investments">My Investments</Link></li>
 
-          <li><a href="/my-account">My Account</a></li>
+          <li><Link to="/my-account">My Account</Link></li>
           <li className="last"><a href="javascript:void(0);" onClick={this.props.logout}><i className="fa fa-sign-out" /> Log off</a></li>
           </ul>
           </li>
