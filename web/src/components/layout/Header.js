@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import SubHeader from "./SubHeader";
+
 export default class Header extends Component {
   state = {
     currentMenu: null
@@ -37,18 +39,9 @@ export default class Header extends Component {
 
   renderSubmenu() {
     const pathname = this.props.location.pathname;
-    if (['terms', 'password'].indexOf(pathname.split('/')[1]) === -1) return null;
+    if (['terms', 'password', "investments"].indexOf(pathname.split('/')[1]) === -1) return null;
 
-    return (
-      <div className="sub-menu hidden-xs unauthenticated">
-        <div className="container">
-          <ul className="nav navbar-nav pull-left">
-            <li className="hidden-xs"><a id="ember1545" href="/investment-property-marketplace" className="ember-view">Browse Properties</a></li>
-            <li className="hidden-xs"><a id="ember1546" href="/portfolios" className="ember-view">Portfolios</a></li>
-          </ul>
-        </div>
-      </div>
-    )
+    return <SubHeader/>;
   }
 
   render() {
@@ -60,17 +53,18 @@ export default class Header extends Component {
       } else {
         title = "Welcome back";
       }
+
       userNevigation = (
           <li className={`dropdown ${this.checkMenuDropdownShow('userInfo')}`} onClick={this.setCurrentDropdown.bind(this, 'userInfo')} ref={ref => this.userInfo = ref}>
-          <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          <a href="javascript:void(0);" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
           {title}, {this.props.currentUser.firstName}
           <i className="fa fa-angle-down" />
           </a>
           <ul className="dropdown-menu dropdown-menu-left">
-          <li><a href="/my-properties/in-certification" className="ember-view">My Properties</a></li>
-          <li><a href="/investments" className="ember-view">My Investments</a></li>
+          <li><a href="/my-properties/in-certification">My Properties</a></li>
+          <li><Link to="/investments/my-investments">My Investments</Link></li>
 
-          <li><a href="/my-account" className="ember-view">My Account</a></li>
+          <li><a href="/my-account">My Account</a></li>
           <li className="last"><a href="javascript:void(0);" onClick={this.props.logout}><i className="fa fa-sign-out" /> Log off</a></li>
           </ul>
           </li>
