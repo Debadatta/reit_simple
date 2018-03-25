@@ -25,7 +25,7 @@ class AuthenticationController < ApplicationController
 
   def logout
     reset_session
-    render json: nil
+    render_success(:ok, [])
   end
 
   def forgot

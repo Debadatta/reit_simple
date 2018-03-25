@@ -1,0 +1,107 @@
+.investments {
+  .inverstments-header {
+    padding: 0;
+
+    h3 {
+      margin-top: 20px 0 0 0;
+      color: #515151;
+      font: 400 34px/44px Muli,sans-serif;
+      text-align: center;
+    }
+
+    #tabs-secondary {
+      text-align: center;
+    }
+
+    .nav-tabs {
+      margin-bottom: -1px;
+
+      li+li {
+        margin-left: 16px;
+      }
+
+      li {
+        float: none;
+        display: inline-block;
+
+        span {
+          cursor: pointer;
+          display: inline-block;
+          margin: 0;
+          padding: 10px;
+          color: #A3A2A2;
+          font: 600 16px/22px Muli,sans-serif;
+          border: none;
+          border-bottom: 1px solid #DBDBDB;
+          border-bottom-color: transparent;
+
+          &:hover {
+            border-bottom-color: #767676;
+          }
+        }
+      }
+
+      li.active {
+        border-bottom: 1px solid #DBDBDB;
+
+        span, span:hover {
+          color: #515151;
+          border: none;
+          border-bottom: 1px solid #DBDBDB;
+          border-bottom-color: #767676;
+        }
+      }
+    }
+
+    ul li + li {
+      margin-top: 0px;
+    }
+
+    ul li {
+      padding-left: 5px;
+    }
+  }
+
+  .investments-content {
+    display: block;
+    padding-bottom: 40px;
+
+    table.properties, table.table-primary {
+      margin-bottom: 0;
+      width: 100%;
+      color: #767676;
+      border-top: 1px solid #DBDBDB;
+    }
+
+    .no-investments-container {
+      text-align: center;
+
+      .title {
+        color: #767676;
+        font: 400 26px/36px Muli,sans-serif;
+        text-align: center;
+      }
+
+      .action {
+        margin-top: 135px;
+        background-color: #7d78d1;
+        padding: 10px;
+        border-radius: 4px;
+
+        a {
+          color: #fff;
+          text-decoration: none;
+        }
+      }
+
+      .seller-actions .action {
+        display: inline-block;
+      }
+
+      .finding-roofs, .finding-roofs-full, .no-properties-filter, .selling-roofs {
+        margin-top: 30px;
+        background: url(https://roofstock-cdn3.azureedge.net/rs-apps/assets/images/house-spyglass-2f434b88b0811234d26c223311734558.png) center center/100px auto no-repeat;
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+.investments .inverstments-header {
+  padding: 0; }
+  .investments .inverstments-header h3 {
+    margin-top: 20px 0 0 0;
+    color: #515151;
+    font: 400 34px/44px Muli,sans-serif;
+    text-align: center; }
+  .investments .inverstments-header #tabs-secondary {
+    text-align: center; }
+  .investments .inverstments-header .nav-tabs {
+    margin-bottom: -1px; }
+    .investments .inverstments-header .nav-tabs li + li {
+      margin-left: 16px; }
+    .investments .inverstments-header .nav-tabs li {
+      float: none;
+      display: inline-block; }
+      .investments .inverstments-header .nav-tabs li span {
+        cursor: pointer;
+        display: inline-block;
+        margin: 0;
+        padding: 10px;
+        color: #A3A2A2;
+        font: 600 16px/22px Muli,sans-serif;
+        border: none;
+        border-bottom: 1px solid #DBDBDB;
+        border-bottom-color: transparent; }
+        .investments .inverstments-header .nav-tabs li span:hover {
+          border-bottom-color: #767676; }
+    .investments .inverstments-header .nav-tabs li.active {
+      border-bottom: 1px solid #DBDBDB; }
+      .investments .inverstments-header .nav-tabs li.active span, .investments .inverstments-header .nav-tabs li.active span:hover {
+        color: #515151;
+        border: none;
+        border-bottom: 1px solid #DBDBDB;
+        border-bottom-color: #767676; }
+  .investments .inverstments-header ul li + li {
+    margin-top: 0px; }
+  .investments .inverstments-header ul li {
+    padding-left: 5px; }
+
+.investments .investments-content {
+  display: block;
+  padding-bottom: 40px; }
+  .investments .investments-content table.properties, .investments .investments-content table.table-primary {
+    margin-bottom: 0;
+    width: 100%;
+    color: #767676;
+    border-top: 1px solid #DBDBDB; }
+  .investments .investments-content .no-investments-container {
+    text-align: center; }
+    .investments .investments-content .no-investments-container .title {
+      color: #767676;
+      font: 400 26px/36px Muli,sans-serif;
+      text-align: center; }
+    .investments .investments-content .no-investments-container .action {
+      margin-top: 135px;
+      background-color: #7d78d1;
+      padding: 10px;
+      border-radius: 4px; }
+      .investments .investments-content .no-investments-container .action a {
+        color: #fff;
+        text-decoration: none; }
+    .investments .investments-content .no-investments-container .seller-actions .action {
+      display: inline-block; }
+    .investments .investments-content .no-investments-container .finding-roofs, .investments .investments-content .no-investments-container .finding-roofs-full, .investments .investments-content .no-investments-container .no-properties-filter, .investments .investments-content .no-investments-container .selling-roofs {
+      margin-top: 30px;
+      background: url(https://roofstock-cdn3.azureedge.net/rs-apps/assets/images/house-spyglass-2f434b88b0811234d26c223311734558.png) center center/100px auto no-repeat; }

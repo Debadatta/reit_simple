@@ -15,24 +15,51 @@ import Learn from '../learn';
 import TermAggrement from '../TermAggrement';
 import ForgetPassword from '../user/ForgetPassword';
 import ResetPassword from '../user/ResetPassword';
+import MyInvestments from '../investments/MyInvestments';
 
 class Layout extends React.Component {
+  logout = () => {
+    this.props.dispatch(logout()).then(response => {
+      if (!response.error) {
+        this.props.history.push('/');
+      }
+    });
+  }
+
   render() {
+    let routes;
+
+    if (this.props.currentUser) {
+      routes = (
+        <Switch>
+          <Route path="/" exact={true} component={Home} />
+          <Route path="/about-us" component={AboutUs} />
+          <Route path="/how-it-works" component={Learn} />
+          <Route path="/terms" component={TermAggrement} />
+          <Route path="/investments/my-investments" component={MyInvestments} />
+        </Switch>
+      )
+    } else {
+      routes = (
+        <Switch>
+          <Route path="/" exact={true} component={Home} />
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={Signup} />
+          <Route path="/about-us" component={AboutUs} />
+          <Route path="/how-it-works" component={Learn} />
+          <Route path="/terms" component={TermAggrement} />
+          <Route path="/password/forgot" component={ForgetPassword} />
+          <Route path="/password/reset/:token" component={ResetPassword} />
+        </Switch>
+      )
+    }
+
     return (
       <div className="main">
         <div className="main-content">
-        <Header history={this.props.history} currentUser={this.props.currentUser} logout={this.props.logout} transperency={this.props.transperency} location={this.props.location}/>
-        <div id="top-nav-filler"></div>
-          <Switch>
-            <Route path="/" exact={true} component={Home} />
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
-            <Route path="/about-us" component={AboutUs} />
-            <Route path="/how-it-works" component={Learn} />
-            <Route path="/terms" component={TermAggrement} />
-            <Route path="/password/forgot" component={ForgetPassword} />
-            <Route path="/password/reset/:token" component={ResetPassword} />
-          </Switch>
+          <Header history={this.props.history} currentUser={this.props.currentUser} logout={this.logout} transperency={this.props.transperency} location={this.props.location}/>
+          <div id="top-nav-filler"></div>
+          {routes}
           <Footer />
         </div>
       </div>
@@ -52,12 +79,4 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    logout() {
-      dispatch(logout());
-    }
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Layout);
+export default connect(mapStateToProps)(Layout);
