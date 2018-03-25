@@ -21,7 +21,7 @@ class User < ApplicationRecord
 
   after_save :send_reset_notification, :if => :recently_reset?
   before_create :set_login_info
-  after_create :send_welcome_mail
+  #after_create :send_welcome_mail
 
   def self.login_from_omniauth(auth, password)
     sp = SocialProvider.where(provider: auth["_provider"], uid: auth["_profile"]["id"]).first
