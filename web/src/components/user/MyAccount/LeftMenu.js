@@ -19,7 +19,7 @@ export default class LeftMenu extends React.Component {
               <div id="left-nav-collapseOne" className="panel-collapse collapse in" >
                 <ul className="list-group">
                   {SIDEBAR.map(obj => {
-                    return <li><a href="javascript:void(0)" className={obj.value === this.props.type ? "active" : null} onClick={this.props.changeView} data-value={obj.value}>{obj.label}</a></li>;
+                    return <li key={obj.value}><a href="javascript:void(0)" className={obj.value === this.props.type ? "active" : null} onClick={this.props.changeView} data-value={obj.value}>{obj.label}</a></li>;
                    })}
                 </ul>
               </div>

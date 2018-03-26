@@ -38,7 +38,7 @@ class MyAccount extends React.Component {
             <div className="panel panel-default">
               <div className="panel-body">
                 <p>
-                  Connect your Roofstock account to these trusted identity providers and login with ease.
+                  Connect your ReitSimple account to these trusted identity providers and login with ease.
                 </p>
                 <div className="btn-wrapper">
                   <button disabled className="btn social facebook">
@@ -46,7 +46,7 @@ class MyAccount extends React.Component {
                   </button>
                   </div>
                 <div className="btn-wrapper">
-                  <button className="btn social google-oauth2" data-ember-action={2838}>
+                  <button className="btn social google-oauth2">
                     Connect
                   </button>
                 </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import ChangePasswordForm from "./ChangePasswordForm";
 
 export default class ProfileForm extends React.Component {
   render() {
@@ -15,7 +16,7 @@ export default class ProfileForm extends React.Component {
                   <div className="form-group">
                     <label className="control-label col-md-4">First Name</label>
                     <div className="col-md-8">
-                      <input maxLength={64} type="text" className="form-control fs-hide ember-view ember-text-field" />
+                      <input maxLength={64} type="text" className="form-control fs-hide" />
                     </div>
                   </div>
                   <div className="form-group">
@@ -87,61 +88,20 @@ export default class ProfileForm extends React.Component {
                             <input maxLength={5} type="text" className="form-control fs-hide" />
                           </div>
                         </div>
-                    </div>          </div>
+                    </div></div>
                   </div>
                 </div>
               </div>
               <br />
               <div className="text-center">
-                <button className="btn btn-secondary" data-ember-action={2829}>
-                  <i className="fas fa-check" />&nbsp;&nbsp;Save Changes
+                <button className="btn btn-secondary">
+                  <i className="fa fa-check" />&nbsp;&nbsp;Save Changes
                 </button>
               </div>
             </div>
           </div>
         </form>
-        <form action className="form-horizontal">
-          <div className="panel panel-default">
-            <div className="panel-body">
-              <div className="form-group">
-                <label className="control-label col-md-4">Current Password</label>
-                <div className="col-md-8">
-                  <div className="input-error"><div className="rs-input-container">
-                      <div className=" ">
-                        <input maxLength={255} type="password" className="form-control fs-hide" />
-                      </div>
-                    </div>
-                </div>        </div>
-              </div>
-              <div className="form-group">
-                <label className="control-label col-md-4">New Password</label>
-                <div className="col-md-8">
-                  <div className="input-error"><div className="rs-input-container">
-                      <div className=" ">
-                        <input id="passwordInput" maxLength={255} type="password" className="form-control fs-hide" />
-                      </div>
-                    </div>
-                </div>        </div>
-              </div>
-              <div className="form-group">
-                <label className="control-label col-md-4">Re-type New Password</label>
-                <div className="col-md-8">
-                  <div className="input-error"><div className="rs-input-container">
-                      <div className=" ">
-                        <input maxLength={255} type="password" className="form-control fs-hide" />
-                      </div>
-                      </div>
-                </div>        </div>
-              </div>
-              <br />
-              <div className="text-center">
-                <button id="btn-change-password" className="btn btn-secondary" data-ember-action={2835}>
-                  <i className="fas fa-check" />&nbsp;&nbsp;Change Password
-                </button>
-              </div>
-            </div>
-          </div>
-        </form>
+        <ChangePasswordForm/>
       </div>
     )
   }

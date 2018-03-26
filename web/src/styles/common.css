@@ -4,6 +4,9 @@ a {
 input, select {
   min-width: 100%; }
 
+.btn:disabled {
+  opacity: .45; }
+
 .btn.btn-secondary {
   color: #fff;
   background-color: #605CA8;
