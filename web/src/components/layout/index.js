@@ -16,6 +16,7 @@ import TermAggrement from '../TermAggrement';
 import ForgetPassword from '../user/ForgetPassword';
 import ResetPassword from '../user/ResetPassword';
 import MyInvestments from '../investments/MyInvestments';
+import MyAccount from "../user/MyAccount";
 
 class Layout extends React.Component {
   logout = () => {
@@ -37,6 +38,7 @@ class Layout extends React.Component {
           <Route path="/how-it-works" component={Learn} />
           <Route path="/terms" component={TermAggrement} />
           <Route path="/investments/my-investments" component={MyInvestments} />
+          <Route path="/my-account" component={MyAccount} />
         </Switch>
       )
     } else {
