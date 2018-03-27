@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180311070455) do
+ActiveRecord::Schema.define(version: 20180327150702) do
 
   create_table "countries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.string   "phone_code"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "code"
+    t.integer  "dial_code"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "country_code"
+    t.boolean  "is_preferred"
   end
 
   create_table "phone_numbers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

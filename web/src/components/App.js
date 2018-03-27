@@ -55,7 +55,7 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-function mapStateToProps(state, props) {
+function mapStateToProps(state) {
   return {
     authentication: state.authentication
   }

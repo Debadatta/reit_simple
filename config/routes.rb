@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
     resources :user_interests, only: [:index]
     resources :user_refs, only: [:index]
-
+    resources :countries, only: [:index]
     #mount MailPreview => 'mail_view' if Rails.env.development?
   end
 end

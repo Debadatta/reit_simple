@@ -2,7 +2,9 @@ import {
   USER_INTERESTS_SUCCESS,
   USER_INTERESTS_FAILURE,
   USER_REFS_SUCCESS,
-  USER_REFS_FAILURE
+  USER_REFS_FAILURE,
+  COUNTRIES_SUCCESS,
+  COUNTRIES_FAILURE
 } from '../constants/actionTypes';
 
 import * as StaticData from '../api/staticData.js';
@@ -27,5 +29,16 @@ export function requestUserRefs() {
     return StaticData.requestUserRefs()
       .then(data => dispatch(userRefsSuccess(data)))
       .catch(error => dispatch(userRefsFailure(error)));
+  };
+}
+
+export const countriesSuccess = createAction(COUNTRIES_SUCCESS);
+export const countriesFailure = createAction(COUNTRIES_FAILURE);
+
+export function countries() {
+  return dispatch => {;
+    return StaticData.countries()
+      .then(data => dispatch(countriesSuccess(data)))
+      .catch(error => dispatch(countriesFailure(error)));
   };
 }

@@ -20,6 +20,14 @@
       display: inline-block;
     }
   }
+
+  .selected-flag {
+    border-right: 1px solid #C4C4C4;
+  }
+}
+
+.rs-form-group.full-size .intl-tel-input {
+  min-width: 100%;
 }
 
 .login-container {

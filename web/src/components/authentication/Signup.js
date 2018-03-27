@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import ActiveForm from '../common/ActiveForm';
 import DropdownList from '../common/DropdownList';
 import PopupMessage from '../common/PopupMessage';
+import PhoneNumberSelectList from '../common/PhoneNumberSelectList';
 import SocialAuth from './SocialAuth';
 
 import { requestLogin, requestSignup, hideSignupPopupMessage } from '../../actions/authentication';
@@ -222,9 +223,9 @@ class Signup extends Component {
                                 </div>
                                 <div className="rs-form-group full-size">
                                   <div className="rs-form-group has-addon">
-                                    <span className="addon"><i className="fa fa-phone" /></span>
                                     <div className="rs-input-container">
-                                      <input placeholder="Phone" name="phone" type="tel" autoComplete="off" onChange={this.onChange} value={this.state.phone}/>
+                                      <PhoneNumberSelectList onChange={this.onChange} value={this.state.phone}/>
+
                                     </div>
                                   </div>
                                 </div>
