@@ -12,6 +12,11 @@
     text-decoration: underline; }
   .rs-form-group .termsContainer a {
     display: inline-block; }
+  .rs-form-group .selected-flag {
+    border-right: 1px solid #C4C4C4; }
+
+.rs-form-group.full-size .intl-tel-input {
+  min-width: 100%; }
 
 .login-container .checkbox-container {
   position: relative;

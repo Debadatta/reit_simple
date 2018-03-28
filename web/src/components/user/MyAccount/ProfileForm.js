@@ -1,14 +1,19 @@
 import React from 'react';
 import ChangePasswordForm from "./ChangePasswordForm";
+import PhoneNumberSelectList from '../../common/PhoneNumberSelectList';
 
 export default class ProfileForm extends React.Component {
+  state = {}
+  onChange = (e) => {}
+  onChangeCountry = (countryId) => this.setState({countryId});
+
   render() {
     return (
       <div>
         <div className="page-header no-bottom-pad">
           <h3 className="page-title">My Profile</h3>
         </div>
-        <form action className="form-horizontal my-account-form">
+        <form className="form-horizontal my-account-form">
           <div className="panel panel-default">
             <div className="panel-body">
               <div className="row">
@@ -28,11 +33,9 @@ export default class ProfileForm extends React.Component {
                   <div className="form-group">
                     <label className="control-label col-md-4">Phone Number</label>
                     <div className="col-md-8">
-                      <div className="input-error"><div className="rs-input-container">
-                          <div className=" ">
-                            <div className="intl-tel-input allow-dropdown">
-                              <input placeholder="Phone" type="tel" className="form-control full-size fs-hide" autoComplete="off" /></div>
-                          </div>
+                      <div className="input-error">
+                        <div className="rs-input-container">
+                          <PhoneNumberSelectList onChange={this.onChange} value={this.state.phone} inputClass="form-control" countryId={this.state.countryId} onChangeCountry={this.onChangeCountry}/>
                         </div>
                     </div>          </div>
                   </div>

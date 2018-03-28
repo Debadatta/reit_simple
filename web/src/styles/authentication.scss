@@ -49,6 +49,10 @@
     }
   }
 
+  .intl-tel-input.allow-dropdown input[type=tel] {
+    padding-left: 10px;
+  }
+
   .hr-text {
     background-color: #DBDBDB;
     border: none;

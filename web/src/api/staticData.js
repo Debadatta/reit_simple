@@ -7,3 +7,7 @@ export function requestUserInterests() {
 export function requestUserRefs() {
   return ajax("/user_refs");
 }
+
+export function countries() {
+  return ajax("/countries");
+}

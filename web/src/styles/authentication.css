@@ -30,6 +30,9 @@
     .authentication__signup-component .social-login-or-signup-component-container .btn.social.google:before, .authentication__login-component .social-login-or-signup-component-container .btn.social.google:before {
       content: '\f1a0'; }
 
+.authentication__signup-component .intl-tel-input.allow-dropdown input[type=tel], .authentication__login-component .intl-tel-input.allow-dropdown input[type=tel] {
+  padding-left: 10px; }
+
 .authentication__signup-component .hr-text, .authentication__login-component .hr-text {
   background-color: #DBDBDB;
   border: none;

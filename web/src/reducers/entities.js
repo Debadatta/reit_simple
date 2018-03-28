@@ -4,7 +4,8 @@ import immutable from 'object-path-immutable';
 const defaultEntities = {
   users: {},
   userInterests: {},
-  userRefs: {}
+  userRefs: {},
+  countries: {}
 };
 
 export default function entities(state = defaultEntities, action) {

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import ActiveForm from '../common/ActiveForm';
 import DropdownList from '../common/DropdownList';
 import PopupMessage from '../common/PopupMessage';
+import PhoneNumberSelectList from '../common/PhoneNumberSelectList';
 import SocialAuth from './SocialAuth';
 
 import { requestLogin, requestSignup, hideSignupPopupMessage } from '../../actions/authentication';
@@ -23,6 +24,7 @@ class Signup extends Component {
     email: '',
     password: '',
     confirmPassword: '',
+    countryId: '',
     errors: {}
   }
 
@@ -47,6 +49,8 @@ class Signup extends Component {
 
     this.setState({[e.target.name]: e.target.value, errors});
   }
+
+  onChangeCountry = (countryId) => this.setState({countryId});
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -88,8 +92,9 @@ class Signup extends Component {
     }
 
     if (this.state.phone) {
+      const countryIds = Object.keys(this.props.countries);
       data.phoneNumbersAttributes = {
-        "0": { digits: this.state.phone }
+        "0": { digits: this.state.phone, countryId: parseInt(this.state.countryId || countryIds[0]) }
       }
     }
 
@@ -222,9 +227,9 @@ class Signup extends Component {
                                 </div>
                                 <div className="rs-form-group full-size">
                                   <div className="rs-form-group has-addon">
-                                    <span className="addon"><i className="fa fa-phone" /></span>
                                     <div className="rs-input-container">
-                                      <input placeholder="Phone" name="phone" type="tel" autoComplete="off" onChange={this.onChange} value={this.state.phone}/>
+                                      <PhoneNumberSelectList onChange={this.onChange} value={this.state.phone} onChangeCountry={this.onChangeCountry} countryId={this.state.countryId}/>
+
                                     </div>
                                   </div>
                                 </div>
@@ -305,7 +310,8 @@ function mapStateToProps(state) {
     interests: state.entities.userInterests,
     refs: state.entities.userRefs,
     errors: state.authentication.errors,
-    userExist: state.authentication.userExist
+    userExist: state.authentication.userExist,
+    countries: state.entities.countries
   }
 }
 
