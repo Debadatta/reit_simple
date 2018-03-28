@@ -5,6 +5,7 @@ import PhoneNumberSelectList from '../../common/PhoneNumberSelectList';
 export default class ProfileForm extends React.Component {
   state = {}
   onChange = (e) => {}
+  onChangeCountry = (countryId) => this.setState({countryId});
 
   render() {
     return (
@@ -34,7 +35,7 @@ export default class ProfileForm extends React.Component {
                     <div className="col-md-8">
                       <div className="input-error">
                         <div className="rs-input-container">
-                          <PhoneNumberSelectList onChange={this.onChange} value={this.state.phone} inputClass="form-control"/>
+                          <PhoneNumberSelectList onChange={this.onChange} value={this.state.phone} inputClass="form-control" countryId={this.state.countryId} onChangeCountry={this.onChangeCountry}/>
                         </div>
                     </div>          </div>
                   </div>

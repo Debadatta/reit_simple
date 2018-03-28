@@ -24,6 +24,7 @@ class Signup extends Component {
     email: '',
     password: '',
     confirmPassword: '',
+    countryId: '',
     errors: {}
   }
 
@@ -48,6 +49,8 @@ class Signup extends Component {
 
     this.setState({[e.target.name]: e.target.value, errors});
   }
+
+  onChangeCountry = (countryId) => this.setState({countryId});
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -89,8 +92,9 @@ class Signup extends Component {
     }
 
     if (this.state.phone) {
+      const countryIds = Object.keys(this.props.countries);
       data.phoneNumbersAttributes = {
-        "0": { digits: this.state.phone }
+        "0": { digits: this.state.phone, countryId: parseInt(this.state.countryId || countryIds[0]) }
       }
     }
 
@@ -224,7 +228,7 @@ class Signup extends Component {
                                 <div className="rs-form-group full-size">
                                   <div className="rs-form-group has-addon">
                                     <div className="rs-input-container">
-                                      <PhoneNumberSelectList onChange={this.onChange} value={this.state.phone}/>
+                                      <PhoneNumberSelectList onChange={this.onChange} value={this.state.phone} onChangeCountry={this.onChangeCountry} countryId={this.state.countryId}/>
 
                                     </div>
                                   </div>
@@ -306,7 +310,8 @@ function mapStateToProps(state) {
     interests: state.entities.userInterests,
     refs: state.entities.userRefs,
     errors: state.authentication.errors,
-    userExist: state.authentication.userExist
+    userExist: state.authentication.userExist,
+    countries: state.entities.countries
   }
 }
 
