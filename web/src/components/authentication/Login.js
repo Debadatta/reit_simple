@@ -120,7 +120,7 @@ class Login extends Component {
                       </div>
                       <div className="ember-view __authentication__login-or-signup__toggle__534b3">
                         <div className="pad-top-20">
-                          Don&#44;t have an account? <strong><Link to="/signup">Sign Up</Link></strong>
+                          Don&#39;t have an account? <strong><Link to="/signup">Sign Up</Link></strong>
                         </div>
                       </div>
                     </div>
