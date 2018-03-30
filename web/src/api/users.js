@@ -25,8 +25,8 @@ export function fetchResetPasswordUserInfo(resetCode: string) {
   return ajax('/reset/' + resetCode);
 }
 
-export function requestUserDetail(userId: number) {
-  return ajax('/users/' + userId);
+export function requestUserProfile() {
+  return ajax('/users/profile');
 }
 
 export function setupUser(resetCode: string) {

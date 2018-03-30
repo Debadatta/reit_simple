@@ -14,7 +14,7 @@ class PhoneNumberSelectList extends React.Component {
     return (
       <div className="intl-tel-input allow-dropdown">
         <CountryWithFlag countries={this.props.countries} onChange={this.props.onChangeCountry} countryId={this.props.countryId}/>
-        <input placeholder="Phone" name="phone" type="tel" autoComplete="off" onChange={this.props.onChange} value={this.props.value} className={this.props.inputClass}/>
+        <input placeholder="Phone" name="digits" type="tel" autoComplete="off" onChange={this.props.onChange} value={this.props.digits} className={this.props.inputClass}/>
       </div>
     )
   }

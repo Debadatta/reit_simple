@@ -6,7 +6,8 @@ import {
   RESET_PASSWORD_REQUEST_SUCCESS,
   RESET_PASSWORD_REQUEST_FAILURE,
   RESET_PASSWORD_TOKEN_INFO_FAILURE,
-  RESET_PASSWORD_TOKEN_INFO_SUCCESS
+  RESET_PASSWORD_TOKEN_INFO_SUCCESS,
+  USER_PROFILE_SUCCESS
 } from '../constants/actionTypes';
 
 import * as Users from '../api/users';
@@ -42,4 +43,13 @@ export function fetchResetPasswordUserInfo(token) {
       .then(data => dispatch(fetchResetPasswordUserInfoSuccess(data)))
       .catch(error => dispatch(fetchResetPasswordUserInfoFailure(error)));
   };
+}
+
+const userProfileSuccess = createAction(USER_PROFILE_SUCCESS);
+
+export function requestUserProfile() {
+  return dispatch => {
+    return Users.requestUserProfile()
+      .then(data => dispatch(userProfileSuccess(data)));
+  }
 }
