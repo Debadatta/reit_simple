@@ -91,10 +91,10 @@ class Signup extends Component {
       data.userRefId = this.state.userRefId;
     }
 
-    if (this.state.phone) {
+    if (this.state.digits) {
       const countryIds = Object.keys(this.props.countries);
       data.phoneNumbersAttributes = {
-        "0": { digits: this.state.phone, countryId: parseInt(this.state.countryId || countryIds[0]) }
+        "0": { digits: this.state.digits, countryId: parseInt(this.state.countryId || countryIds[0]) }
       }
     }
 
