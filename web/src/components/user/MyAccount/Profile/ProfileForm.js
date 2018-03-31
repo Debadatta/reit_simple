@@ -22,7 +22,7 @@ export default class ProfileForm extends React.Component {
 
       if (user.phoneNumber) {
         data.digits = user.phoneNumber.digits || "";
-        data.countryId = user.phoneNumber.countryId || "";
+        data.countryId = user.phoneNumber.country_id || "";
       }
 
       if (user.address) {
@@ -30,7 +30,7 @@ export default class ProfileForm extends React.Component {
         data.street2 = user.address.street2 || "";
         data.city = user.address.city || "";
         data.state = user.address.state || "";
-        data.postalCode = user.address.postalCode || "";
+        data.postalCode = user.address.postal_code || "";
       }
       this.setState({...data});
     }
