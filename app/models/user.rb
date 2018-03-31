@@ -2,11 +2,14 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :phone_numbers, dependent: :destroy
+  has_many :addresses, dependent: :destroy
   has_many :social_providers, dependent: :destroy
+
   belongs_to :user_interest, optional: true
   belongs_to :user_ref, optional: true
 
   accepts_nested_attributes_for :phone_numbers
+  accepts_nested_attributes_for :addresses
 
   validates_presence_of     :password,                   :if => :password_required?
   validates_presence_of     :password_confirmation,      :if => :password_required?
