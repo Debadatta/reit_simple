@@ -8,8 +8,13 @@ class AuthenticationController < ApplicationController
       user = User.find_by_email(params[:email])
       session[:user_token] = command.result
       user.set_login_info
+      user.remember_me = params[:remember_me].present?
+      if params[:remember_me].present?        
+        meta = { auth_token: command.result }
+      end
+      
       user.save
-      render_success(:ok, user, meta: { auth_token: command.result })
+      render_success(:ok, user, meta: meta || {})
     else
       render_error(:unauthorized, [ title: command.errors.values.flatten.join(', ') ])
     end

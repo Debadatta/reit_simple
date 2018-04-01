@@ -257,21 +257,19 @@ img {
     background: #fff;
     border-radius: 4px;
   }
-
-  &:after {
-    content: "\f00c";
-    color: #7D78D1;
-    font: 900 16px/normal;
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    transition: all .2s;
-  }
 }
 
 [type=checkbox]:checked~label:after {
   opacity: 1;
   transform: scale(1);
+  content: "\f00c";
+  color: #7D78D1;
+  font: 900 16px/normal;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: all .2s;
+  font: 400 18px/1 Fontawesome;
 }
 
 .toast-top-right {

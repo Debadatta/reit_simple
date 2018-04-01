@@ -25,7 +25,8 @@ class Signup extends Component {
     password: '',
     confirmPassword: '',
     countryId: '',
-    errors: {}
+    errors: {},
+    isRemember: false
   }
 
   componentWillMount() {
@@ -37,6 +38,7 @@ class Signup extends Component {
     this.props.dispatch(requestUserRefs());
   }
 
+  togglekeepMeLoggedin = (e) => this.setState({isRemember: !this.state.isRemember});
   hideFlashMessage = () => this.props.dispatch(hideSignupPopupMessage())
   onChange = (e) => {
     let errors = this.state.errors;
@@ -96,6 +98,10 @@ class Signup extends Component {
       data.phoneNumbersAttributes = {
         "0": { digits: this.state.digits, countryId: parseInt(this.state.countryId || countryIds[0]) }
       }
+    }
+
+    if (this.state.isRemember) {
+      data.rememberMe = this.state.isRemember;
     }
 
     this.props.dispatch(requestSignup({ user: data }));
@@ -281,8 +287,8 @@ class Signup extends Component {
                                 </div>
                               </ActiveForm>
                               <div className="pad-top-10 checkbox-container">
-                                <input type="checkbox"/>
-                                <label><span className="ie-radio-fix">Keep me logged in
+                                <input type="checkbox" checked={this.state.isRemember}/>
+                                <label onClick={this.togglekeepMeLoggedin}><span className="ie-radio-fix">Keep me logged in
                               </span></label></div>
                             </div>
                             <div>

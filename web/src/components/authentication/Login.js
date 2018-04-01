@@ -14,14 +14,14 @@ import '../../styles/authentication.css';
 import '../../styles/form.css';
 
 class Login extends Component {
-  state = { errors: {} }
+  state = { errors: {}, isRemember: false };
 
   componentWillMount() {
     this.props.dispatch(headerTransparent(false))
   }
 
   //hideFlashMessage = () => this.props.dispatch(hideFlashMessage());
-
+  togglekeepMeLoggedin = (e) => this.setState({isRemember: !this.state.isRemember});
   handleChange = (e) => {
     let errors = this.state.errors;
 
@@ -61,7 +61,10 @@ class Login extends Component {
       return;
     }
 
-    return this.props.dispatch(requestLogin({ email: emailValue, password }));
+    return this.props.dispatch(requestLogin({ 
+      email: emailValue, 
+      password, 
+      rememberMe: this.state.isRemember ? this.state.isRemember : null }));
   };
 
   renderErrors() {
@@ -107,8 +110,8 @@ class Login extends Component {
                           </div></div>
                           {this.renderErrors()}
                           <div className="pad-top-10 checkbox-container">
-                            <input type="checkbox"/>
-                            <label><span className="ie-radio-fix">    Keep me logged in
+                            <input type="checkbox" checked={this.state.isRemember}/>
+                            <label onClick={this.togglekeepMeLoggedin}><span className="ie-radio-fix">Keep me logged in
                           </span></label></div>
                           <div className="rs-form-group">
                             <button type="submit" className="btn btn-secondary btn-block">
