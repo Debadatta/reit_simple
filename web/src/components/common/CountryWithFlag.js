@@ -35,7 +35,7 @@ export default class CountryWithFlag extends React.Component {
 
     let selectedFlag, selectedCountry = this.props.countries[0];
     if (this.props.countryId) {
-      selectedCountry = this.props.countries.find(c => parseInt(c.id, 10) === this.props.countryId);
+      selectedCountry = this.props.countries.find(c => parseInt(c.id, 10) === parseInt(this.props.countryId, 10));
     }
 
     if (selectedCountry) {

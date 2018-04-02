@@ -29,6 +29,10 @@ export function requestUserProfile() {
   return ajax('/users/profile');
 }
 
+export function updateUserProfile(data: Object) {
+  return ajax('/users/profile', { method: 'PUT', body: { user: data } });
+}
+
 export function setupUser(resetCode: string) {
   return ajax('/setup/' + resetCode);
 }
