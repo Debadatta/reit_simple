@@ -14,9 +14,17 @@ export const emailError = (value) => {
   }
 };
 
-export const ltError = (value, length) => {
+export const ltError = (value, length, message = null) => {
   if (!value.toString().trim().length > length) {
-    return <div className="error">The value exceeded {length} symbols.</div>
+    const errorMessage = message || `The value exceeded ${length} symbols.`;
+    return <div className="error">{errorMessage}</div>
+  }
+};
+
+export const gtError = (value, length, message = null) => {
+  if (!value.toString().length < length) {
+    const errorMessage = message || `The value should not exceed ${length} symbols.`;
+    return <div className="error">{errorMessage}</div>
   }
 };
 

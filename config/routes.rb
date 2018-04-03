@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     match '/forgot' => 'authentication#forgot', :as => :forgot, :via => :post
     match '/reset/:reset_code' => 'authentication#reset', :as => :reset, :via => [:get, :post]
     match '/setup/:reset_code' => 'authentication#setup', :as => :setup, :via => [:get, :post]
-    match '/users/profile' => 'users/profile', :as => :profile, :via => [:get, :post]
+    match '/users/profile' => 'users/profile', :as => :profile, :via => [:get, :put]
     post '/omniauth_callbacks/login'
     post '/omniauth_callbacks/signup'
 

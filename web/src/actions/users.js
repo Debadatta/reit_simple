@@ -7,7 +7,9 @@ import {
   RESET_PASSWORD_REQUEST_FAILURE,
   RESET_PASSWORD_TOKEN_INFO_FAILURE,
   RESET_PASSWORD_TOKEN_INFO_SUCCESS,
-  USER_PROFILE_SUCCESS
+  USER_PROFILE_SUCCESS,
+  UPDATE_USER_PROFILE_SUCCESS,
+  UPDATE_USER_PROFILE_FAILURE
 } from '../constants/actionTypes';
 
 import * as Users from '../api/users';
@@ -51,5 +53,16 @@ export function requestUserProfile() {
   return dispatch => {
     return Users.requestUserProfile()
       .then(data => dispatch(userProfileSuccess(data)));
+  }
+}
+
+const updateUserProfileSuccess = createAction(UPDATE_USER_PROFILE_SUCCESS);
+const updateUserProfileFailure = createAction(UPDATE_USER_PROFILE_FAILURE);
+
+export function updateUserProfile(data) {
+  return dispatch => {
+    return Users.updateUserProfile(data)
+      .then(data => dispatch(updateUserProfileSuccess(data)))
+      .catch(error => dispatch(updateUserProfileFailure(error)))
   }
 }

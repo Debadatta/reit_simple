@@ -5,30 +5,39 @@ import ProfileForm from "./ProfileForm";
 import ChangePasswordForm from "./ChangePasswordForm";
 import TrustedConnections from "./TrustedConnections";
 
-import { requestUserProfile } from "../../../../actions/users";
+import { requestUserProfile, updateUserProfile } from "../../../../actions/users";
 
 class Profile extends React.Component {
   componentDidMount() {
     this.props.dispatch(requestUserProfile());
   }
 
+  handlePofileUpdate = (data) => {
+    return this.props.dispatch(updateUserProfile(data));
+  }
+
   render() {
     return (
-        <div className="body-wrapper-content my-account">
+      <div className="body-wrapper-content my-account">
         <div className="page-header no-bottom-pad">
           <h3 className="page-title">My Profile</h3>
         </div>
-        <ProfileForm user={this.props.user}/>
-        <ChangePasswordForm/>
+        <ProfileForm 
+          user={this.props.user} 
+          countries={this.props.countries}
+          handlePofileUpdate={this.handlePofileUpdate}
+        />
+        <ChangePasswordForm handlePasswordUpdate={this.handlePofileUpdate}/>
         <TrustedConnections/>
-        </div>
+      </div>
     )
   }
 }
 
 function mapStateToProps(state) {
   return {
-    user: state.entities.users[state.authentication.currentUserId]
+    user: state.entities.users[state.authentication.currentUserId],
+    countries: state.entities.countries
   }
 }
 
