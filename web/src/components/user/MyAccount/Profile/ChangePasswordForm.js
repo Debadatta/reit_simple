@@ -1,16 +1,46 @@
 import React from 'react';
+import { requiredError, gtError, passwordError } from '../../../../helpers/formValidator';
 
 export default class ChangePasswordForm extends React.Component {
   state= {
     currentPassword: "",
     password: "",
-    passwordConfirmation: ""
+    passwordConfirmation: "",
+    errors: {}
   };
 
-  onChange = (e) => this.setState({[e.target.name]: e.target.value});
+  onChange = (e) => {
+    const errors = this.state.errors;
+    
+    if (e.target.name === "passwordConfirmation" && 
+    this.state.password !== e.target.value) {
+      errors.passwordConfirmation = passwordError(this.state.password, e.target.value, "Your confirm password does not match.");
+    } else if (e.target.name === "password" && e.target.value.length < 6) {
+      errors.password = gtError(e.target.value, 6, "Please enter at least 6 characters.");
+    } else {
+      errors[e.target.name] = null;
+    }
+
+    this.setState({[e.target.name]: e.target.value, errors});
+  }
   
   handleSubmit = (e) => {
     e.preventDefault();
+
+    const errors = this.state.errors;
+
+    [{label: "Current Password", value: 'currentPassword', message: "Please provide your current password."},
+     {label: "Password", value: 'password', message: "Please enter at least 6 characters."},
+     {label: "Password Confirmation", value: 'passwordConfirmation', message: "Please confirm your new password."}].forEach(field => {
+      if (!this.state[field.value]) {
+        errors[field.value] = requiredError(this.state[field.value], field.label, field.message);
+      }
+    })
+
+    if (Object.values(errors).filter(v => v).length > 0) {
+      this.setState({errors});
+      return;
+    }
 
     const data = {
       currentPassword: this.state.currentPassword,
@@ -21,6 +51,8 @@ export default class ChangePasswordForm extends React.Component {
     this.props.handlePasswordUpdate(data).then(payload => {
       if (payload.error) {
         this.setState({errors: payload.payload.response.errors});
+      } else {
+        this.setState({password: null, currentPassword: null, passwordConfirmation: null, errors: {}});
       }
     })
   }
@@ -33,32 +65,41 @@ export default class ChangePasswordForm extends React.Component {
               <div className="form-group">
                 <label className="control-label col-md-4">Current Password</label>
                 <div className="col-md-8">
-                  <div className="input-error"><div className="rs-input-container">
-                      <div className=" ">
+                  <div className={this.state.errors.currentPassword ? "input-error" : ''}>
+                    <div className="rs-input-container">
+                      <div className="error-border">
                         <input maxLength={255} value={this.state.currentPassword} type="password" onChange={this.onChange} name="currentPassword" className="form-control fs-hide" />
                       </div>
+                      {this.state.errors.currentPassword}
                     </div>
-                </div>        </div>
+                  </div>        
+                </div>
               </div>
               <div className="form-group">
                 <label className="control-label col-md-4">New Password</label>
                 <div className="col-md-8">
-                  <div className="input-error"><div className="rs-input-container">
-                      <div className=" ">
+                  <div className={this.state.errors.password ? "input-error" : ''}>
+                    <div className="rs-input-container">
+                      <div className="error-border">
                         <input id="passwordInput" maxLength={255} value={this.state.password} onChange={this.onChange} name="password" type="password" className="form-control fs-hide" />
                       </div>
+                      {this.state.errors.password}
                     </div>
-                </div>        </div>
+                  </div>        
+                </div>
               </div>
               <div className="form-group">
                 <label className="control-label col-md-4">Re-type New Password</label>
                 <div className="col-md-8">
-                  <div className="input-error"><div className="rs-input-container">
-                      <div className=" ">
+                  <div className={this.state.errors.passwordConfirmation ? "input-error" : ''}>
+                    <div className="rs-input-container">
+                      <div className="error-border">
                         <input maxLength={255} value={this.state.passwordConfirmation} type="password" className="form-control fs-hide" name="passwordConfirmation" onChange={this.onChange} />
                       </div>
-                      </div>
-                </div>        </div>
+                      {this.state.errors.passwordConfirmation}
+                    </div>
+                  </div>        
+                </div>
               </div>
               <br />
               <div className="text-center">

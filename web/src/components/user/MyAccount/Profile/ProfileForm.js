@@ -1,9 +1,11 @@
 import React from 'react';
 
 import PhoneNumberSelectList from '../../../common/PhoneNumberSelectList';
+import { requiredError } from '../../../../helpers/formValidator';
 
 export default class ProfileForm extends React.Component {
-  state = {}
+  state = {errors: {}};
+
   onChange = (e) => {
     const name = e.target.name;
     this.setState({[name]: e.target.value});
@@ -41,6 +43,23 @@ export default class ProfileForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     
+    const errors = this.state.errors;
+    [{label: "a street address.", value: 'street1'},
+    {label: "a city.", value: 'city'},
+    {label: "state code.", value: 'state'},
+    {label: "a 5-digit zip code.", value: 'postalCode'},
+    {label: "valid phone number.", value: 'digits'}
+  ].forEach(field => {
+      if (!this.state[field.value]) {
+        errors[field.value] = requiredError(this.state[field.value], field.label, `Please enter ${field.label}`);
+      }
+    });
+
+    if (Object.values(errors).filter(v => v).length > 0) {
+      this.setState({errors});
+      return;
+    }
+
     const data = {
       firstName: this.state.firstName,
       lastName: this.state.lastName
@@ -100,9 +119,12 @@ export default class ProfileForm extends React.Component {
                   <div className="form-group">
                     <label className="control-label col-md-4">Phone Number</label>
                     <div className="col-md-8">
-                      <div className="input-error">
+                      <div className={this.state.errors.digits ? "input-error" : ''}>
                         <div className="rs-input-container">
-                          <PhoneNumberSelectList onChange={this.onChange} digits={this.state.digits} inputClass="form-control" countryId={this.state.countryId} onChangeCountry={this.onChangeCountry}/>
+                          <div className="error-border">
+                            <PhoneNumberSelectList onChange={this.onChange} digits={this.state.digits} inputClass="form-control" countryId={this.state.countryId} onChangeCountry={this.onChangeCountry}/>
+                          </div>
+                          {this.state.errors.digits}
                         </div>
                       </div>
                     </div>
@@ -118,13 +140,15 @@ export default class ProfileForm extends React.Component {
                   <div className="form-group">
                     <label className="control-label col-md-4">Address 1</label>
                     <div className="col-md-8">
-                      <div className="input-error">
+                      <div className={this.state.errors.street1 ? "input-error" : ''}>
                         <div className="rs-input-container">
-                          <div className=" ">
+                          <div className="error-border">
                             <input type="text" className="form-control fs-hide" onChange={this.onChange} value={this.state.street1} name="street1"/>
                           </div>
+                          {this.state.errors.street1}
                         </div>
-                    </div>          </div>
+                      </div>          
+                    </div>
                   </div>
                   <div className="form-group">
                     <label className="control-label col-md-4">Address 2</label>
@@ -135,32 +159,41 @@ export default class ProfileForm extends React.Component {
                   <div className="form-group">
                     <label className="control-label col-md-4">City</label>
                     <div className="col-md-8">
-                      <div className="input-error"><div className="rs-input-container">
-                          <div className=" ">
+                      <div className={this.state.errors.city ? "input-error" : ''}>
+                        <div className="rs-input-container">
+                          <div className="error-border">
                             <input type="text" className="form-control fs-hide" onChange={this.onChange} value={this.state.city} name="city"/>
                           </div>
+                          {this.state.errors.city}
                         </div>
-                    </div>          </div>
+                      </div>
+                    </div>
                   </div>
                   <div className="form-group">
                     <label className="control-label col-md-4">State</label>
                     <div className="col-md-8">
-                      <div className="input-error"><div className="rs-input-container">
-                          <div className=" ">
+                      <div className={this.state.errors.state ? "input-error" : ''}>
+                        <div className="rs-input-container">
+                          <div className="error-border">
                             <input type="text" className="form-control fs-hide" onChange={this.onChange} value={this.state.state} name="state"/>
                           </div>
+                          {this.state.errors.state}
                         </div>
-                    </div>          </div>
+                      </div>          
+                    </div>
                   </div>
                   <div className="form-group">
                     <label className="control-label col-md-4">Zip</label>
                     <div className="col-md-8">
-                      <div className="input-error"><div className="rs-input-container">
-                          <div className=" ">
+                      <div className={this.state.errors.postalCode ? "input-error" : ''}>
+                        <div className="rs-input-container">
+                          <div className="error-border">
                             <input maxLength={5} type="text" className="form-control fs-hide" onChange={this.onChange} value={this.state.postalCode} name="postalCode"/>
                           </div>
+                          {this.state.errors.postalCode}
                         </div>
-                    </div></div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
