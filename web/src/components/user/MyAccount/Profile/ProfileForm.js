@@ -8,37 +8,48 @@ export default class ProfileForm extends React.Component {
 
   onChange = (e) => {
     const name = e.target.name;
-    this.setState({[name]: e.target.value});
+    const errors = this.state.errors;
+
+    if (e.target.value) errors[e.target.name] = null;
+    this.setState({[name]: e.target.value, errors});
   }
 
-  onChangeCountry = (countryId) => this.setState({countryId});
+  componentWillMount() {
+    this.setData(this.props);
+  }
 
   componentWillReceiveProps(nextProps) {
     if(nextProps.user !== this.props.user) {
-      const user= nextProps.user;
-      const data = {
-        firstName: user.firstName || "",
-        lastName: user.lastName || "",
-        email: user.email
-      }
-
-      if (user.phoneNumber) {
-        data.phoneNumberId = user.phoneNumber.id;
-        data.digits = user.phoneNumber.digits || "";
-        data.countryId = user.phoneNumber.country_id || "";
-      }
-
-      if (user.address) {
-        data.addressId = user.address.id;
-        data.street1 = user.address.street1 || "";
-        data.street2 = user.address.street2 || "";
-        data.city = user.address.city || "";
-        data.state = user.address.state || "";
-        data.postalCode = user.address.postal_code || "";
-      }
-      this.setState({...data});
+      this.setData(nextProps);
     }
   }
+
+  setData(props) {
+    const user= props.user;
+    const data = {
+      firstName: user.firstName || "",
+      lastName: user.lastName || "",
+      email: user.email
+    }
+
+    if (user.phoneNumber) {
+      data.phoneNumberId = user.phoneNumber.id;
+      data.digits = user.phoneNumber.digits || "";
+      data.countryId = user.phoneNumber.country_id || "";
+    }
+
+    if (user.address) {
+      data.addressId = user.address.id;
+      data.street1 = user.address.street1 || "";
+      data.street2 = user.address.street2 || "";
+      data.city = user.address.city || "";
+      data.state = user.address.state || "";
+      data.postalCode = user.address.postal_code || "";
+    }
+    this.setState({...data});
+  }
+
+  onChangeCountry = (countryId) => this.setState({countryId});
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -68,7 +79,7 @@ export default class ProfileForm extends React.Component {
     if (this.state.digits) {
       const countryIds = Object.keys(this.props.countries);
       data.phoneNumbersAttributes = {
-        "0": { digits: this.state.digits, countryId: parseInt(this.state.countryId || countryIds[0]) }
+        "0": { digits: this.state.digits, countryId: parseInt(this.state.countryId || countryIds[0], 10) }
       }
 
       if (this.state.phoneNumberId) {
