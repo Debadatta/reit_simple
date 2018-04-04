@@ -1,0 +1,2 @@
+class OperationsContact < Contact
+end

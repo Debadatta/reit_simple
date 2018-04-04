@@ -1,6 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const SIDEBAR = [{value: "profile", label: "My Profile"}, {value: "companyProfile", label: "Company Profile"}, {value: "emailSetting", label: "Email Settings"}, {value: "ira", label: "My IRA Account"}];
+const SIDEBAR = [
+  {value: "profile", label: "My Profile", url: "/my-account"}, 
+  {value: "companyProfile", label: "Company Profile", url: "/my-account/company"}, 
+  {value: "emailSetting", label: "Email Settings", url: "/my-account/email-settings"},
+  {value: "ira", label: "My IRA Account", url: "/my-account/ira"}
+];
 
 export default class LeftMenu extends React.Component {
   render() {
@@ -19,7 +25,11 @@ export default class LeftMenu extends React.Component {
               <div id="left-nav-collapseOne" className="panel-collapse collapse in" >
                 <ul className="list-group">
                   {SIDEBAR.map(obj => {
-                    return <li key={obj.value}><a href="javascript:void(0)" className={obj.value === this.props.type ? "active" : null} onClick={this.props.changeView} data-value={obj.value}>{obj.label}</a></li>;
+                    return (
+                      <li key={obj.value}>
+                        <Link to={obj.url} className={this.props.location.pathname === obj.url ? "active" : null} onClick={this.props.changeView} data-value={obj.value}>{obj.label}</Link>
+                      </li>
+                    )
                    })}
                 </ul>
               </div>

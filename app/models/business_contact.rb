@@ -1,0 +1,2 @@
+class BusinessContact < Contact
+end

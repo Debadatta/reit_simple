@@ -1,0 +1,2 @@
+class FinancialContact < Contact
+end
