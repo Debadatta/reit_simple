@@ -1,4 +1,6 @@
 import React from 'react';
+import PopupMessage from '../../../common/PopupMessage';
+
 import { requiredError, gtError, passwordError } from '../../../../helpers/formValidator';
 
 export default class ChangePasswordForm extends React.Component {
@@ -50,16 +52,31 @@ export default class ChangePasswordForm extends React.Component {
 
     this.props.handlePasswordUpdate(data).then(payload => {
       if (payload.error) {
-        this.setState({errors: payload.payload.response.errors});
+        this.setState({errors: payload.payload.response.errors, updated: false});
       } else {
-        this.setState({password: null, currentPassword: null, passwordConfirmation: null, errors: {}});
+        this.setState({
+          password: "", 
+          currentPassword: "", 
+          passwordConfirmation: "", 
+          errors: {}, 
+          updated: true
+        });
       }
     })
   }
 
+  handleStatusMessage = (e) => this.setState({updated: false});
+
+  renderStatus() {
+    if (this.state.updated) {
+      return <PopupMessage type="success" position="bottom" hideHandler={this.handleStatusMessage} >Info updated successfully</PopupMessage>
+    }
+  }
+
   render() {
     return (
-      <form onSubmit={this.handleSubmit} className="form-horizontal">
+        <form onSubmit={this.handleSubmit} className="form-horizontal">
+          {this.renderStatus()}
           <div className="panel panel-default">
             <div className="panel-body">
               <div className="form-group">

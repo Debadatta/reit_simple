@@ -272,17 +272,23 @@ img {
   font: 400 18px/1 Fontawesome;
 }
 
-.toast-top-right {
+.toast-right {
   position: fixed;
   right: 10px;
   width: 22%;
-  top: 15px;
   z-index: 10000;
-  background-color: orange;
   padding: 20px;
   color: #fff;
   border-radius: 5px;
   box-shadow: 5px 8px 12px rgba(136, 136, 136, 0.57);
+}
+
+.flash-message.top {
+  top: 15px;
+}
+
+.flash-message.bottom {
+  bottom: 15px;
 }
 
 .flash-message {
@@ -302,6 +308,14 @@ img {
   &--hide {
     opacity: 0;
   }
+}
+
+.flash-message.success {
+  background-color: #62ad63;
+}
+
+.flash-message.warning {
+  background-color: orange;
 }
 
 .intl-tel-input {
@@ -476,6 +490,10 @@ img {
   &.iti-container:hover {
     cursor: pointer;
   }
+}
+
+.fa-2 {
+  font-size: 20px;
 }
 
 @media (max-width: 500px) {

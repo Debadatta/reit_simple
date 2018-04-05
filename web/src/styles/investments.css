@@ -40,7 +40,8 @@
 
 .investments .investments-content {
   display: block;
-  padding-bottom: 40px; }
+  padding-bottom: 40px;
+  min-height: 300px; }
   .investments .investments-content table.properties, .investments .investments-content table.table-primary {
     margin-bottom: 0;
     width: 100%;
