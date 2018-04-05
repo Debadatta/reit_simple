@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 export default class PopupMessage extends React.Component {
   static defaultProps = {
-    type: 'primary',
-    time: 8000
+    time: 8000,
+    type: "warning",
+    position: "top"
   };
 
   static propTypes = {
@@ -31,12 +32,21 @@ export default class PopupMessage extends React.Component {
     }
   }
 
+  getIcon() {
+    switch(this.props.type) {
+      case "warning":
+        return "exclamation-triangle";
+      default:
+        return "check";
+    }
+  }
+
   render() {
     return (
-      <div className={`flash-message toast-top-right ${this.props.type}`} ref={d => {
+      <div className={`flash-message toast-right ${this.props.position} ${this.props.type}`} ref={d => {
           this.containerDiv = d;
         }}>
-        <i className="fa fa-exclamation-triangle"></i>
+        <i className={`fa fa-${this.getIcon()} fa-2`}></i>
         <div className={`toast toast-${this.props.type}`}>
           {this.props.children}
         </div>

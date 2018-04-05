@@ -1,6 +1,8 @@
 import React from 'react';
 
 import PhoneNumberSelectList from '../../../common/PhoneNumberSelectList';
+import PopupMessage from '../../../common/PopupMessage';
+
 import { requiredError } from '../../../../helpers/formValidator';
 
 export default class ProfileForm extends React.Component {
@@ -104,13 +106,24 @@ export default class ProfileForm extends React.Component {
     this.props.handlePofileUpdate(data).then(payload => {
       if (payload.error) {
         this.setState({errors: payload.payload.response.errors});
+      } else {
+        this.setState({updated: true});
       }
     });
+  }
+
+  handleStatusMessage = (e) => this.setState({updated: false});
+
+  renderStatus() {
+    if (this.state.updated) {
+      return <PopupMessage type="success" position="bottom" hideHandler={this.handleStatusMessage} >Info updated successfully</PopupMessage>
+    }
   }
 
   render() {
     return (
         <form className="form-horizontal my-account-form" onSubmit={this.handleSubmit}>
+          {this.renderStatus()}
           <div className="panel panel-default">
             <div className="panel-body">
               <div className="row">

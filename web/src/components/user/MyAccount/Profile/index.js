@@ -12,9 +12,7 @@ class Profile extends React.Component {
     this.props.dispatch(requestUserProfile());
   }
 
-  handlePofileUpdate = (data) => {
-    return this.props.dispatch(updateUserProfile(data));
-  }
+  handlePofileUpdate = (data) => this.props.dispatch(updateUserProfile(data));
 
   render() {
     return (
