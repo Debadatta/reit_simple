@@ -1,4 +1,16 @@
 .body-wrapper {
+  .my-account-company {
+    .panel-heading {
+      padding: 16px 10px 14px;
+      border-bottom: 1px solid transparent;
+      line-height: 20px;
+    }
+  }
+
+  .panel {
+    border-radius: 0px!important;
+  }
+
   a {
     cursor: pointer;
     text-decoration: none!important;
@@ -25,6 +37,12 @@
     padding-right: 30px;
   }
 
+  .panel-default>.panel-heading {
+    color: #333;
+    background-color: #FFF;
+    border-color: #ddd;
+  } 
+
   .body-wrapper-content {
     display: table-cell;
     width: 100%;
@@ -34,6 +52,10 @@
     .page-header {
       margin-top: 50px;
       border: none;
+    }
+
+    .panel-default>.panel-heading, .well {
+      background-color: #fff;
     }
 
     .no-bottom-pad {
@@ -139,7 +161,7 @@ ul {
 
     .panel {
       border: 1px solid #DBDBDB;
-      border-radius: 4px;
+      border-radius: 0px;
       margin-bottom: 12px;
     }
 
@@ -165,4 +187,8 @@ ul {
       padding: 12px 10px 14px 16px;
     }
   }
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }

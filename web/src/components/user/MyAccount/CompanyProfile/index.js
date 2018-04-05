@@ -6,7 +6,7 @@ import ProfileForm from "./ProfileForm";
 class CompanyProfile extends React.Component {
   render() {
     return (
-      <div className="body-wrapper-content my-account">
+      <div className="body-wrapper-content my-account my-account-company">
         <div className="page-header no-bottom-pad">
           <h3 className="page-title">Company Profile</h3>
         </div>
