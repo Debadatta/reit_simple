@@ -15,6 +15,10 @@ input, select {
     background-color: #7a77b6;
     border-color: #7a77b6; }
 
+.btn.btn-primary:hover, .btn.btn-primary:focus {
+  background-color: #66a0d2;
+  border-color: #6195c1; }
+
 .text-center {
   text-align: center; }
 
@@ -1264,7 +1268,12 @@ img {
 
 @media (min-width: 992px) {
   .col-md-offset-4 {
-    margin-left: 33.33333%; } }
+    margin-left: 33.33333%; }
+  .navbar.navbar-rs .navbar-nav > li ul.dropdown-menu a:not([class*=btn-sm]).active, .navbar.navbar-rs .navbar-nav > li ul.dropdown-menu a:not([class*=btn-sm]):active, .navbar.navbar-rs .navbar-nav > li ul.dropdown-menu a:not([class*=btn-sm]):focus, .navbar.navbar-rs .navbar-nav > li ul.dropdown-menu a:not([class*=btn-sm]):hover {
+    border-color: #337ab7; }
+  .navbar.navbar-rs .navbar-nav > li ul.dropdown-menu a:not([class*=btn-sm]) {
+    padding: 4px 20px;
+    border-left: 4px solid transparent; } }
 
 @media (min-width: 992px) {
   .col-md-4 {
