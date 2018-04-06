@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import LeftMenu from "./LeftMenu";
 import Profile from "./Profile";
 import CompanyProfile from "./CompanyProfile";
+import Ira from "./Ira";
 
 import "../../../styles/MyAccount.css";
 
@@ -21,6 +22,7 @@ class MyAccount extends React.Component {
           <Switch>
             <Route path="/my-account" exact={true} component={Profile} />
             <Route path="/my-account/company" component={CompanyProfile} />
+            <Route path="/my-account/ira" component={Ira} />
           </Switch>
         </div>
       </section>
