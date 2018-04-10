@@ -19,6 +19,7 @@
 /web/node_modules/
 /web/yarn-error.log
 /web/.env
+.vscode
 
 # Ignore Byebug command history file.
 .byebug_history

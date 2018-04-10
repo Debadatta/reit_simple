@@ -1,0 +1,65 @@
+@import '../../../styles/variables';
+
+.switch {
+  display: inline-block;
+  height: 28px;
+  position: relative;
+  min-width: 56px;
+  vertical-align: middle;
+
+  &-wrapper {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &-label {
+    font-weight: 500;
+    margin-left: 46px;
+    color: $dark-steel-grey;
+    vertical-align: middle;
+  }
+
+  input {
+    display:none;
+
+    &:focus + .slider {
+      box-shadow: 0 0 1px $toggle-switch-bg-color-on;
+    }
+
+    &:checked {
+      + .slider {
+        border-color: #7D78D1;
+        background-color: $toggle-switch-bg-color-on;
+
+        &:before {
+          transform: translateX(100%);
+        }
+      }
+
+      ~ .switch-label {
+        color: $toggle-switch-bg-color-on;
+      }
+    } 
+  }
+
+  .slider {
+    background-color: #CAD1D8;
+    border-radius: 50px;
+    cursor: pointer;
+    height: 28px;
+    width: 56px;
+    position: absolute;
+    border: 1px solid #C4C4C4;
+    transition: all 0.2s linear;
+
+    &:before {
+      background-color: $white-color;
+      border-radius: 50%;
+      content: "";
+      height: 100%;
+      position: absolute;
+      transition: all 0.2s linear 0s;
+      width: 50%;
+    }
+  }
+}
