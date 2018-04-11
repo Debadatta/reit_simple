@@ -40,3 +40,19 @@ export function setupUser(resetCode: string) {
 export function setupUserRequest(params: Object) {
   return ajax(`/setup/${params.resetCode}`, { method: 'POST', body: { user: params.user } });
 }
+
+export function requestEmailNotificationSetting() {
+  return ajax('/email_notification_settings');
+}
+
+export function requestEmailPreferenceSetting() {
+  return ajax('/email_preference_settings');
+}
+
+export function updateEmailNotificationSetting(params) {
+  return ajax('/email_notification_settings', {method: "PUT", body: params});
+}
+
+export function updateEmailPreferenceSetting(params) {
+  return ajax('/email_preference_settings', {method: "PUT", body: params});
+}

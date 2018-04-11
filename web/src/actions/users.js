@@ -9,7 +9,11 @@ import {
   RESET_PASSWORD_TOKEN_INFO_SUCCESS,
   USER_PROFILE_SUCCESS,
   UPDATE_USER_PROFILE_SUCCESS,
-  UPDATE_USER_PROFILE_FAILURE
+  UPDATE_USER_PROFILE_FAILURE,
+  EMAIL_NOTIFICATION_SUCCESS,
+  EMAIL_PREFERENCE_SUCCESS,
+  UPDATE_EMAIL_NOTIFICATION_SUCCESS,
+  UPDATE_EMAIL_PREFERENCE_SUCCESS
 } from '../constants/actionTypes';
 
 import * as Users from '../api/users';
@@ -64,5 +68,41 @@ export function updateUserProfile(data) {
     return Users.updateUserProfile(data)
       .then(data => dispatch(updateUserProfileSuccess(data)))
       .catch(error => dispatch(updateUserProfileFailure(error)))
+  }
+}
+
+const requestEmailNotificationSettingSuccess = createAction(EMAIL_NOTIFICATION_SUCCESS);
+
+export function requestEmailNotificationSetting() {
+  return dispatch => {
+    return Users.requestEmailNotificationSetting()
+      .then(data => dispatch(requestEmailNotificationSettingSuccess(data)));
+  }
+}
+
+const requestEmailPreferenceSettingSuccess = createAction(EMAIL_PREFERENCE_SUCCESS);
+
+export function requestEmailPreferenceSetting() {
+  return dispatch => {
+    return Users.requestEmailPreferenceSetting()
+      .then(data => dispatch(requestEmailPreferenceSettingSuccess(data)));
+  }
+}
+
+const updateEmailNotificationSettingSuccess = createAction(UPDATE_EMAIL_NOTIFICATION_SUCCESS);
+
+export function updateEmailNotificationSetting(params) {
+  return dispatch => {
+    return Users.updateEmailNotificationSetting(params)
+      .then(data => dispatch(updateEmailNotificationSettingSuccess(data)));
+  }
+}
+
+const updateEmailPreferenceSettingSuccess = createAction(UPDATE_EMAIL_PREFERENCE_SUCCESS);
+
+export function updateEmailPreferenceSetting(params) {
+  return dispatch => {
+    return Users.updateEmailPreferenceSetting(params)
+      .then(data => dispatch(updateEmailPreferenceSettingSuccess(data)));
   }
 }

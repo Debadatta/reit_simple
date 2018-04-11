@@ -9,6 +9,9 @@
   .button-container .btn {
     border-radius: 4px; }
 
+.email-settings ul {
+  list-style: unset; }
+
 .settings-container {
   border: 1px solid #DBDBDB; }
   .settings-container .setting-row {

@@ -5,7 +5,9 @@ const defaultEntities = {
   users: {},
   userInterests: {},
   userRefs: {},
-  countries: {}
+  countries: {},
+  emailNotificationSettings: {},
+  emailPreferenceSettings: {}
 };
 
 export default function entities(state = defaultEntities, action) {

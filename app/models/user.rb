@@ -7,6 +7,9 @@ class User < ApplicationRecord
 
   belongs_to :user_interest, optional: true
   belongs_to :user_ref, optional: true
+  
+  has_one :email_preference_setting
+  has_one :email_notification_setting
 
   accepts_nested_attributes_for :phone_numbers
   accepts_nested_attributes_for :addresses
@@ -24,6 +27,7 @@ class User < ApplicationRecord
 
   after_save :send_reset_notification, :if => :recently_reset?
   before_create :set_login_info
+  after_create :create_email_settings
   #after_create :send_welcome_mail
 
   def self.login_from_omniauth(auth, password)
@@ -109,5 +113,10 @@ class User < ApplicationRecord
   def set_login_info
     self.last_login_at = DateTime.now
     self.login_count = login_count + 1;
+  end
+
+  def create_email_settings
+    self.create_email_preference_setting
+    self.create_email_notification_setting
   end
 end

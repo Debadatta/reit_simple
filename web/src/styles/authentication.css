@@ -172,12 +172,7 @@ div#forgot_password .formContainer {
   margin-top: 5px; }
 
 #reset_password .btn.btn-primary {
-  color: #fff;
-  background-color: #F17422;
-  border-color: #F17422; }
-  #reset_password .btn.btn-primary:hover {
-    background-color: #f38c48;
-    border-color: #f38c48; }
+  color: #fff; }
 
 @media (min-width: 1350px) {
   .container {
