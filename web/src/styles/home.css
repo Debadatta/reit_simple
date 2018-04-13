@@ -6800,9 +6800,6 @@ ul {
     font-size: 14px; }
   .btn.btn-primary {
     color: #fff; }
-    .btn.btn-primary:hover, .btn.btn-primary:focus {
-      background-color: #ff9651;
-      border-color: #ff9651; }
   .btn.btn-outline-primary {
     color: '';
     background-color: transparent;

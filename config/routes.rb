@@ -15,7 +15,8 @@ Rails.application.routes.draw do
     resources :user_interests, only: [:index]
     resources :user_refs, only: [:index]
     resources :countries, only: [:index]
-
+    resource :email_preference_settings, only: [:show, :update]
+    resource :email_notification_settings, only: [:show, :update]
     #mount MailPreview => 'mail_view' if Rails.env.development?
   end
 end

@@ -1,0 +1,51 @@
+.button-container {
+  float: right;
+  margin-top: 25px;
+  margin-bottom: 15px;
+
+  .btn.btn-secondary {
+    color: #fff;
+    background-color: #605CA8;
+    border-color: #605CA8;
+  }
+  .btn {
+    border-radius: 4px;
+  }
+}
+
+.email-settings {
+  ul {
+    list-style: unset;
+  }
+}
+
+.settings-container {
+  border: 1px solid #DBDBDB;
+
+  .setting-row {
+    border-bottom: 1px solid #DBDBDB;
+    margin-left: 0!important;
+    margin-right: 0!important;
+
+    .section-description {
+      padding: 30px 40px;
+      color: #767676;
+      line-height: 20px;
+
+      .title {
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .desc {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: 16px;
+      }
+    }
+
+    .section-switch {
+      padding: 50px 10px;
+    }
+  }
+}

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180404152257) do
+ActiveRecord::Schema.define(version: 20180411150903) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "street1"
@@ -78,6 +78,24 @@ ActiveRecord::Schema.define(version: 20180404152257) do
     t.datetime "updated_at",   null: false
     t.string   "country_code"
     t.boolean  "is_preferred"
+  end
+
+  create_table "email_notification_settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.boolean  "filter_notification_enabled",   default: false
+    t.boolean  "property_availability_enabled", default: false
+    t.boolean  "property_updates_enabled",      default: false
+    t.integer  "user_id"
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+  end
+
+  create_table "email_preference_settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.boolean  "news_and_announcements_enabled", default: false
+    t.boolean  "bulletin_enabled",               default: false
+    t.boolean  "courses_enabled",                default: false
+    t.integer  "user_id"
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
   end
 
   create_table "phone_numbers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
