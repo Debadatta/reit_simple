@@ -8,8 +8,9 @@ class User < ApplicationRecord
   belongs_to :user_interest, optional: true
   belongs_to :user_ref, optional: true
   
-  has_one :email_preference_setting
-  has_one :email_notification_setting
+  has_one :email_preference_setting, dependent: :destroy
+  has_one :email_notification_setting, dependent: :destroy
+  has_one :company, dependent: :destroy
 
   accepts_nested_attributes_for :phone_numbers
   accepts_nested_attributes_for :addresses

@@ -7,7 +7,15 @@ const defaultEntities = {
   userRefs: {},
   countries: {},
   emailNotificationSettings: {},
-  emailPreferenceSettings: {}
+  emailPreferenceSettings: {},
+  companies: {},
+  businessContacts: {},
+  companyAddresses: {},
+  companyPhoneNumbers: {},
+  financialContacts: {},
+  operationsContacts: {},
+  contactPhoneNumbers: {},
+  contactEmailAddresses: {}
 };
 
 export default function entities(state = defaultEntities, action) {
