@@ -56,3 +56,11 @@ export function updateEmailNotificationSetting(params) {
 export function updateEmailPreferenceSetting(params) {
   return ajax('/email_preference_settings', {method: "PUT", body: params});
 }
+
+export function requestCompany() {
+  return ajax('/user/company');
+}
+
+export function updateCompanyDetails(data: Object) {
+  return ajax('/user/company', { method: 'PUT', body: data });
+}

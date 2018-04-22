@@ -13,7 +13,10 @@ import {
   EMAIL_NOTIFICATION_SUCCESS,
   EMAIL_PREFERENCE_SUCCESS,
   UPDATE_EMAIL_NOTIFICATION_SUCCESS,
-  UPDATE_EMAIL_PREFERENCE_SUCCESS
+  UPDATE_EMAIL_PREFERENCE_SUCCESS,
+  REQUEST_COMPANY_SUCCESS,
+  UPDATE_COMPANY_SUCCESS,
+  UPDATE_COMPANY_FAILURE
 } from '../constants/actionTypes';
 
 import * as Users from '../api/users';
@@ -105,4 +108,24 @@ export function updateEmailPreferenceSetting(params) {
     return Users.updateEmailPreferenceSetting(params)
       .then(data => dispatch(updateEmailPreferenceSettingSuccess(data)));
   }
+}
+
+const requestCompanySuccess = createAction(REQUEST_COMPANY_SUCCESS);
+
+export function requestCompany() {
+  return dispatch => {
+    return Users.requestCompany()
+      .then(data => dispatch(requestCompanySuccess(data)));
+  }
+}
+
+const updateCompanySuccess = createAction(UPDATE_COMPANY_SUCCESS);
+const updateCompanyFailure = createAction(UPDATE_COMPANY_FAILURE);
+
+export function updateCompanyDetails(params) {
+  return dispatch => {
+    return Users.updateCompanyDetails(params)
+      .then(data => dispatch(updateCompanySuccess(data)))
+      .catch(error => dispatch(updateCompanyFailure(error)));
+  };
 }

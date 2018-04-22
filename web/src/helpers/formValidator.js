@@ -8,14 +8,15 @@ export const requiredError = (value, field, message = null) => {
   }
 };
 
-export const emailError = (value) => {
+export const emailError = (value, message = null) => {
   if (!isEmail(value)) {
-    return <div className="error">{value} is not a valid email.</div>
+    const errorMessage = message || `${value} is not a valid email.`;
+    return <div className="error">{errorMessage}</div>
   }
 };
 
 export const ltError = (value, length, message = null) => {
-  if (!value.toString().trim().length > length) {
+  if (!(value.toString().trim().length > length)) {
     const errorMessage = message || `The value exceeded ${length} symbols.`;
     return <div className="error">{errorMessage}</div>
   }
