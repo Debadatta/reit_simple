@@ -11,13 +11,14 @@ Rails.application.routes.draw do
     match '/users/profile' => 'users/profile', :as => :profile, :via => [:get, :put]
     post '/omniauth_callbacks/login'
     post '/omniauth_callbacks/signup'
+    post '/omniauth_callbacks/connect'
 
     resources :user_interests, only: [:index]
     resources :user_refs, only: [:index]
     resources :countries, only: [:index]
     resource :email_preference_settings, only: [:show, :update]
     resource :email_notification_settings, only: [:show, :update]
-    
+
     scope :user do
       resource :company, only: [:show, :update]
     end

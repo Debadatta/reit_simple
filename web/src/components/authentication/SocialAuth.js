@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import SocialButton from './SocialButton'
+
 import { handleSocialLogin, handleSocialSignup } from '../../actions/authentication';
 
 class SocialAuth extends React.Component {

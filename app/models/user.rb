@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   belongs_to :user_interest, optional: true
   belongs_to :user_ref, optional: true
-  
+
   has_one :email_preference_setting, dependent: :destroy
   has_one :email_notification_setting, dependent: :destroy
   has_one :company, dependent: :destroy
@@ -35,21 +35,9 @@ class User < ApplicationRecord
     sp = SocialProvider.where(provider: auth["_provider"], uid: auth["_profile"]["id"]).first
     user = sp.try(:user)
 
-    if sp
-      if sp.token != auth["_token"]["access_token"]
-        sp.update_attributes(token: auth["_token"]["access_token"])
-        user.set_login_info
-      end
-    else
-      user = User.find_by_email(auth["_profile"]["email"])
-      if !user
-        user = User.create_from_social(auth, password)
-      else
-        user.set_login_info
-      end
-
-      user.save
-      user.create_social_provider(auth)
+    if sp && sp.token != auth["_token"]["access_token"]
+      sp.update_attributes(token: auth["_token"]["access_token"])
+      user.set_login_info
     end
     user
   end

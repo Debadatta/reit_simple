@@ -10,7 +10,9 @@ import {
   LOAD_USER_FAILURE,
   SIGNUP_SUCCESS,
   SIGNUP_FAILURE,
-  SIGNUP_HIDE_FLASH_MESSAGE
+  SIGNUP_HIDE_FLASH_MESSAGE,
+  SOCIAL_LOGIN_FLASH_MESSAGE,
+  SOCIAL_CONNECT_FAILURE
 } from '../constants/actionTypes';
 
 export default function authentication(state = { currentUserId: null, userExist: false }, action) {
@@ -26,11 +28,15 @@ export default function authentication(state = { currentUserId: null, userExist:
         status: 'authenticated'
       };
     case LOGIN_FAILURE:
-    case SOCIAL_SIGNUP_FAILURE:
-    case SOCIAL_LOGIN_FAILURE:
       return { ...state, status: null, errors: action.payload.response.errors, userExist: action.payload.response.meta ? action.payload.response.meta.userExist : false };
+    case SOCIAL_LOGIN_FAILURE:
+    case SOCIAL_SIGNUP_FAILURE:
+    case SOCIAL_CONNECT_FAILURE:
+      return { ...state, status: null, socialError: action.payload.response.errors, userExist: action.payload.response.meta ? action.payload.response.meta.userExist : false };
     case SIGNUP_HIDE_FLASH_MESSAGE:
       return { ...state, userExist: false };
+    case SOCIAL_LOGIN_FLASH_MESSAGE:
+      return { ...state, socialError: null };
     case LOGOUT:
       return { status: 'logout', currentUserId: null, data: null };
     case LOAD_USER_FAILURE:
