@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import ActiveForm from '../common/ActiveForm';
+import PopupMessage from '../common/PopupMessage';
 import SocialAuth from './SocialAuth';
 
-import { requestLogin } from '../../actions/authentication';
+import { requestLogin, hideSocialPopupMessage } from '../../actions/authentication';
 import { headerTransparent } from '../../actions/index';
 
 import { emailError, requiredError } from '../../helpers/formValidator';
@@ -20,7 +21,7 @@ class Login extends Component {
     this.props.dispatch(headerTransparent(false))
   }
 
-  //hideFlashMessage = () => this.props.dispatch(hideFlashMessage());
+  hideFlashMessage = () => this.props.dispatch(hideSocialPopupMessage());
   togglekeepMeLoggedin = (e) => this.setState({isRemember: !this.state.isRemember});
   handleChange = (e) => {
     let errors = this.state.errors;
@@ -61,9 +62,9 @@ class Login extends Component {
       return;
     }
 
-    return this.props.dispatch(requestLogin({ 
-      email: emailValue, 
-      password, 
+    return this.props.dispatch(requestLogin({
+      email: emailValue,
+      password,
       rememberMe: this.state.isRemember ? this.state.isRemember : null }));
   };
 
@@ -73,10 +74,19 @@ class Login extends Component {
     }
   }
 
+  renderSocialLoginWarning() {
+    if (this.props.socialErrors) {
+      return <PopupMessage hideHandler={this.hideFlashMessage}>
+        {this.props.socialErrors.map(o => o.title).join(", ")}
+        </PopupMessage>
+    }
+  }
+
   render() {
     return (
       <div className="body-content adjust-body adjust-no-submenu login-container
-  ">
+">
+        {this.renderSocialLoginWarning()}
         <div className="container">
           <div className="row">
             <div className="col-sm-12">
@@ -140,7 +150,8 @@ class Login extends Component {
 
 function mapStateToProps(state) {
   return {
-    errors: state.authentication.errors
+    errors: state.authentication.errors,
+    socialErrors: state.authentication.socialError
   }
 }
 

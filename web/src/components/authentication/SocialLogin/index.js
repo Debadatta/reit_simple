@@ -108,7 +108,7 @@ const SocialLogin = (WrappedComponent) => class SocialLogin extends Component {
    * Triggers login process.
    */
   login = () => {
-    if (this.state.isLoaded && !this.state.isConnected && !this.state.isFetching) {
+    if (this.state.isLoaded && !this.state.isConnected) {
       this.setState((prevState) => ({
         ...prevState,
         isFetching: true

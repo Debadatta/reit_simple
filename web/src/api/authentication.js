@@ -24,3 +24,7 @@ export function socialLogin(user) {
 export function socialSignup(user) {
   return ajax(`/omniauth_callbacks/signup`, { method: 'POST', body: {user} });
 }
+
+export function connectUserToSocial(user) {
+  return ajax(`/omniauth_callbacks/connect`, { method: 'POST', body: {user} });
+}
