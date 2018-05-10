@@ -17,6 +17,7 @@ import ForgetPassword from '../user/ForgetPassword';
 import ResetPassword from '../user/ResetPassword';
 import MyInvestments from '../investments/MyInvestments';
 import MyAccount from "../user/MyAccount";
+import InvestPropertyMarket from '../InvestPropertyMarket';
 
 class Layout extends React.Component {
   logout = () => {
@@ -39,6 +40,7 @@ class Layout extends React.Component {
           <Route path="/terms" component={TermAggrement} />
           <Route path="/investments/my-investments" component={MyInvestments} />
           <Route path="/my-account" component={MyAccount} />
+          <Route path="/investment-property-marketplace" component={InvestPropertyMarket} />
         </Switch>
       )
     } else {
@@ -52,6 +54,7 @@ class Layout extends React.Component {
           <Route path="/terms" component={TermAggrement} />
           <Route path="/password/forgot" component={ForgetPassword} />
           <Route path="/password/reset/:token" component={ResetPassword} />
+          <Route path="/investment-property-marketplace" component={InvestPropertyMarket} />
         </Switch>
       )
     }

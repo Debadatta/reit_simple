@@ -39,7 +39,7 @@ export default class Header extends Component {
 
   renderSubmenu() {
     const pathname = this.props.location.pathname;
-    if (['terms', 'password', "investments", "my-account"].indexOf(pathname.split('/')[1]) === -1) return null;
+    if (['terms', 'password', "investments", "my-account", "investment-property-marketplace"].indexOf(pathname.split('/')[1]) === -1) return null;
 
     return <SubHeader/>;
   }
