@@ -1,0 +1,13 @@
+.custom-dropdown .filter-options, .custom-dropdown .filter-select {
+  padding-bottom: 10px;
+  max-height: 132px;
+  overflow: auto; }
+  .custom-dropdown .filter-options ul, .custom-dropdown .filter-select ul {
+    margin-bottom: 10px;
+    padding: 0; }
+    .custom-dropdown .filter-options ul li, .custom-dropdown .filter-select ul li {
+      line-height: 20px;
+      cursor: pointer; }
+    .custom-dropdown .filter-options ul .selected, .custom-dropdown .filter-select ul .selected {
+      background-color: #C6C4E8;
+      color: #fff; }

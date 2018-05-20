@@ -1,5 +1,10 @@
+@charset "UTF-8";
 .invest-property-market {
   padding-top: 15px; }
+  .invest-property-market ul li + li {
+    margin-top: 0px; }
+  .invest-property-market .is-inline-title {
+    position: relative; }
   .invest-property-market input[type='radio'] {
     width: auto; }
   .invest-property-market .nav-pills li.active a {
@@ -96,7 +101,8 @@
     border: 1px solid #DBDBDB;
     border-radius: 4px;
     padding: 10px 10px 0;
-    margin: 10px 0; }
+    margin: 10px 0;
+    width: 100%; }
   .invest-property-market .filter-control-area {
     float: none;
     display: -webkit-box;
@@ -109,7 +115,8 @@
   .invest-property-market .filters-main {
     -webkit-box-flex: 0 0 70%;
     -ms-flex: 0 0 70%;
-    flex: 0 0 70%; }
+    flex: 0 0 70%;
+    position: relative; }
     .invest-property-market .filters-main--filter-control {
       -webkit-box-flex: 0 0 50%;
       -ms-flex: 0 0 50%;
@@ -130,12 +137,39 @@
         position: absolute;
         right: 15px;
         top: 11px; }
+  .invest-property-market .filter-select-trigger.is-open:after {
+    content: ""; }
+  .invest-property-market .filter-select {
+    position: relative; }
   .invest-property-market .main-filters--filter-control {
     flex: 0 0 29%;
     margin-bottom: 15px;
     padding-right: 10px; }
     .invest-property-market .main-filters--filter-control:first-child {
       padding-left: 5px; }
+    .invest-property-market .main-filters--filter-control--more {
+      padding-right: 0px; }
+      .invest-property-market .main-filters--filter-control--more .plus-minus-input-group-right {
+        padding-left: 8px;
+        padding-right: 23px; }
+      .invest-property-market .main-filters--filter-control--more .property-filters-select-dropdown.filter-select-dropdown {
+        right: 0;
+        width: 800px;
+        left: auto; }
+        .invest-property-market .main-filters--filter-control--more .property-filters-select-dropdown.filter-select-dropdown .ie-radio-fix, .invest-property-market .main-filters--filter-control--more .property-filters-select-dropdown.filter-select-dropdown .option-text-align {
+          font: 400 13px/20px Muli,sans-serif; }
+      .invest-property-market .main-filters--filter-control--more .slider-filter-options, .invest-property-market .main-filters--filter-control--more .filter-select {
+        padding-bottom: 10px; }
+      .invest-property-market .main-filters--filter-control--more .title {
+        font: 400 13px/20px Muli,sans-serif;
+        white-space: nowrap; }
+      .invest-property-market .main-filters--filter-control--more .btn-link-default {
+        padding-right: 10px;
+        font-weight: normal; }
+      .invest-property-market .main-filters--filter-control--more .actions-btn-group {
+        margin: 15px -11px 0; }
+        .invest-property-market .main-filters--filter-control--more .actions-btn-group .buttons {
+          border-top: 1px solid #DBDBDB; }
   .invest-property-market .main-filters--filter-control.property-filters-control {
     flex: 0 0 13%; }
   .invest-property-market .main-filters--filter-select-dropdown.filter-select-dropdown:not(.match-trigger-width) {

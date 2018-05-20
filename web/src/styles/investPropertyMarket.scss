@@ -1,6 +1,14 @@
 .invest-property-market {
   padding-top: 15px;
 
+  ul li + li {
+    margin-top: 0px;
+  }
+
+  .is-inline-title {
+    position: relative;
+  }
+
   input[type='radio'] {
     width: auto;
   }
@@ -146,6 +154,7 @@
     border-radius: 4px;
     padding: 10px 10px 0;
     margin: 10px 0;
+    width: 100%;
   }
 
   .filter-control-area {
@@ -163,6 +172,7 @@
     -webkit-box-flex: 0 0 70%;
     -ms-flex: 0 0 70%;
     flex: 0 0 70%;
+    position: relative;
 
     &--filter-control {
       -webkit-box-flex: 0 0 50%;
@@ -191,6 +201,14 @@
     }
   }
 
+  .filter-select-trigger.is-open:after {
+    content: "";
+  }
+
+  .filter-select {
+    position: relative;
+  }
+
   .main-filters {
     &--filter-control {
       flex: 0 0 29%;
@@ -199,6 +217,47 @@
 
       &:first-child {
         padding-left: 5px;
+      }
+
+      &--more {
+        padding-right: 0px;
+
+        .plus-minus-input-group-right {
+          padding-left: 8px;
+          padding-right: 23px;
+        }
+        
+        .property-filters-select-dropdown.filter-select-dropdown {
+          right: 0;
+          width: 800px;
+          left: auto;
+
+          .ie-radio-fix, .option-text-align {
+            font: 400 13px/20px Muli,sans-serif;
+          }
+        }
+
+        .slider-filter-options, .filter-select {
+          padding-bottom: 10px;
+        }
+
+        .title {
+          font: 400 13px/20px Muli,sans-serif;
+          white-space: nowrap;
+        }
+
+        .btn-link-default {
+          padding-right: 10px;
+          font-weight: normal;
+        }
+
+        .actions-btn-group {
+          margin: 15px -11px 0;
+
+          .buttons {
+            border-top: 1px solid #DBDBDB;
+          }
+        }
       }
     }
 

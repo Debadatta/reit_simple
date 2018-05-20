@@ -1,0 +1,136 @@
+.slot {
+  &--counter {
+    display: inline-block;
+    font: 400 16px/22px Muli,sans-serif;
+    padding-bottom: 15px;
+    padding-top: 10px;
+  }
+
+  &.additional-controls {
+    float: right;
+    white-space: nowrap;
+
+    .sort {
+      position: relative;
+      top: -15px;
+
+      .selections-dropdown {
+        display: inline-block;
+
+        .selections-title {
+          display: inline-block;
+          font: 600 18px/26px Muli,sans-serif;
+          vertical-align: middle;
+        }
+
+        .dropdown, .selections-dropdown .selections {
+          display: inline-block;
+        }
+
+        .dropdown-toggle {
+          background-color: inherit;
+        }
+
+        .selected-btn-display {
+          font: 400 18px/26px Muli,sans-serif;
+          padding-right: 20px;
+
+          &::after {
+            content: "\F078";
+            color: #767676;
+            font-family: 'FontAwesome';
+            position: absolute;
+            position: absolute;
+            right: 8px;
+            height: 25px;
+            width: 25px;
+            top: 6px;
+          }
+        }
+
+        .dropdown-menu {
+          margin: 0;
+          padding: 6px 0;
+          border-radius: 4px;
+          left: -50px;
+
+          li {
+            font: 400 18px/26px Muli,sans-serif;
+            font-size: 16px;
+            padding: 7px 14px;
+            white-space: nowrap;
+          }
+        }
+      }
+
+      .dropdown-toggle {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  .collapsing, .dropdown, .dropup {
+    position: relative;
+  }
+}
+
+.display-styles {
+  .data-views-nav {
+    display: inherit;
+    margin-left: 10px;
+    border: 1px solid #C4C4C4;
+    border-radius: 4px;
+
+    i {
+      vertical-align: middle;
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+
+    li {
+      display: block;
+      padding-left: 0;
+
+      .nav.nav-condensed-items>li>a:first-child {
+        padding-left: 10px;
+      }
+
+      a {
+        color: #C4C4C4!important;
+        border-radius: 3px;
+        background-color: transparent;
+
+        &:hover {
+          background-color: transparent;
+          color: inherit!important;
+        }
+
+        &.active {
+          color: #fff!important;
+          background-color: #7D78D1;
+        }
+      }
+    }
+  }
+
+  .visual-views-nav {
+    margin-left: 10px;
+    border: 1px solid #A3A2A2;
+    border-radius: 4px;
+    margin-left: 25px;
+    padding: 5px 0;
+  
+    a {
+      background-color: transparent!important;
+    }
+  }
+
+  .nav-pills>li>a {
+    border-radius: 4px;
+    width: auto;
+    height: auto;
+    padding: 2px 9px;
+    color: #fff;
+    margin: 0;
+  }
+}

@@ -7,6 +7,9 @@ input, select {
 .btn:disabled {
   opacity: .45; }
 
+.inline-block {
+  display: inline-block !important; }
+
 .btn.btn-secondary {
   color: #fff;
   background-color: #605CA8;
@@ -14,6 +17,49 @@ input, select {
   .btn.btn-secondary:hover {
     background-color: #7a77b6;
     border-color: #7a77b6; }
+
+.input-group-btn {
+  font-size: 0;
+  white-space: nowrap; }
+  .input-group-btn:first-child > .btn, .input-group-btn:first-child > .btn-group {
+    margin-right: -1px; }
+
+.input-group-addon, .input-group-btn {
+  width: 1%;
+  white-space: nowrap;
+  vertical-align: middle; }
+
+.input-group .form-control, .input-group-addon, .input-group-btn {
+  display: table-cell; }
+
+.input-group, .input-group-btn, .input-group-btn > .btn {
+  position: relative; }
+
+.up-down-filter .input-group {
+  position: relative;
+  top: -2px;
+  width: 100%; }
+  .up-down-filter .input-group input {
+    height: 37px;
+    width: 37px;
+    padding: 0;
+    text-align: center; }
+
+.btn.btn-light.outline, .btn.btn-outline-light {
+  color: #C4C4C4;
+  background-color: transparent;
+  background-image: none;
+  border-color: #C4C4C4; }
+
+.input-group {
+  text-align: center;
+  display: table;
+  border-collapse: separate; }
+  .input-group .btn, .input-group input {
+    height: 37px;
+    min-width: 37px;
+    padding: 0;
+    text-align: center; }
 
 .btn.btn-primary:hover, .btn.btn-primary:focus {
   background-color: #66a0d2;

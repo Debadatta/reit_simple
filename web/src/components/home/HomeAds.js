@@ -1,9 +1,11 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 export default class HomeAds extends React.Component {
   render() {
-  return (
-    <section className="hero">
+    return (
+      <section className="hero">
         <div className="container">
           <div className="row">
             <div className="col-sm-10 col-md-7 col-lg-6">
@@ -13,14 +15,14 @@ export default class HomeAds extends React.Component {
               </h1>
               <h4>Buy undervalued homes across US.</h4>
               <div className="btn-wrap">
-                <a href="/investment-property-marketplace" onclick="trackCtaClicked('See Our Properties');" className="btn btn-solid btn-primary btn-lg">
+                <Link to="/investment-property-marketplace" className="btn btn-solid btn-primary btn-lg">
                   See Our Properties
-                </a>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
-  )
+    )
   }
 }

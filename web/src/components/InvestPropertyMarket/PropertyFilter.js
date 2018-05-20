@@ -47,7 +47,7 @@ export default class PropertyFilter extends React.Component {
           <div className="slot filter-control-area">
             <div className="filters-main __marketplace__marketplace-component__filters__main__faaaa">
               <div className="filter-control price-filter main-filters--filter-control">
-                <div className="filter-select __rs-controls__filters__filter-select__033c2 is-inline-title">
+                <div className="is-inline-title">
                   <div className="filter-select-trigger" onClick={this.toggleDropdown.bind(this, 'deal_price')}>
                     Deal Price
                   </div>
@@ -55,7 +55,7 @@ export default class PropertyFilter extends React.Component {
                 </div>
               </div>
               <div className="filter-control slider-filter main-filters--filter-control">
-                <div className="filter-select __rs-controls__filters__filter-select__033c2 is-inline-title">
+                <div className="is-inline-title">
                   <div className="filter-select-trigger" onClick={this.toggleDropdown.bind(this, 'turnaround_time')}>
                     Turnaround Time
                   </div>
@@ -63,22 +63,22 @@ export default class PropertyFilter extends React.Component {
                 </div>
               </div>
               <div className="filter-control selection-filter main-filters--filter-control">
-                <div className="filter-select __rs-controls__filters__filter-select__033c2 is-inline-title">
+                <div className="is-inline-title">
                   <div className="filter-select-trigger" onClick={this.toggleDropdown.bind(this, 'location')}>
                     Location
                   </div>
                   {this.state.dropdown === "location" ? <LocationDropdown/> : null}
                 </div>
               </div>
-              <div className="filter-control property-filters-control __rs-controls__filters__property-filters__2c15d main-filters--filter-control">
+              <div className="filter-control property-filters-control main-filters--filter-control main-filters--filter-control--more">
                 <div className="property-filters-select">
                   <div className="title outside-title">
                   </div>
                   <div className="filter-select-trigger property-filters-select-trigger">
                     <div className="ember-view __rs-controls__filters__filter-select__placeholder__more__6e350" onClick={this.toggleDropdown.bind(this, 'more')}>More
                     </div>
-                    {this.state.dropdown === "more" ? <MoreDropdown/> : null}
                   </div>
+                  {this.state.dropdown === "more" ? <MoreDropdown/> : null}
                 </div>
               </div>
             </div>

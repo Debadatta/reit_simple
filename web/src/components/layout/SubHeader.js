@@ -42,7 +42,7 @@ export default class SubHeader extends React.Component {
     return (
       <ul className="nav navbar-nav pull-left">
         <li className="hidden-xs">
-          <Link to="/investment-property-marketplace">Browse Properties</Link>
+          <Link to="/investment-property-marketplace">Browse Deals</Link>
         </li>
       </ul>
     )

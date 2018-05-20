@@ -1,0 +1,22 @@
+.custom-dropdown {
+  .filter-options, .filter-select {
+    padding-bottom: 10px;
+    max-height: 132px;
+    overflow: auto;
+
+    ul {
+      margin-bottom: 10px;
+      padding: 0;
+
+      li {
+        line-height: 20px;
+        cursor: pointer;
+      }
+
+      .selected {
+        background-color: #C6C4E8;
+        color: #fff;
+      }
+    }
+  }
+}
