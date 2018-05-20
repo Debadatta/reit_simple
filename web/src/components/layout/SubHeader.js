@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default class SubHeader extends React.Component {
   renderRightContent() {
@@ -12,16 +13,24 @@ export default class SubHeader extends React.Component {
             </a>
           </li>
           <li>
-            <a href="/saved-roofs" title="Saved Roofs" className="menu-icon saved-roofs-icon ember-view">                <div id="ember2122" className="ember-view __icons__saved-roofs-icon__5d0b1"><i className="icon icon-saved-roofs" />
+            <a href="/saved-roofs" title="Saved Roofs" className="menu-icon saved-roofs-icon ember-view">  
+              <div id="ember2122" className="ember-view __icons__saved-roofs-icon__5d0b1">
+                <i className="icon icon-saved-roofs" />
               </div>
-            </a>          </li>
+            </a>
+          </li>
           <li>
-            <a href="/cart" title="Cart" className="menu-icon cart-icon ember-view">              <div className="ember-view __icons__cart-icon__4a679"><i className="icon icon-cart" />
+            <a href="/cart" title="Cart" className="menu-icon cart-icon ember-view">
+              <div className="ember-view __icons__cart-icon__4a679">
+                <i className="icon icon-cart" />
               </div>
-            </a>            </li>
+            </a>
+          </li>
           <li>
-            <a title="Recently Viewed" className="menu-icon recently-viewed-icon" data-ember-action={2167}>
-              <div className="ember-view"><i className="icon icon-recent" /></div>
+            <a title="Recently Viewed" className="menu-icon recently-viewed-icon">
+              <div className="ember-view">
+                <i className="icon icon-recent" />
+              </div>
             </a>
           </li>
         </ul>
@@ -32,8 +41,9 @@ export default class SubHeader extends React.Component {
   renderLeftContent() {
     return (
       <ul className="nav navbar-nav pull-left">
-        <li className="hidden-xs"><a href="/investment-property-marketplace">Browse Properties</a></li>
-        <li className="hidden-xs"><a href="/portfolios" className="ember-view">Portfolios</a></li>
+        <li className="hidden-xs">
+          <Link to="/investment-property-marketplace">Browse Deals</Link>
+        </li>
       </ul>
     )
   }

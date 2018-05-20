@@ -1,0 +1,337 @@
+.invest-property-market {
+  padding-top: 15px;
+
+  ul li + li {
+    margin-top: 0px;
+  }
+
+  .is-inline-title {
+    position: relative;
+  }
+
+  input[type='radio'] {
+    width: auto;
+  }
+
+  .nav-pills {
+    li.active a {
+      background-color: #337ab7;
+      color: #fff !important;
+    }
+
+    li.is-default-view a {
+      width: 40px;
+    }
+
+    >li+li {
+      margin-left: 2px;
+      margin-top: 0;
+    }
+
+    a {
+      font: 400 13px/20px Muli,sans-serif;
+      color: #767676;
+      background-color: rgba(255,224,204,.3);
+      border-radius: 22.5px;
+      height: 26px;
+      width: 135px;
+      padding: 2px 5px;
+      margin-right: 5px;
+      text-align: center;
+      margin-bottom: 10px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+
+      &:hover {
+        background-color: #337ab7;
+        color: #fff !important;
+      }
+    }
+  }
+
+  .open-as-modal.inside-title-adjustment {
+    top: 41px;
+  }
+
+  .open-as-modal {
+    background-color: #fff;
+    position: absolute;
+    z-index: 1000000000000000000000;
+  }
+
+  .radio-container {
+    >label {
+      cursor: pointer;
+    }
+  }
+
+  .purple-checkboxes input[type=radio] {
+    opacity: 0;
+    position: absolute;
+    left: -9999px;
+
+    +label>span {
+      display: block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 1px solid #C4C4C4;
+      position: absolute;
+      top: 3px;
+      left: 3px;
+    }
+
+    +label+span {
+      color: #515151;
+      font: 400 16px/22px Muli,sans-serif;
+      margin-left: -30px;
+      padding-left: 35px;
+      position: relative;
+      top: -4px;
+      z-index: 2;
+    }
+
+    &:checked+label {
+      border-color: #7D78D1;
+
+      &>span {
+        width: 10px;
+        height: 10px;
+        background-color: #7D78D1;
+        border: none;
+        top: 4px;
+        left: 4px;
+      }
+    }
+
+    &+label {
+      display: inline-block;
+      margin: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1px solid #C4C4C4;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  .option-slider-align {
+    padding-left: 30px;
+  }
+
+  .filter-modal-footer {
+    margin: 15px -11px 0;
+
+    .buttons {
+      border-top: 1px solid #DBDBDB;
+    }
+  }
+
+  .btn.btn-link-secondary, .btn.btn-link-secondary.active, .btn.btn-link-secondary:active, .btn.btn-link-secondary[disabled], fieldset[disabled] .btn.btn-link-secondary {
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .btn.btn-link-default, .btn.btn-link-default.active, .btn.btn-link-default:active, .btn.btn-link-default[disabled], fieldset[disabled] .btn.btn-link-default {
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .btn.btn-link-default {
+    color: #777;
+  }
+
+  .btn.btn-link-secondary {
+    color: #605CA8;
+  }
+
+  .filter-select-dropdown {
+    border: 1px solid #DBDBDB;
+    border-radius: 4px;
+    padding: 10px 10px 0;
+    margin: 10px 0;
+    width: 100%;
+  }
+
+  .filter-control-area {
+    float: none;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+
+  .filters-main {
+    -webkit-box-flex: 0 0 70%;
+    -ms-flex: 0 0 70%;
+    flex: 0 0 70%;
+    position: relative;
+
+    &--filter-control {
+      -webkit-box-flex: 0 0 50%;
+      -ms-flex: 0 0 50%;
+      flex: 0 0 50%;
+      margin-bottom: 15px;
+      padding-right: 10px;
+    }
+
+    .filter-select-trigger {
+      border: 1px solid #DBDBDB;
+      border-radius: 4px;
+      cursor: pointer;
+      padding: 11px 15px;
+      position: relative;
+      text-align: left;
+
+      &::after {
+        content: "\f078";
+        color: #767676;
+        font-family: 'FontAwesome';
+        position: absolute;
+        right: 15px;
+        top: 11px;
+      }
+    }
+  }
+
+  .filter-select-trigger.is-open:after {
+    content: "";
+  }
+
+  .filter-select {
+    position: relative;
+  }
+
+  .main-filters {
+    &--filter-control {
+      flex: 0 0 29%;
+      margin-bottom: 15px;
+      padding-right: 10px;
+
+      &:first-child {
+        padding-left: 5px;
+      }
+
+      &--more {
+        padding-right: 0px;
+
+        .plus-minus-input-group-right {
+          padding-left: 8px;
+          padding-right: 23px;
+        }
+        
+        .property-filters-select-dropdown.filter-select-dropdown {
+          right: 0;
+          width: 800px;
+          left: auto;
+
+          .ie-radio-fix, .option-text-align {
+            font: 400 13px/20px Muli,sans-serif;
+          }
+        }
+
+        .slider-filter-options, .filter-select {
+          padding-bottom: 10px;
+        }
+
+        .title {
+          font: 400 13px/20px Muli,sans-serif;
+          white-space: nowrap;
+        }
+
+        .btn-link-default {
+          padding-right: 10px;
+          font-weight: normal;
+        }
+
+        .actions-btn-group {
+          margin: 15px -11px 0;
+
+          .buttons {
+            border-top: 1px solid #DBDBDB;
+          }
+        }
+      }
+    }
+
+    &--filter-control.property-filters-control {
+      flex: 0 0 13%;
+    }
+
+    &--filter-select-dropdown.filter-select-dropdown:not(.match-trigger-width) {
+      width: 360px;
+
+      .ui-slider {
+        padding-right: 10px;
+      }
+    }
+  }
+
+  .__marketplace__marketplace-component__filters__main__faaaa {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-left: -5px;
+    margin-right: -5px;
+  }
+}
+
+.ember-modal-dialog.emd-in-place {
+  position: static;
+}
+
+.modal-or-in-place--in-place-container.ember-modal-dialog {
+  border-radius: unset;
+  box-shadow: unset;
+  padding: 0;
+}
+
+.ember-modal-dialog {
+  z-index: 51;
+  position: fixed;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 0 10px #222;
+  padding: 10px;
+}
+
+.open-as-modal.inside-title-adjustment {
+  top: 41px;
+
+  &.market-dropdown{
+    .selection-filter-options {
+      &.is-multi-select {
+        max-height: 213px;
+        overflow: auto;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+    }
+
+    [type=checkbox]:checked~label:before, [type=checkbox]:not(:checked)~label:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 22px;
+      height: 22px;
+      border: 1px solid #C4C4C4;
+      background: #fff;
+      border-radius: 4px;
+    }
+  }
+}

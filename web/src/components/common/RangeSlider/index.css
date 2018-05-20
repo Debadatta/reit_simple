@@ -1,0 +1,65 @@
+.ui-slider.fill .slider.slider-horizontal {
+  flex: 1 0; }
+
+.ui-slider, .ui-slider .slider {
+  display: flex; }
+
+.slider {
+  width: 90% !important;
+  display: block;
+  margin: 0 auto;
+  vertical-align: middle;
+  position: relative; }
+  .slider .slider-handle {
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border: 2px solid #7D78D1;
+    cursor: pointer;
+    top: -3px; }
+
+.slider-handle.round {
+  border-radius: 50%; }
+
+.slider-handle, .slider-tick {
+  position: absolute; }
+
+.slider.slider-horizontal {
+  width: 210px;
+  height: 20px; }
+  .slider.slider-horizontal .slider-track {
+    height: 10px;
+    width: 100%;
+    margin-top: -5px;
+    top: 50%;
+    left: 0; }
+  .slider.slider-horizontal .slider-handle, .slider.slider-horizontal .slider-tick {
+    margin-left: -10px; }
+  .slider.slider-horizontal .slider-selection, .slider.slider-horizontal .slider-track-high, .slider.slider-horizontal .slider-track-low {
+    height: 100%;
+    top: 0;
+    bottom: 0; }
+
+.slider-track-high, .slider-track-low {
+  position: absolute;
+  background: 0 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 4px; }
+
+.slider-selection {
+  background: #A19EE2;
+  position: absolute;
+  background-repeat: repeat-x;
+  box-sizing: border-box;
+  border-radius: 4px; }
+
+.slider-track {
+  height: 5px !important;
+  background-color: #DBDBDB;
+  background-image: none;
+  position: absolute;
+  cursor: pointer;
+  background-repeat: repeat-x;
+  border-radius: 4px; }
