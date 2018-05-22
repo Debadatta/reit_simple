@@ -15,7 +15,8 @@ const defaultEntities = {
   financialContacts: {},
   operationsContacts: {},
   contactPhoneNumbers: {},
-  contactEmailAddresses: {}
+  contactEmailAddresses: {},
+  dealCategories: {}
 };
 
 export default function entities(state = defaultEntities, action) {

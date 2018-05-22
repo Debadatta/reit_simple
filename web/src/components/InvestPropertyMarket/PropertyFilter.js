@@ -5,15 +5,23 @@ import FilterDropdown from './FilterDropdown';
 import LocationDropdown from './LocationDropdown';
 import MoreDropdown from './MoreDropdown';
 
-const FILTERS = ["All", "Featured", "New", "Higher ROI", "Quicker Turn", "Unoccupied"];
-const defaultView = "All";
-
 export default class PropertyFilter extends React.Component {
-  state = { active: "All" };
+  state = { active: "All", category: '' };
 
   toggleDropdown = (type, e) => {
     e.preventDefault();
     this.setState({ dropdown: type === this.state.dropdown ? null : type });
+  }
+
+  handleChange = (e) => this.setState({[e.target.name]: e.target.value});
+
+  submitCategory = (e) => {
+    e.preventDefault();
+    if (!this.state.category) return;
+
+    this.props.handleCategorySubmit({dealCategory: {name: this.state.category}}).then(payload => {
+      if(!payload.error) this.setState({ category: '' });
+    });
   }
 
   render() {
@@ -27,9 +35,9 @@ export default class PropertyFilter extends React.Component {
                   <div className="row filter-items">
                     <div className="col-xs-12 col-sm-10 col-md-10 col-lg-11">
                       <ul className="nav nav-pills">
-                        { FILTERS.map(filter => (
-                          <li className={`${this.state.active === filter ? "active" : null} ${defaultView === filter ? "is-default-view" : null}`}>
-                            <Link to={`/investment-property-marketplace?filter=${filter}`}>{filter}</Link>
+                        { this.props.categories && this.props.categories.map(filter => (
+                          <li className={`${this.state.active === filter.name ? "active" : null} ${filter.name === "All" ? "is-default-view" : null}`}>
+                            <Link to={`/investment-property-marketplace?filter=${filter.id}`}>{filter.name}</Link>
                           </li>
                           ))
                         }
@@ -82,6 +90,16 @@ export default class PropertyFilter extends React.Component {
                 </div>
               </div>
             </div>
+            <form onSubmit={this.submitCategory}>
+              <div className="rs-form-group inline-block">
+                <div className="rs-input-container">
+                  <input placeholder="Enter Filter Name" name="category" type="text" className="rs-input fs-hide ember-text-field" onChange={this.handleChange} value={this.state.category}/>
+                </div>
+              </div>
+              <div className="rs-form-group inline-block btn-actions-wrapper">
+                <button type="submit" className="btn btn-secondary" disabled={!this.state.category ? 'disabled' : null}>Save</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
