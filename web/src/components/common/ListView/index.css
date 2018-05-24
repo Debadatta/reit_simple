@@ -1,0 +1,11 @@
+.market-properties-list thead {
+  position: static;
+  margin-top: 0px;
+  top: 70px;
+  left: 30.5px;
+  z-index: 3;
+  width: 1290px; }
+
+.market-properties-list .list-view__cell {
+  min-width: 0px;
+  max-width: none; }

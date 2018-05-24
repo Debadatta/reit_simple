@@ -51,13 +51,13 @@ export default class HeaderActions extends React.Component {
               <div className="inline-block">
                 <ul className="nav nav-pills nav-bordered nav-condensed-items data-views-nav action-item-nav hidden-xs">
                   <li>
-                    <a href="/investment-property-marketplace" className="active">
-                      <i data-test-card-view-icon className="fa fa-th-large fa-lg active" />
+                    <a href="/investment-property-marketplace" onClick={this.props.onViewChange.bind(null, 'grid')} className={this.props.view === 'grid' ? "active" : ''}>
+                      <i className={`fa fa-th-large fa-lg ${this.props.view === 'list' ? "active" : ''}`}/>
                     </a>
                   </li>
                   <li>
-                    <a href="/investment-property-marketplace?dv=list">
-                      <i className="fa fa-bars fa-lg " />
+                    <a href="/investment-property-marketplace?dv=list" onClick={this.props.onViewChange.bind(null, 'list')} className={this.props.view === 'list' ? "active" : ''} >
+                      <i className={`fa fa-bars fa-lg ${this.props.view === 'list' ? "active" : ''}`} />
                     </a>
                   </li>
                 </ul>
