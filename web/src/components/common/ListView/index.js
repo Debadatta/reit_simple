@@ -3,7 +3,7 @@ import React from 'react';
 import HeaderRow from './HeaderRow';
 import ListViewRow from './ListViewRow';
 
-import './index.scss';
+import './index.css';
 
 export default class ListView extends React.Component {
   render() {

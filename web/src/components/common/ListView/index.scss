@@ -14,4 +14,97 @@
       max-width: none;
     }
   }
+
+  .properties, .table-primary {
+    margin-bottom: 0;
+    width: 100%;
+    color: #767676;
+    background-color: #fff;
+    border-top: 1px solid #DBDBDB;
+
+    .head.text-left {
+      text-align: left;
+    }
+
+    >tbody>tr>th, >tfoot>tr>th, >thead>tr>th {
+      vertical-align: top;
+    }
+
+    >tbody>tr>td, >tbody>tr>th, >tfoot>tr>td, >tfoot>tr>th, >thead>tr>td, >thead>tr>th, >tbody>tr>td, >tbody>tr>th, >tfoot>tr>td, >tfoot>tr>th, >thead>tr>td, >thead>tr>th {
+        padding: 15px 0 15px 20px;
+        vertical-align: middle;
+    }
+
+    >thead>tr>th, >thead>tr>th {
+        font: 400 16px/22px Muli,sans-serif;
+        font-weight: 400;
+        background-color: #fff;
+        vertical-align: middle;
+    }
+    >tbody>tr>td, >tbody>tr>th, >tfoot>tr>td, >tfoot>tr>th, >thead>tr>td, >thead>tr>th, >tbody>tr>td, >tbody>tr>th, >tfoot>tr>td, >tfoot>tr>th, >thead>tr>td, >thead>tr>th {
+        border-top: 1px solid #DBDBDB;
+        border-bottom: none;
+    }
+
+    a.roof-action-save .fa-heart {
+      margin-left: 8px;
+      color: #C4C4C4;
+      font-size: 20px;
+      line-height: 1;
+    }
+    
+    a {
+      color: #7D78D1!important;
+      text-decoration: none;
+    }
+
+    .city-state-zip {
+      padding: 0;
+      display: block;
+      color: #A3A2A2!important;
+      font: 400 13px/20px Muli,sans-serif;
+    }
+
+    .roof-details-link {
+      a {
+        color: #fff!important;
+        background-color: #605CA8;
+        border-color: #605CA8;
+      }
+    }
+
+    .open-house-indicator {
+      .indicator {
+        background-color: #62BE8F;
+        border-radius: 2px;
+        display: inline-block;
+        padding: 1px 10px;
+        color: #fff;
+        font: 600 14px/22px Muli,sans-serif;
+      }
+    }
+
+    .roof-category-coding {
+      &-row {
+        position: relative;        
+      }
+
+      &-cell {
+        display: none;
+        position: absolute;
+        height: 100%;
+        left: 0;
+        top: 0;
+
+        &.offer {
+          border-left: 3px solid #605CA8;
+        }
+      }
+    }
+  }
+
+  .table>thead>tr>th {
+      vertical-align: bottom;
+      border-bottom: 2px solid #ddd;
+  }
 }

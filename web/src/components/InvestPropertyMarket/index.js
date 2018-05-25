@@ -58,8 +58,13 @@ class InvestPropertyMarket extends React.Component {
               {obj.title}
             </span>            
           </th>
-        )
-      default: 
+        );
+      case 'blank':
+      case 'symbol':
+        return <th></th>;
+      case 'actions':
+        return <th className="action-column  text-center"></th>
+      default:
         return null;
     }
   }
@@ -123,7 +128,7 @@ class InvestPropertyMarket extends React.Component {
           <td key={obj.column} className="action-column text-center">
             <span>
               <a href="#" title="Click to save this property." className="roof-action-save">
-                <i className="fal fa-heart"></i>
+                <i className="fa fa-heart"></i>
               </a>
             </span>
           </td>
