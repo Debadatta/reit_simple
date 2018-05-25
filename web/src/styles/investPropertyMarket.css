@@ -37,7 +37,7 @@
   .invest-property-market .open-as-modal {
     background-color: #fff;
     position: absolute;
-    z-index: 1000000000000000000000; }
+    z-index: 100; }
   .invest-property-market .radio-container > label {
     cursor: pointer; }
   .invest-property-market .purple-checkboxes input[type=radio] {
