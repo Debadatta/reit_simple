@@ -1,0 +1,71 @@
+.market-properties-list thead {
+  position: static;
+  margin-top: 0px;
+  top: 70px;
+  left: 30.5px;
+  z-index: 3;
+  width: 1290px; }
+
+.market-properties-list .list-view__cell {
+  min-width: 0px;
+  max-width: none; }
+
+.market-properties-list .properties, .market-properties-list .table-primary {
+  margin-bottom: 0;
+  width: 100%;
+  color: #767676;
+  background-color: #fff;
+  border-top: 1px solid #DBDBDB; }
+  .market-properties-list .properties .head.text-left, .market-properties-list .table-primary .head.text-left {
+    text-align: left; }
+  .market-properties-list .properties > tbody > tr > th, .market-properties-list .properties > tfoot > tr > th, .market-properties-list .properties > thead > tr > th, .market-properties-list .table-primary > tbody > tr > th, .market-properties-list .table-primary > tfoot > tr > th, .market-properties-list .table-primary > thead > tr > th {
+    vertical-align: top; }
+  .market-properties-list .properties > tbody > tr > td, .market-properties-list .properties > tbody > tr > th, .market-properties-list .properties > tfoot > tr > td, .market-properties-list .properties > tfoot > tr > th, .market-properties-list .properties > thead > tr > td, .market-properties-list .properties > thead > tr > th, .market-properties-list .properties > tbody > tr > td, .market-properties-list .properties > tbody > tr > th, .market-properties-list .properties > tfoot > tr > td, .market-properties-list .properties > tfoot > tr > th, .market-properties-list .properties > thead > tr > td, .market-properties-list .properties > thead > tr > th, .market-properties-list .table-primary > tbody > tr > td, .market-properties-list .table-primary > tbody > tr > th, .market-properties-list .table-primary > tfoot > tr > td, .market-properties-list .table-primary > tfoot > tr > th, .market-properties-list .table-primary > thead > tr > td, .market-properties-list .table-primary > thead > tr > th, .market-properties-list .table-primary > tbody > tr > td, .market-properties-list .table-primary > tbody > tr > th, .market-properties-list .table-primary > tfoot > tr > td, .market-properties-list .table-primary > tfoot > tr > th, .market-properties-list .table-primary > thead > tr > td, .market-properties-list .table-primary > thead > tr > th {
+    padding: 15px 0 15px 20px;
+    vertical-align: middle; }
+  .market-properties-list .properties > thead > tr > th, .market-properties-list .properties > thead > tr > th, .market-properties-list .table-primary > thead > tr > th, .market-properties-list .table-primary > thead > tr > th {
+    font: 400 16px/22px Muli,sans-serif;
+    font-weight: 400;
+    background-color: #fff;
+    vertical-align: middle; }
+  .market-properties-list .properties > tbody > tr > td, .market-properties-list .properties > tbody > tr > th, .market-properties-list .properties > tfoot > tr > td, .market-properties-list .properties > tfoot > tr > th, .market-properties-list .properties > thead > tr > td, .market-properties-list .properties > thead > tr > th, .market-properties-list .properties > tbody > tr > td, .market-properties-list .properties > tbody > tr > th, .market-properties-list .properties > tfoot > tr > td, .market-properties-list .properties > tfoot > tr > th, .market-properties-list .properties > thead > tr > td, .market-properties-list .properties > thead > tr > th, .market-properties-list .table-primary > tbody > tr > td, .market-properties-list .table-primary > tbody > tr > th, .market-properties-list .table-primary > tfoot > tr > td, .market-properties-list .table-primary > tfoot > tr > th, .market-properties-list .table-primary > thead > tr > td, .market-properties-list .table-primary > thead > tr > th, .market-properties-list .table-primary > tbody > tr > td, .market-properties-list .table-primary > tbody > tr > th, .market-properties-list .table-primary > tfoot > tr > td, .market-properties-list .table-primary > tfoot > tr > th, .market-properties-list .table-primary > thead > tr > td, .market-properties-list .table-primary > thead > tr > th {
+    border-top: 1px solid #DBDBDB;
+    border-bottom: none; }
+  .market-properties-list .properties a.roof-action-save .fa-heart, .market-properties-list .table-primary a.roof-action-save .fa-heart {
+    margin-left: 8px;
+    color: #C4C4C4;
+    font-size: 20px;
+    line-height: 1; }
+  .market-properties-list .properties a, .market-properties-list .table-primary a {
+    color: #7D78D1 !important;
+    text-decoration: none; }
+  .market-properties-list .properties .city-state-zip, .market-properties-list .table-primary .city-state-zip {
+    padding: 0;
+    display: block;
+    color: #A3A2A2 !important;
+    font: 400 13px/20px Muli,sans-serif; }
+  .market-properties-list .properties .roof-details-link a, .market-properties-list .table-primary .roof-details-link a {
+    color: #fff !important;
+    background-color: #605CA8;
+    border-color: #605CA8; }
+  .market-properties-list .properties .open-house-indicator .indicator, .market-properties-list .table-primary .open-house-indicator .indicator {
+    background-color: #62BE8F;
+    border-radius: 2px;
+    display: inline-block;
+    padding: 1px 10px;
+    color: #fff;
+    font: 600 14px/22px Muli,sans-serif; }
+  .market-properties-list .properties .roof-category-coding-row, .market-properties-list .table-primary .roof-category-coding-row {
+    position: relative; }
+  .market-properties-list .properties .roof-category-coding-cell, .market-properties-list .table-primary .roof-category-coding-cell {
+    display: none;
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0; }
+    .market-properties-list .properties .roof-category-coding-cell.offer, .market-properties-list .table-primary .roof-category-coding-cell.offer {
+      border-left: 3px solid #605CA8; }
+
+.market-properties-list .table > thead > tr > th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #ddd; }

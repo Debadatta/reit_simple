@@ -1,4 +1,24 @@
 .invest-property-market {
+  form {
+    margin-left: 15px;
+
+    .rs-input-container {
+      input {
+        height: 42px;
+        border: 1px solid #DBDBDB;
+      }
+    }
+
+    .btn-actions-wrapper {
+      top: -2px;
+      margin-left: 10px;
+
+      button[type='submit'] {
+        padding: 8px 15px;
+      }
+    }
+  }
+
   padding-top: 15px;
 
   ul li + li {
@@ -226,7 +246,7 @@
           padding-left: 8px;
           padding-right: 23px;
         }
-        
+
         .property-filters-select-dropdown.filter-select-dropdown {
           right: 0;
           width: 800px;

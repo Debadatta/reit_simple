@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :countries, only: [:index]
     resource :email_preference_settings, only: [:show, :update]
     resource :email_notification_settings, only: [:show, :update]
+    resources :deal_categories, only: [:index, :create]
 
     scope :user do
       resource :company, only: [:show, :update]
