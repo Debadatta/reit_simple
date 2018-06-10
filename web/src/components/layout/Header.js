@@ -39,9 +39,38 @@ export default class Header extends Component {
 
   renderSubmenu() {
     const pathname = this.props.location.pathname;
-    if (['terms', 'password', "investments", "my-account", "investment-property-marketplace"].indexOf(pathname.split('/')[1]) === -1) return null;
+    if (['terms', 'password', "investments", "my-account", "investment-property-marketplace", "sell-deals", "invests", "lends"].indexOf(pathname.split('/')[1]) === -1) return null;
 
     return <SubHeader/>;
+  }
+
+  renderLeftMenu() {
+    if (this.props.currentUser) {
+      return (
+        <ul className="nav navbar-nav rs-header">
+          <li>
+            <Link to="/investment-property-marketplace" className="top top-menu-item">Buy Deals</Link>
+          </li>
+          <li>
+            <Link to="/sell-deals" className="top top-menu-item">Sell Deals</Link>
+          </li>
+          <li>
+            <Link to="/invests" className="top top-menu-item">Invest</Link>
+          </li>
+          <li>
+            <Link to="/lends" className="top top-menu-item">Lend</Link>
+          </li>
+        </ul>
+      );
+    } else {
+      return (
+        <ul className="nav navbar-nav rs-header">
+          <li>
+            <Link to="/investment-property-marketplace" className="top top-menu-item">Buy Deals</Link>
+          </li>
+        </ul>
+      );
+    }
   }
 
   render() {
@@ -55,19 +84,18 @@ export default class Header extends Component {
       }
 
       userNevigation = (
-          <li className={`dropdown ${this.checkMenuDropdownShow('userInfo')}`} onClick={this.setCurrentDropdown.bind(this, 'userInfo')} ref={ref => this.userInfo = ref}>
+        <li className={`dropdown ${this.checkMenuDropdownShow('userInfo')}`} onClick={this.setCurrentDropdown.bind(this, 'userInfo')} ref={ref => this.userInfo = ref}>
           <a href="javascript:void(0);" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-          {title}, {this.props.currentUser.firstName}
-          <i className="fa fa-angle-down" />
+            {title}, {this.props.currentUser.firstName}
+            <i className="fa fa-angle-down" />
           </a>
           <ul className="dropdown-menu dropdown-menu-left">
-          <li><a href="/my-properties/in-certification">My Properties</a></li>
-          <li><Link to="/investments/my-investments">My Investments</Link></li>
-
-          <li><Link to="/my-account">My Account</Link></li>
-          <li className="last"><a href="javascript:void(0);" onClick={this.props.logout}><i className="fa fa-sign-out" /> Log off</a></li>
+            <li><a href="/my-properties/in-certification">My Properties</a></li>
+            <li><Link to="/investments/my-investments">My Investments</Link></li>
+            <li><Link to="/my-account">My Account</Link></li>
+            <li className="last"><a href="javascript:void(0);" onClick={this.props.logout}><i className="fa fa-sign-out" /> Log off</a></li>
           </ul>
-          </li>
+        </li>
       )
     }
 
@@ -95,11 +123,7 @@ export default class Header extends Component {
               <button type="button" className="navbar-toggle hidden-md hidden-lg" data-toggle="collapse" data-target=".navbar-collapse">
                 <img src="//roofstock-cdn.azureedge.net/assets/images/close.png" alt="Close" />
               </button>
-              <ul className="nav navbar-nav rs-header">
-                <li>
-                  <a href="javascript:void(0)" className="top top-menu-item">Buy Properties</a>
-                </li>
-              </ul>
+              { this.renderLeftMenu() }
               <ul className="nav navbar-nav navbar-right rs-header">
                 <li className={`dropdown ${this.checkMenuDropdownShow('learn')}`} onClick={this.setCurrentDropdown.bind(this, 'learn')} ref={ref => this.learnDom = ref}>
                   <a className="dropdown-toggle top-menu-item" role="button" aria-haspopup="true" aria-expanded="false" >

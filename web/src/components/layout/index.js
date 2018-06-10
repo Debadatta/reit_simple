@@ -18,6 +18,9 @@ import ResetPassword from '../user/ResetPassword';
 import MyInvestments from '../investments/MyInvestments';
 import MyAccount from "../user/MyAccount";
 import InvestPropertyMarket from '../InvestPropertyMarket';
+import SellDeals from '../SellDeals';
+import Invests from '../Invests';
+import Lends from '../Lends';
 
 class Layout extends React.Component {
   logout = () => {
@@ -41,6 +44,9 @@ class Layout extends React.Component {
           <Route path="/investments/my-investments" component={MyInvestments} />
           <Route path="/my-account" component={MyAccount} />
           <Route path="/investment-property-marketplace" component={InvestPropertyMarket} />
+          <Route path="/sell-deals" component={SellDeals} />
+          <Route path="/invests" component={Invests} />
+          <Route path="/lends" component={Lends} />
         </Switch>
       )
     } else {
